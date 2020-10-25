@@ -66,13 +66,15 @@ export default class AnnouncementDetails extends Component {
       slidesToShow: 1,
       slidesToScroll: 1
     };
+
+    const BC = ['Haberler']
     
     return (
       <div className="AnnouncementDetails">
         {this.state.GetAnnouncementDetailsPage !== null
         ?  
           <div className="container">
-            <BreadCrumbNav mainpage={'Haberler'} title={this.state.GetAnnouncementDetailsPage.title}/>
+            <BreadCrumbNav mainpage={BC} title={this.state.GetAnnouncementDetailsPage.title}/>
             
             <Slider {...settings}>
               {this.imageRepeater()}

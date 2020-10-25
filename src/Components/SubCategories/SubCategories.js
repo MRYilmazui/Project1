@@ -38,10 +38,11 @@ export default class SubCategories extends Component {
   }
   render() {
 
+    const BC = ['Haberler']
 
     return (
       <div className="SubCategories">
-        <BreadCrumbNav mainpage={'Haberler'}/>
+        <BreadCrumbNav mainpage={BC}/>
 
         {this.props.data !== null
           ?  

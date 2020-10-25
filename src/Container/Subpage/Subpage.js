@@ -69,14 +69,24 @@ export default class Subpage extends Component {
   }
 
   componentDidMount = async() => {
-    debugger;
-    let GetGeneralContentsPage = await GetGeneralContents(localStorage.langid, this.props.match.params.pagename)
+    let GetGeneralContentsPage = null;
+
+    if(this.props.match.params.subpage !== undefined){
+      GetGeneralContentsPage= await GetGeneralContents(localStorage.langid, this.props.match.params.subpage)
+    } else {
+      GetGeneralContentsPage = await GetGeneralContents(localStorage.langid, this.props.match.params.pagename)
+    }
     this.setState({content : GetGeneralContentsPage})
   }
 
   componentDidUpdate = async() => {
-    let GetGeneralContentsPage = await GetGeneralContents(localStorage.langid, this.props.match.params.pagename)
+    let GetGeneralContentsPage = null;
 
+    if(this.props.match.params.subpage !== undefined){
+      GetGeneralContentsPage= await GetGeneralContents(localStorage.langid, this.props.match.params.subpage)
+    } else {
+      GetGeneralContentsPage = await GetGeneralContents(localStorage.langid, this.props.match.params.pagename)
+    }
     if(this.state.content.id !== GetGeneralContentsPage.id) {
       this.setState({content : GetGeneralContentsPage})
     }

@@ -66,13 +66,20 @@ export default class Menu extends Component {
           <NavLink activeClassName="active" to={"/"+title+"/"+splitURL[splitURL.length-1].slice(1)+"/"+e.value[i]}>{e.title[i]}</NavLink>
         )
       }
+    } else if(title === 'Ürünlerimiz' || title === 'Products'){
+        for (let i = 0; i < e.title.length; i++) {
+
+        m.push(
+          <NavLink activeClassName="active" to={"/"+title+"/"+splitURL[splitURL.length-1].slice(1)+"/"+e.value[i]}>{e.title[i]}</NavLink>
+        )
+      }
     } else {
 
-      if(type === "Kampanya") {
+      if(title === "Kampanyalar") {
         for (let i = 0; i < e.title.length; i++) {
   
           m.push(
-            <NavLink activeClassName="active" to={"/"+lng.mainurl.title[2]+"/"+e.value[i]}>{e.title[i]}</NavLink>
+            <NavLink activeClassName="active" to={"/"+splitURL[splitURL.length-1].slice(1)+"/"+e.value[i]}>{e.title[i]}</NavLink>
           )
         }
       } else {
@@ -121,28 +128,28 @@ export default class Menu extends Component {
               <NavLink activeClassName="active"  onClick={e => e.preventDefault()} to={"/"+lng.mainurl.title[4]}>{lng.title[2]}</NavLink>
 
             <div className="dropdown-list">
-              <NavLink activeClassName="active" to="/Detay">{lng.Urunlerimiz.title[0]}</NavLink>
+              <NavLink activeClassName="active" onClick={e => e.preventDefault()} to={"/"+lng.Urunlerimiz.title[0]}>{lng.Urunlerimiz.title[0]}</NavLink>
 
               <div className="dropdown-list">
-                <NavLink activeClassName="active" to={"/"+lng.mainurl.title[4]+"/"+lng.Urunlerimiz.Kamyon.value[0]}>{lng.Urunlerimiz.Kamyon.title[0]}</NavLink>
+                <NavLink activeClassName="active"  to={"/"+lng.Urunlerimiz.title[0]+"/"+lng.Urunlerimiz.Kamyon.value[0]}>{lng.Urunlerimiz.Kamyon.title[0]}</NavLink>
                 <div className="dropdown-list">
-                  {this.menuBuild(lng.Urunlerimiz.Kamyon.Satis)}
+                  {this.menuBuild(lng.Urunlerimiz.Kamyon.Satis, null, lng.title[2])}
                 </div>
 
-                <NavLink activeClassName="active" to={"/"+lng.mainurl.title[2]+"/"+lng.Urunlerimiz.Kamyon.value[1]}>{lng.Urunlerimiz.Kamyon.title[1]}</NavLink>
+                <NavLink activeClassName="active" to={"/"+lng.Urunlerimiz.title[0]+"/"+lng.Urunlerimiz.Kamyon.value[1]}>{lng.Urunlerimiz.Kamyon.title[1]}</NavLink>
                 <div className="dropdown-list">
-                  {this.menuBuild(lng.Urunlerimiz.Kamyon.Kampanyalar, 'Kampanya')}
+                  {this.menuBuild(lng.Urunlerimiz.Kamyon.Kampanyalar, null, lng.mainurl.title[2])}
                 </div>
                 
-                <NavLink activeClassName="active" to={"/"+lng.mainurl.title[4]+"/"+lng.Urunlerimiz.Kamyon.value[2]}>{lng.Urunlerimiz.Kamyon.title[2]}</NavLink>
-                <NavLink activeClassName="active" to={"/"+lng.mainurl.title[4]+"/"+lng.Urunlerimiz.Kamyon.value[3]}>{lng.Urunlerimiz.Kamyon.title[3]}</NavLink>
+                <NavLink activeClassName="active" to={"/"+lng.Urunlerimiz.title[0]+"/"+lng.Urunlerimiz.Kamyon.value[2]}>{lng.Urunlerimiz.Kamyon.title[2]}</NavLink>
+                <NavLink activeClassName="active" to={"/"+lng.Urunlerimiz.title[0]+"/"+lng.Urunlerimiz.Kamyon.value[3]}>{lng.Urunlerimiz.Kamyon.title[3]}</NavLink>
 
                 <div className="dropdown-list">
-                  {this.menuBuild(lng.Urunlerimiz.Kamyon.SatisSonrasi)}
+                  {this.menuBuild(lng.Urunlerimiz.Kamyon.SatisSonrasi, null, lng.mainurl.title[2])}
                 </div>
               </div>
 
-              <NavLink activeClassName="active" to="/Detay">{lng.Urunlerimiz.title[1]}</NavLink>
+              <NavLink activeClassName="active" onClick={e => e.preventDefault()} to={"/"+lng.Urunlerimiz.title[1]}>{lng.Urunlerimiz.title[1]}</NavLink>
 
               <div className="dropdown-list">
                 <NavLink activeClassName="active" to={"/"+lng.mainurl.title[4]+"/"+lng.Urunlerimiz.Otobus.value[0]}>{lng.Urunlerimiz.Otobus.title[0]}</NavLink>

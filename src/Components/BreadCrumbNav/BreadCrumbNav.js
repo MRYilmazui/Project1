@@ -14,10 +14,16 @@ export default class BreadCrumbNav extends Component {
 
     const a = [] 
 
-    for (let i = 0; i < e.length-1; i++) {
+    if(e.length-1 === 0){
       a.push(
-        e[i]+' / '
+        ' / ' + e[0] + ' / '
       )
+    } else {
+      for (let i = 0; i < e.length-1; i++) {
+        a.push(
+          e[i]+' / '
+        )
+      }
     }
 
     return a

@@ -3,7 +3,6 @@ import axios from 'axios';
 import {API, GetSearchResult, Headers} from '../Services/config';
 
 export async function SearchResult (langid, text) {
-  debugger;
   let a = await axios.get(`${API}${GetSearchResult}`,
   {
     headers : {
