@@ -1,0 +1,68 @@
+@import '../../Assets/SCSS/ColourPalette.scss';
+@import '../../Assets/SCSS/fonts.scss';
+
+.aboutus {
+    padding-top: 150px;
+    padding-bottom: 150px;
+    background: url(../../Assets/img/world-map.png) no-repeat;
+    background-position: right;
+    background-size: auto 107%;
+
+    h3 {
+        font-size: 40px;
+        margin-bottom: -3px;
+        font-family: 'Corporate A Cond Pro';
+        text-transform: uppercase;
+    }
+    i.title-desc {
+        font-size: 25px;
+        color: $gray;
+        font-style: normal;
+    }
+    p {
+        font-size: 18px;
+        margin-top: 25px;
+        font-weight: 300;
+    }
+}
+
+.mainposts {
+    @extend .aboutus;
+    background: none;
+    display: inline-block;
+    width: 100%;
+}
+
+.mainmap {
+    @extend .aboutus;
+    background-image: url(../../Assets/img/map-location.png);
+    background-position: right;
+
+    h3 {
+        font-size: 50px;
+    }
+    i.title-desc {
+        font-size: 30px;
+    }
+    p {
+        font-size: 20px;
+        font-weight: 400;
+        margin-top: 30px;
+        opacity: .9;
+    }
+    a {
+        display: inline-block;
+        padding: 9px 20px;
+        margin-top: 30px;
+        border: 0px;
+        background: $blue;
+        color: #fff;
+        border-radius: 5px;
+    }
+
+}
+
+.announcementslider {
+    @extend .aboutus;
+    background: none;
+}

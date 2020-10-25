@@ -1,0 +1,129 @@
+@import '../../Assets/SCSS/ColourPalette.scss';
+
+.AnnouncementSummary {
+
+    .title-desc {
+        display: block;
+        margin-bottom: 35px;
+    }
+
+    .announcements {
+
+        .slick-list {
+            padding-bottom: 30px;
+
+            .slick-slide {
+
+                &.slick-active {
+
+                    &+div>div {
+                        padding-right: 0px;
+                    }
+                }
+
+                &>div {
+                    padding-right: 15px;
+                }
+            }
+        }
+
+        .slick-slider {
+            &>button {
+                position: absolute;
+                left: auto;
+                background: #ccc;
+
+                &:before {
+                    display: none;
+                }
+
+                &.slick-prev {
+                    right: 30px;
+                    top: -90px;
+
+                    z-index: 999;
+                    transform: none;
+                    background: #fff;
+                    width: 50px;
+                    height: 35px;
+                    border-radius: 5px 0px 0px 5px;
+                    background-image: url(../../Assets/img/left-arrow.png);
+                    background-size: 10px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+                
+                &.slick-next {
+                    right: 0px;
+                    top: -90px;
+
+                    
+                    z-index: 999;
+                    transform: none;
+                    background: #fff;
+                    width: 50px;
+                    height: 35px;
+                    border-radius: 5px 0px 0px 5px;
+                    background-image: url(../../Assets/img/right-arrow.png);
+                    background-size: 10px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+            }
+        }
+    }
+
+    .announcement {
+        width: 100%;
+        display: inline-block;
+        outline: none;
+        background: #fff;
+        box-shadow: 0px 12px 19px -10px #0000001f;
+        border-radius: 5px;
+        padding: 20px;
+        border: 1px solid #f7f7f7;
+
+        img {
+            float: left;
+            max-width: 250px;
+            margin-right: 25px;
+            border-radius: 5px;
+        }
+        i {
+            font-weight: 500;
+            font-style: normal;
+            color: #606060;
+        }
+        h5 {
+            font-size: 23px;
+        }
+        p {
+            margin: 0px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            max-height: 42px;
+            overflow: hidden;
+        }
+
+        a {
+            padding: 6px 20px;
+            font-size: 12px;
+            border: 0px;
+            background: $blue;
+            color: #fff;
+            border-radius: 5px;
+        }
+    }
+}
+
+.AnnouncementSummary h3 {
+    font-size: 40px;
+    margin-bottom: -3px;
+    font-family: 'Corporate A Cond Pro';
+    text-transform: uppercase;
+}
+.AnnouncementSummary i.title-desc {
+    font-size: 25px;
+    color: #606060;
+    font-style: normal;
+}

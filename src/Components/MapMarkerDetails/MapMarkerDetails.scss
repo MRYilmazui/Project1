@@ -1,0 +1,49 @@
+.MapMarkerDetails {
+
+    h5 {
+        margin-top: 17px !important;
+    }
+
+    .info-details {
+        padding-left: 35px;
+
+        span,
+        a {
+            display: block;
+            color: #000;
+        }
+    }
+    .info-type,
+    .contactus,
+    .work-clock {
+        margin-top: 50px;
+        padding-left: 35px;
+        
+        span,
+        a {
+            display: block;
+            color: #000;
+        }
+    }
+
+    .info-type {
+
+        span {
+            padding: 5px;
+            padding-left: 0px;
+            position: relative;
+            margin-bottom: 5px;
+
+            &:before {
+                content: '';
+                display: block;
+                width: 5px;
+                height: 100%;
+                position: absolute;
+                left: -65px;
+                top: 0px;
+                background: #000;
+            }
+        }
+    }
+}

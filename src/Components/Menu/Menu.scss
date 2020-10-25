@@ -1,0 +1,57 @@
+@import '../../Assets/SCSS/ColourPalette.scss';
+
+.menuNavButton {
+    display: none;
+}
+
+.Menu {
+
+    .dropdown-item-list {
+        display: inline-block;
+
+        .dropdown-list {
+            display: none;
+
+            .dropdown-list {
+                left: 220px !important;
+                top: initial !important;
+                box-shadow: 1px 3px 0px 1px #0000004a;
+                margin-top: -43px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) { 
+    .Menu {
+
+        .menuNavButton {
+            width: 24px;
+            height: 24px;
+            border: 0px;
+            float: left;
+            margin: 5px;
+            margin-right: 17px;
+            background-image: url(../../Assets/img/menu.svg);
+            background-position: center;
+            background-size: 100%;
+            background-color: transparent;
+            position: relative;
+            z-index: 999;
+            display: block !important;
+        }
+        nav {
+            width: 100%;
+            background: #fff;
+            position: relative;
+            z-index: 99;
+    
+            a {
+                width: 100%;
+            }
+        }
+    }
+    nav {
+        display: none;
+    }
+}

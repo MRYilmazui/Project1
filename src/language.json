@@ -1,0 +1,448 @@
+{
+    "tr": {
+        "title": [
+            "Anasayfa",
+            "Kurumsal",
+            "Ürünlerimiz",
+            "İnnovasyon ve Sürdürülebilirlik",
+            "Kariyer",
+            "Haberler"
+        ],
+        "value": [
+            "/",
+            "aboutus",
+            "products",
+            "innovationandsustainability",
+            "career",
+            "news"
+        ],
+		"Kurumsal": {
+            "Hakkimizda": {
+                "upperside":"Kurumsal / Hakkımızda",
+                "title": [
+                    "Çevre ve Biz",
+                    "Kalite Yönetimi",
+                    "Laboratuvar Hizmetleri"
+                ],
+                "value":[
+                    "environmentandus",
+                    "qualitymanagement",
+                    "laboratoryservices"
+                ]
+            },
+            "upperside":"Kurumsal",
+            "title": [
+                "Hakkımızda",
+                "Stratejimiz",
+                "Değerlerimiz",
+                "Kurumsal Sosyal Sorumluluk Projelerimiz",
+                "İletişim ve Lokasyon"
+            ],
+            "value": [
+                "aboutus",
+                "strategy",
+                "values",
+                "socialresponsibility",
+                "intracompanycommunication"
+            ]
+        },
+        "Urunlerimiz": {
+            "Kamyon": {
+                "Satis": {
+                    "upperside":"Ürünlerimiz / Kamyon / Satış",
+                    "title": [
+                        "Danışmanlık ve İletişim",
+                        "Truck Store",
+                        "Broşürler ve İndirilebilir Öğeler",
+                        "Fiyat Listesi"
+                    ],
+                    "value": [
+                        "truck_consultingandcommunication",
+                        "truck_truckstore",
+                        "truck_brochuresanddownloads",
+                        "truck_pricelist"
+                    ]
+                },
+                "Kampanyalar": {
+                    "upperside":"Ürünlerimiz / Kamyon / Kampanyalar",
+                    "title": [
+                        "Satış Kampanyaları",
+                        "SSH Kampanyaları"
+                    ],
+                    "value": [
+                        "truck_salescampaigns",
+                        "truck_sshcampaigns"
+                    ]
+                },
+                "SatisSonrasi": {
+                    "upperside":"Ürünlerimiz / Kamyon / Satış Sonrası",
+                    "title": [
+                        "Hizmetler",
+                        "Garanti",
+                        "Sigorta",
+                        "MB Kasko",
+                        "Yedek Parça ve Aksesuar",
+                        "Gönüllü Geri Çağırma Aksiyonları",
+                        "Servisler için Bilgiler"
+                    ],
+                    "value": [
+                        "truck_services",
+                        "truck_warranty",
+                        "truck_insurance",
+                        "truck_mb insurance",
+                        "truck_sparepartsandaccessories",
+                        "truck_voluntaryrecallactions",
+                        "truck_informationforservices"
+                    ]
+                },
+                "upperside":"Ürünlerimiz / Kamyon",
+                "title": [
+                    "Satış",
+                    "Kampanyalar",
+                    "Bayiler ve Yetkili Servisler",
+                    "Satış Sonrası Hizmetler"
+                ],
+                "value": [
+                    "truck_sales",
+                    "truck_campaigns",
+                    "truck_dealersandauthorizedservices",
+                    "truck_aftersalesservices"
+                ]
+            },
+            "Otobus": {
+                "Satis": {
+                    "upperside":"Ürünlerimiz / Otobüs / Satış",
+                    "title": [
+                        "Danışmanlık ve İletişim",
+                        "Bus Store",
+                        "Broşürler ve İndirilebilir Öğeler",
+                        "Fiyat Listesi"
+                    ],
+                    "value": [
+                        "bus_consultingandcommunication",
+                        "bus_busstore",
+                        "bus_brochuresanddownloads",
+                        "bus_pricelist"
+                    ]
+                },
+                "Kampanyalar": {
+                    "upperside":"Ürünlerimiz / Otobüs / Kampanyalar",
+                    "title": [
+                        "Satış Kampanyaları",
+                        "SSH Kampanyaları"
+                    ],
+                    "value": [
+                        "bus_salescampaigns",
+                        "bus_sshcampaigns"
+                    ]
+                },
+                "SatisSonrasi": {
+                    "upperside":"Ürünlerimiz / Otobüs / Satış Sonrası",
+                    "title": [
+                        "Hizmetler",
+                        "Garanti",
+                        "Sigorta",
+                        "MB Kasko",
+                        "Yedek Parça ve Aksesuar",
+                        "Gönüllü Geri Çağırma Aksiyonları",
+                        "Servisler için Bilgiler"
+                    ],
+                    "value": [
+                        "bus_services",
+                        "bus_warranty",
+                        "bus_insurance",
+                        "bus_mb insurance",
+                        "bus_sparepartsandaccessories",
+                        "bus_voluntaryrecallactions",
+                        "bus_informationforservices"
+                    ]
+                },
+                "upperside":"Ürünlerimiz / Otobüs / Satış Sonrası",
+                "title": [
+                    "Satış",
+                    "Kampanyalar",
+                    "Bayiler ve Yetkili Servisler",
+                    "Satış Sonrası Hizmetler"
+                ],
+                "value": [
+                    "bus_sales",
+                    "bus_campaigns",
+                    "bus_dealersandauthorizedservices",
+                    "bus_aftersalesservices"
+                ]
+            },
+            "upperside":"Ürünlerimiz",
+            "title": [
+                "Kamyon",
+                "Otobüs"
+            ],
+            "value": [
+                "Kamyon",
+                "Otobüs"
+            ]
+        },
+        "Innovasyon": {
+            "upperside":"İnnovasyon",
+            "title": [
+                "Verimli ve Emisyonsuz",
+                "Güvenli ve Otomatik",
+                "Güvenilir ve Bağlı"
+            ],
+            "value": [
+                "efficientandemissionfree",
+                "safeandautomatic",
+                "reliableandconnected"
+            ]
+        },
+        "Kariyer": {
+            "upperside":"Kariyer",
+            "title": [
+                "Kariyer Fırsatları",
+                "Sosyal Hayat",
+                "Staj İmkanları",
+                "Şirket İçi İletişim"
+            ],
+            "value": [
+                "careeropportunities",
+                "sociallife",
+                "internshipopportunities",
+                "intracompanycommunication"
+            ]
+        },
+        "mainurl": {
+            "title": [
+                "Haberler",
+                "HaberDetayı",
+                "Kampanyalar",
+                "KampanyaDetayı",
+                "Detaylar",
+                "Harita",
+                "Arama",
+                "FiyatListesi"
+            ]
+        }
+    },
+    "en": {
+        "title": [
+            "Homepage",
+            "Corporate",
+            "Products",
+            "Innovation and Sustainability",
+            "Carrier",
+            "News"
+        ],
+        "value": [
+            "/",
+            "aboutus",
+            "products",
+            "innovationandsustainability",
+            "career",
+            "news"
+        ],
+		"Kurumsal": {
+            "Hakkimizda": {
+                "upperside":"Corporate / About Us",
+                "title": [
+                    "Environment and Us",
+                    "Quality management",
+                    "Laboratory Services"
+                ],
+                "value":[
+                    "environmentandus",
+                    "qualitymanagement",
+                    "laboratoryservices"
+                ]
+            },
+            "upperside":"Corporate",
+            "title": [
+                "About Us",
+                "Our Strategy",
+                "Our Values",
+                "Our Corporate Social Responsibility Projects",
+                "Contact and Location"
+            ],
+            "value": [
+                "aboutus",
+                "strategy",
+                "values",
+                "socialresponsibility",
+                "intracompanycommunication"
+            ]
+        },
+        "Urunlerimiz": {
+            "Kamyon": {
+                "Satis": {
+                    "upperside":"Products / Truck / Sale",
+                    "title": [
+                        "Consulting and Communication",
+                        "Truck Store",
+                        "Brochures and Downloads",
+                        "Price list"
+                    ],
+                    "value": [
+                        "truck_consultingandcommunication",
+                        "truck_truckstore",
+                        "truck_brochuresanddownloads",
+                        "truck_pricelist"
+                    ]
+                },
+                "Kampanyalar": {
+                    "upperside":"Products / Truck / Campaigns",
+                    "title": [
+                        "Sales Campaigns",
+                        "SSH Campaigns"
+                    ],
+                    "value": [
+                        "truck_salescampaigns",
+                        "truck_sshcampaigns"
+                    ]
+                },
+                "SatisSonrasi": {
+                    "upperside":"Products / Truck / After selling",
+                    "title": [
+                        "Services",
+                        "Warranty",
+                        "Insurance",
+                        "MB Insurance",
+                        "Spare Parts and Accessories",
+                        "Voluntary Recall Actions",
+                        "Information for Services"
+                    ],
+                    "value": [
+                        "truck_services",
+                        "truck_warranty",
+                        "truck_insurance",
+                        "truck_mb insurance",
+                        "truck_sparepartsandaccessories",
+                        "truck_voluntaryrecallactions",
+                        "truck_informationforservices"
+                    ]
+                },
+                "upperside":"Products / Truck",
+                "title": [
+                    "Sales",
+                    "Campaigns",
+                    "Dealers and Authorized Services",
+                    "After sales services"
+                ],
+                "value": [
+                    "truck_sales",
+                    "truck_campaigns",
+                    "truck_dealersandauthorizedservices",
+                    "truck_aftersalesservices"
+                ]
+            },
+            "Otobus": {
+                "Satis": {
+                    "upperside":"Products / Bus / Sales",
+                    "title": [
+                        "Consulting and Communication",
+                        "Bus Store",
+                        "Brochures and Downloads",
+                        "Price list"
+                    ],
+                    "value": [
+                        "bus_consultingandcommunication",
+                        "bus_busstore",
+                        "bus_brochuresanddownloads",
+                        "bus_pricelist"
+                    ]
+                },
+                "Kampanyalar": {
+                    "upperside":"Products / Otobüs / Campaigns",
+                    "title": [
+                        "Sales Campaigns",
+                        "SSH Campaigns"
+                    ],
+                    "value": [
+                        "bus_salescampaigns",
+                        "bus_sshcampaigns"
+                    ]
+                },
+                "SatisSonrasi": {
+                    "upperside":"Products / Otobüs / After selling",
+                    "title": [
+                        "Services",
+                        "Warranty",
+                        "Insurance",
+                        "MB Insurance",
+                        "Spare Parts and Accessories",
+                        "Voluntary Recall Actions",
+                        "Information for Services"
+                    ],
+                    "value": [
+                        "bus_services",
+                        "bus_warranty",
+                        "bus_insurance",
+                        "bus_mb insurance",
+                        "bus_sparepartsandaccessories",
+                        "bus_voluntaryrecallactions",
+                        "bus_informationforservices"
+                    ]
+                },
+                "upperside":"Products / Otobüs",
+                "title": [
+                    "Sales",
+                    "Campaigns",
+                    "Dealers and Authorized Services",
+                    "After sales services"
+                ],
+                "value": [
+                    "bus_sales",
+                    "bus_campaigns",
+                    "bus_dealersandauthorizedservices",
+                    "bus_aftersalesservices"
+                ]
+            },
+            "upperside":"Products",
+            "title": [
+                "Truck",
+                "Bus"
+            ],
+            "value": [
+                "Kamyon",
+                "Otobüs"
+            ]
+        },
+        "Innovasyon": {
+            "upperside":"Innovation",
+            "title": [
+                "Efficient and Emission Free",
+                "Safe and Automatic",
+                "Reliable and Connected"
+            ],
+            "value": [
+                "efficientandemissionfree",
+                "safeandautomatic",
+                "reliableandconnected"
+            ]
+        },
+        "Kariyer": {
+            "upperside":"Career",
+            "title": [
+                "Career Opportunities",
+                "Social Life",
+                "Internship Opportunities",
+                "Internal Communication"
+            ],
+            "value": [
+                "careeropportunities",
+                "sociallife",
+                "internshipopportunities",
+                "intracompanycommunication"
+            ]
+        },
+        "mainurl": {
+            "title": [
+                "News",
+                "NewsDetails",
+                "Campaigns",
+                "CampaignDetails",
+                "Details",
+                "Map",
+                "Search",
+                "PriceList"
+            ]
+        }
+    }
+}

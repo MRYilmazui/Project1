@@ -1,0 +1,102 @@
+@import '../../Assets/SCSS/ColourPalette.scss';
+
+
+.AnnouncementDetails {
+
+    hr {
+        border-color: $gray;
+        opacity: .1;
+    }
+
+    .SocialMedia {
+        text-align: center;
+        margin-bottom: 120px;
+    }
+    
+    .info {
+        width: 80%;
+        float: right;
+        background: #000000ed;
+        color: #fff;
+        margin-top: -155px;
+        position: relative;
+        z-index: 99;
+        padding: 15px 30px;
+
+        span {
+            font-size: 30px;
+            background: $blue;
+            margin-top: -60px;
+            margin-left: -30px;
+            display: block;
+            float: left;
+            padding: 0px 30px;
+            border-radius: 5px 5px 0px 0px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        h5 {
+            font-size: 32px;
+        }
+
+        i {
+            font-size: 12px;
+            font-style: normal;
+            opacity: .6;
+            margin: 5px 0px;
+            margin-top: 15px;
+            display: block;
+        }
+    }
+
+    .slick-slider {
+        position: relative;
+    }
+
+    .slick-prev {
+        left: 0px;
+        top: 50%;
+        z-index: 999;
+        transform: none;
+        background: #fff;
+        width: 50px;
+        height: 55px;
+        margin-top: -27.5px;
+        border-radius: 0px 5px 5px 0px;
+        background-image: url(../../Assets/img/left-arrow.png);
+        background-size: 10px;
+        background-position: center;
+        background-repeat: no-repeat;
+        &:before {
+            display: none;
+        }
+    }
+    
+    .slick-next {
+        right: 0px;
+        top: 50%;
+        z-index: 999;
+        transform: none;
+        background: #fff;
+        width: 50px;
+        height: 55px;
+        margin-top: -27.5px;
+        border-radius: 5px 0px 0px 5px;
+        background-image: url(../../Assets/img/right-arrow.png);
+        background-size: 10px;
+        background-position: center;
+        background-repeat: no-repeat;
+        &:before {
+            display: none;
+        }
+    }
+
+    hr {
+        margin: 40px 0px
+    }
+
+    .AnnouncementSummary {
+        margin-bottom: 50px;
+    }
+}

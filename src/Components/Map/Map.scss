@@ -1,0 +1,104 @@
+.result-details {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    padding-top: 80px;
+    z-index: 99;
+    background: #ffffff;
+    height: 100%;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+
+    input[type="text"] {
+        border: 1px solid #efefef;
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+    select {
+        border: 1px solid #efefef;
+        padding: 10px;
+        width: 100%;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+    i {
+        width: 100%;
+        display: block;
+        border-bottom: 1px solid #efefef;
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+    }
+
+    .result {
+        height: calc(100% - 330px);
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+          }
+          
+          /* Track */
+          &::-webkit-scrollbar-track {
+            background: #fff; 
+          }
+           
+          /* Handle */
+          &::-webkit-scrollbar-thumb {
+            background: #888; 
+            border-radius: 5px;
+          }
+          
+          /* Handle on hover */
+          &::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+          }
+
+        .result-item {
+            padding-top: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #efefef;
+            color: #000;
+        }
+    }
+}
+.map-details {
+
+    &>div {
+        position: fixed !important;
+        left: 0px;
+        top: 0px;
+    }
+}
+.Header {
+    position: relative;
+    z-index: 999;
+    height: auto !important;
+    border: 0px;
+
+    .logo-section {
+        height: 60px;
+        padding: 8px;
+
+        .mercedes-logo {
+            width: 44px;
+            height: 44px;
+            background-size: 100%;
+        }
+        .mercedes-turk {
+            width: 200px;
+            height: 47px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100%;
+        }
+    }
+
+    .Menu {
+        display: none;
+    }
+}
+.Footer {
+    display: none;
+}

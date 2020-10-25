@@ -1,0 +1,248 @@
+@import '../../Assets/SCSS/ColourPalette.scss';
+
+.Map {
+
+    .result-details {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        padding-top: 80px;
+        z-index: 99;
+        background: #ffffff;
+        height: 100%;
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+
+        a.backside {
+            float: left;
+            width: 34px;
+            height: 60px;
+            background: url(../../Assets/img/left-arrow.png);
+            background-repeat: no-repeat;
+            background-size: 12px;
+            background-position: left;
+            border-radius: 5px;
+            text-align: center;
+            text-indent: 1000px;
+            overflow: hidden;
+        }
+
+        h5 {
+            font-size: 27px;
+            line-height: 24px;
+            margin-top: 4px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            border: 1px solid #efefef;
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        select {
+            border: 1px solid #efefef;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        i {
+            width: calc(100% + 60px);
+            display: block;
+            border-bottom: 1px solid #efefef;
+            padding: 20px;
+            padding-left: 0px;
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 400;
+            margin-bottom: 30px;
+            margin-left: -30px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .result {
+            width: calc(100% + 55px);
+            height: calc(100% - 330px);
+            overflow: auto;
+            margin-left: -30px;
+
+            h5 {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+
+            &::-webkit-scrollbar {
+                width: 5px;
+            }
+            
+            /* Track */
+            &::-webkit-scrollbar-track {
+                background: #fff; 
+            }
+            
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+                background: #888; 
+                border-radius: 5px;
+            }
+            
+            /* Handle on hover */
+            &::-webkit-scrollbar-thumb:hover {
+                background: #555; 
+            }
+
+            .result-item {
+                padding-top: 20px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #efefef;
+                color: #000;
+                display: inline-block;
+                width: 100%;
+                padding-left: 30px;
+                padding-right: 30px;
+
+                h4 {
+                    font-weight: 400;
+                }
+                p {
+                }
+            }
+        }
+    }
+    .map-details {
+
+        &>div {
+            position: fixed !important;
+            left: 0px;
+            top: 0px;
+        }
+    }
+    .Header {
+        position: relative;
+        z-index: 999;
+        height: auto !important;
+        border: 0px;
+
+        .container {
+            max-width: 97%;
+            width: 100% !important;
+        }
+
+        .logo-section {
+            height: 60px;
+            padding: 8px;
+
+            .mercedes-logo {
+                width: 44px;
+                height: 44px;
+                background-size: 100%;
+            }
+            .mercedes-turk {
+                width: 200px;
+                height: 47px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 100%;
+            }
+        }
+
+        .Menu {
+            display: none;
+        }
+    }
+    .Footer {
+        display: none;
+    }
+
+    /* Map Extension CSS */
+    .gm-style .gm-style-iw-c {
+        padding: 25px !important;
+        box-shadow: 0 2px 17px 1px rgba(0,0,0,0.1);
+
+        .gm-style-iw-d {
+            overflow:initial !important;
+
+            &+button {
+
+                img {
+                    margin: 15px !important;
+                    margin-left: 0px !important;
+
+                }
+            }
+        }
+
+        .topside {
+            display: block;
+            width: calc(100%);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #efefef;
+
+            .mercedes-logo {
+                width: 32px;
+                height: 32px;
+                float: left;
+                background: url(../../Assets/img/MercedesLogo.png);
+                background-size: 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+                margin-right: 7px;
+                margin-bottom: 20px;
+                margin-right: 10px;
+            }
+    
+            h4 {
+                font-weight: 400;
+                margin-bottom: 0px;
+            }
+
+            i {
+                font-style: normal;
+                opacity: .4;
+                font-weight: 400;
+            }
+
+        }
+        .info {
+            font-size: 16px;
+            width: 320px;
+
+            b {
+                display: block;
+                float: left;
+                width: 70px;
+                min-height: 35px;
+                font-weight: 500;
+                line-height: 22px;
+            }
+            p,
+            a {
+                display: block;
+                float: left;
+                width: calc(100% - 80px);
+                min-height: 35px;
+                font-weight: 400;
+                line-height: 22px;
+                color: #000;
+            }
+            .details-map {
+                width: 100%;
+                display: block;
+                padding: 10px;
+                border: 1px solid #efefef;
+                text-align: center;
+                border-radius: 5px;
+                color: $blue;
+                margin-top: 10px;
+                margin-bottom: 0px;
+                height: auto;
+            }
+        }
+
+    }
+}
+

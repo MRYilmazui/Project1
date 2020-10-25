@@ -1,0 +1,317 @@
+@import '../../Assets/SCSS/ColourPalette.scss';
+.Subpage {
+
+    img {
+        max-width: 100%;
+    }
+
+    .details {
+        position: relative;
+        margin-bottom: 100px;
+
+        .topside {
+            overflow: hidden;
+        }
+
+        hr {
+            margin: 40px 0px;
+            border-color: $gray;
+            opacity: .1;
+        }
+    }
+
+    .info {
+        display: inline-block;
+        float: left;
+        background: #1a96e8e8;
+        padding: 25px 50px;
+        margin-top: -120px;
+        position: relative;
+        transform: skew(-19deg, 0deg);
+        margin-left: -20px;
+
+        &:before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 100%;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            background: #1a96e8e8;
+            margin-right: -25px;
+        }
+        &:after {
+            content: '';
+            display: block;
+            float: left;
+            width: 20px;
+            height: 100%;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            background: #1a96e8e8;
+            margin-right: -50px;
+        }
+        h5 {
+            margin: 0px;
+            color: #fff;
+            font-size: 30px;
+            transform: skew(19deg, 0deg);
+
+        }
+    }
+
+    .nav.nav-tabs {
+        border-bottom: 1px solid #efefef;
+
+        a {
+            background: #F4F4FB;
+            border-color: #ededed  #ededed  #fff #ededed;
+            border-radius: 5px 5px 5px 0px;
+            margin-right: 24px;
+            color: #B8B8B8;
+            font-weight: 600;
+
+            &:after {
+                content: '';
+                background-image: url(../../Assets/img/not-active-corner-accordion.png);
+                background-size: auto 100%;
+                width: 39px;
+                height: 42px;
+                display: block;
+                float: right;
+                margin-top: -9px;
+                margin-bottom: -30px;
+                margin-right: -51px;
+            }
+        }
+
+        a.active {
+            border-color: #e3e3e3  #e3e3e3  #fff #e3e3e3;
+            background: #fff;
+            position: relative;
+            z-index: 99;
+            color: $blue;
+
+            &:after {
+                background-image: url(../../Assets/img/accordion-title-corner.png);
+            }
+        }
+    }
+    .tab-content {
+        padding: 20px;
+        border: 1px solid #e3e3e3;
+        border-radius: 0px 0px 5px 5px;
+        margin-top: -1px;
+
+        .pdfbutton,
+        .excelbutton {
+            float: right;
+            padding: 5px 20px;
+            border-radius: 50px;
+            border: 0px;
+            margin-top: -60px;
+            font-size: 10px;
+            color: #fff;
+        }
+
+        .pdfbutton {
+            margin-right: 130px;
+            background: #EE4A4A;
+        }
+        .excelbutton {
+            background: #6ECC7E;
+        }
+    }
+
+    .table {
+
+        thead {
+            tr {
+                
+                th {
+                    background: #F4F4FB;
+
+                    &:first-child {
+                        border-radius: 5px 0px 0px 5px;
+                    }
+                    &:last-child {
+                        border-radius: 0px 5px 5px 0px;
+                    }
+                }
+            }
+        }
+        tbody {
+
+            &:nth-child(2n + 1) {
+                background: #FAFAFC;
+            }
+
+            tr {
+
+                th, td {
+                    vertical-align: middle;
+                    border-bottom: 1px solid #E5E5E5;
+
+                    &[rowspan] {
+                        border-bottom: 0px;
+                    }
+                }
+
+                &:last-child {
+
+                    td {
+                        border-bottom: 0px solid #efefef !important;
+                    }
+                }
+            }
+        }
+
+        &.downloadable-content {
+
+            thead {
+                tr {
+
+                    th {
+                        background: transparent
+                    }
+                }
+            }
+            tbody {
+                tr {
+
+                    td {
+                        padding: 20px;
+
+                        .doc,
+                        .excel,
+                        .pdf,
+                        .zip,
+                        .ppt,
+                        .jpg {
+                            width: 23px;
+                            height: 25px;
+                            display: block;
+                            background-image: url(../../Assets/img/001_doc.png);
+                            background-size: 100%;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                        }
+                        .excel {
+                            background-image: url(../../Assets/img/002_xls.png);
+                        }
+                        .pdf {
+                            background-image: url(../../Assets/img/005_pdf.png);
+                        }
+                        .jpg {
+                            background-image: url(../../Assets/img/004_jpg.png);
+                        }
+                        .ppt {
+                            background-image: url(../../Assets/img/003_ppt.png);
+                        }
+                        .zip {
+                            background-image: url(../../Assets/img/006_zip.png);
+                        }
+                        .download-button {
+                            display: inline-block;
+                            float: right;
+                            margin-right: 20px;
+                            width: 15px;
+                            height: 16px;
+                            background: url(../../Assets/img/download.png);
+                            border: 0px;
+                            background-size: 100%;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            overflow: hidden;
+                            text-indent: 100px;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    table.price-content {
+
+        thead {
+
+            tr {
+                th,
+                td {
+                    background: none;
+                }
+            }
+        }
+        tbody {
+            tr {
+                td {
+                    border-bottom: 1px solid #efefef !important;
+
+                    img {
+                        float: left;
+                    }
+                    span {
+                        font-size: 14px;
+                        font-weight: bold;
+                        display: block;
+                        margin-top: 10px;
+                        margin-bottom: -8px;
+                    }
+                    i {
+                        font-size: 12px;
+                        opacity: .3;
+                    }
+
+                    .dropdown {
+
+                        .dropdown-menu {
+                            border: 1px solid #E4E4E4;
+                            padding: 0px;
+
+                            a {
+                                border-bottom: 1px solid #e4e4e4 !important;
+                                padding: 10px 20px;
+                                color: $blue;
+                                background: transparent;
+
+                                &:last-child {
+                                    border-bottom: 0px !important;
+                                }
+                            }
+
+                            &:after {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .dropdown {
+        
+        #moreButton {
+            width: 25px;
+            padding: 0px;
+            border: 0px;
+            opacity: 1;
+            overflow: hidden;
+            text-indent: 100px;
+            outline: none;
+            box-shadow: 0px 0px 0px 0px #fff;
+            float: right;
+            background-color: transparent;
+            background-image: url(../../Assets/img/more__1_.png) !important;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            &:after {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,60 @@
+.social-media {
+
+    a {
+        width: 24px;
+        height: 18px;
+        display: inline-block;
+        background-size: auto 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-right: 10px;
+    }
+    button {
+        position: relative;
+        top: -5px;
+        padding: 0px;
+        width: 24px;
+        height: 18px;
+        overflow: hidden;
+        text-indent: 555px;
+        background-size: auto 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: transparent !important;
+        border: 0px;
+        outline: none;
+        box-shadow: 0px 0px 0px 0px #000 !important;
+    }
+
+    .dropdown {
+        height: 18px;
+        display: inline-block;
+        margin-right: 10px;
+            
+        div.dropdown-menu {
+            max-width: 200px;
+            top: 10px !important;
+
+            a {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    #youtube {
+        background-image: url(../../Assets/img/001-youtube.png);
+    }
+    #instagram {
+        background-image: url(../../Assets/img/002-instagram-sketched.png);
+    }
+    #twitter {
+        background-image: url(../../Assets/img/003-twitter.png);
+    }
+    #linkedin {
+        background-image: url(../../Assets/img/004-linkedin.png);
+    }
+    #facebook {
+        background-image: url(../../Assets/img/005-facebook.png);
+    }
+}

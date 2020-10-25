@@ -1,0 +1,83 @@
+@import '../../Assets/SCSS/ColourPalette.scss';
+
+.SubCategories {
+    .subcategory {
+        margin-bottom: 50px;
+        display: inline-block;
+        background: #f3f3f3;
+        width: 100%;
+
+        img {
+            max-width: 100%;
+        }
+
+        a {
+            color: #000;
+        }
+        &:nth-child(2n+1) {
+            margin-right: -100px;
+            margin-left: 100px;
+
+
+            .subcategory-image {
+                float: right !important;
+
+            }
+            .text {
+                text-align: left;
+
+                h5 {
+
+                    &:nth-child(2n + 1) {
+                        text-align: left;
+                    }
+
+                    &:before {
+                        float: right;
+                        margin-left: 0px;
+                        margin-right: -80px;
+                    }
+                }
+            }
+        }
+
+        .subcategory-image {
+            height: 371px;
+            overflow: hidden;
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+        }
+        .text {
+            text-align: right;
+
+            h5 {
+                padding: 20px 30px;
+                background: $blue;
+                color: #fff;
+                font-size: 24px;
+                margin-right: -40px;
+                margin-left: -70px;
+                text-align: right;
+                padding-right: 50px;
+                margin-top: 30px; 
+
+                &:before {
+                    content: '';
+                    width: 60px;
+                    height: 30px;
+                    border-top: solid 69px #1a96e8;
+                    border-left: solid 30px transparent;
+                    border-right: solid 30px transparent;
+                    float: left;
+                    margin-left: -60px;
+                    margin-top: -20px;
+                }
+            }
+            p {
+                padding: 30px;
+                overflow: hidden;
+                height: 200px;
+            }
+        }
+    }
+}
