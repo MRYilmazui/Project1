@@ -2,10 +2,12 @@ import React from 'react';
 import { withRouter } from "react-router-dom";
 
 import importedComponent from 'react-imported-component';
+import { GetLanguageF } from './Actions/GetLanguage'
 
 import Main from './Container/Main/Main';
 import Loader from 'react-loader-spinner'
 import languageJson from './language.json';
+
 
 /* Styles */
 import './App.scss';
@@ -23,35 +25,47 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      LoaderDetails: false
+      LoaderDetails: false,
+      GetLanguageState: null
     }
   }
 
-  pathControl() {
-    const element = document.getElementsByTagName('body')[0]
-    
-    if (this.props.location.pathname == '/'+lng.mainurl.title[5]) {
-      element.classList.add('Map')
-    } else {
-      element.classList.remove('Map')
+  componentWillMount = async() => {
+    let GetLanguageUpdate = await GetLanguageF()
+    this.setState({GetLanguageState : GetLanguageUpdate})
+
+    if(localStorage.lang === undefined) {
+      localStorage.lang = GetLanguageUpdate[2].code
+      localStorage.langid = GetLanguageUpdate[2].id
+    } else if (localStorage.lang === 'tr'){
+      localStorage.lang = this.state.GetLanguageState[2].code
+      localStorage.langid = this.state.GetLanguageState[2].id
+    } else if (localStorage.lang === 'en'){
+      localStorage.lang = this.state.GetLanguageState[1].code
+      localStorage.langid = this.state.GetLanguageState[1].id
     }
+
   }
 
-  componentDidMount = () => {
-    this.pathControl()
+  componentDidMount = async() => {
   }
   componentDidUpdate = (prevProps, prevState) => {
-    this.pathControl()
   }
   
   render()
   {
-
     return (
       <div className="App">
-        <Header />
-        <Main />
-        <Footer />
+        { 
+          this.state.GetLanguageState !== null
+          ? 
+          <div>
+            <Header />
+            <Main />
+            <Footer />
+          </div>
+          : ''
+        }
       </div>
     );
   }

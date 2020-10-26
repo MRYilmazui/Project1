@@ -24,19 +24,7 @@ export default class Language extends Component {
   }
   
   componentDidMount = async() => {
-    let GetLanguageUpdate = await GetLanguageF()
-    this.setState({GetLanguageState : GetLanguageUpdate})
 
-    if(localStorage.lang === undefined) {
-      localStorage.lang = this.state.GetLanguageState[2].code
-      localStorage.langid = this.state.GetLanguageState[2].id
-    } else if (localStorage.lang === 'tr'){
-      localStorage.lang = this.state.GetLanguageState[2].code
-      localStorage.langid = this.state.GetLanguageState[2].id
-    } else if (localStorage.lang === 'en'){
-      localStorage.lang = this.state.GetLanguageState[1].code
-      localStorage.langid = this.state.GetLanguageState[1].id
-    }
   }
   render() {
 

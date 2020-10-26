@@ -6,6 +6,7 @@ import {
   Route
 } from "react-router-dom";
 
+import { GetLanguageF } from '../../Actions/GetLanguage'
 import languageJson from '../../language.json';
 
 /* Styles */
@@ -37,29 +38,46 @@ export default class Main extends React.Component {
     super(props)
 
     this.state = {
-
     }
   }
 
+  pathControl() {
+    const element = document.getElementsByTagName('body')[0]
+    
+    if (this.props.location.pathname == '/'+lng.mainurl.title[5]) {
+      element.classList.add('Map')
+    } else {
+      element.classList.remove('Map')
+    }
+  }
+  componentDidMount = async() => {
+  }
+  componentDidUpdate = (prevProps, prevState) => {
+  }
   render()
   {
 
     return (
       <div className="App">
-        <Switch>
-          <Route path="/" exact component={Homepage} />
-          <Route path={"/"+lng.mainurl.title[0]+"/:counter?"} component={AnnouncementList}/>
-          <Route path={"/"+lng.mainurl.title[1]+"/:pagename"} component={AnnouncementDetails}/>
-          <Route path={"/"+lng.mainurl.title[2]+"/:pagename"} component={CampaignList}/>
-          <Route path={"/"+lng.mainurl.title[3]+"/:pagename/:subname"} component={CampaignDetails}/>
-          <Route path={"/"+lng.title[1]+"/:pagename/:subpage?"} component={Subpage}/>
-          <Route path={"/"+lng.title[2]+"/:pagename/:subpage?"} component={Subpage}/>
-          <Route path={"/"+lng.title[3]+"/:pagename/:subpage?"} component={Subpage}/>
-          <Route path={"/"+lng.title[4]+"/:pagename/:subpage?"} component={Subpage}/>
-          <Route path={"/"+lng.mainurl.title[5]} component={MapLocation} />
-          <Route path={"/"+lng.mainurl.title[6]+"&=:searchText"} component={Search} />
-          <Route path={"/"+lng.mainurl.title[7]} component={PriceList} />
-        </Switch>
+        { 
+          lng !== undefined
+          ? 
+          <Switch>
+            <Route path="/" exact component={Homepage} />
+            <Route path={"/"+lng.mainurl.title[0]+"/:counter?"} component={AnnouncementList}/>
+            <Route path={"/"+lng.mainurl.title[1]+"/:pagename"} component={AnnouncementDetails}/>
+            <Route path={"/"+lng.mainurl.title[2]+"/:pagename"} component={CampaignList}/>
+            <Route path={"/"+lng.mainurl.title[3]+"/:pagename/:subname"} component={CampaignDetails}/>
+            <Route path={"/"+lng.title[1]+"/:pagename/:subpage?"} component={Subpage}/>
+            <Route path={"/"+lng.title[2]+"/:pagename/:subpage?"} component={Subpage}/>
+            <Route path={"/"+lng.title[3]+"/:pagename/:subpage?"} component={Subpage}/>
+            <Route path={"/"+lng.title[4]+"/:pagename/:subpage?"} component={Subpage}/>
+            <Route path={"/"+lng.mainurl.title[5]} component={MapLocation} />
+            <Route path={"/"+lng.mainurl.title[6]+"&=:searchText"} component={Search} />
+            <Route path={"/"+lng.mainurl.title[7]} component={PriceList} />
+          </Switch>
+                    : ''
+                  }
       </div>
     );
   }
