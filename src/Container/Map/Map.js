@@ -69,6 +69,7 @@ export default function MapDetailsInner() {
 
 
   const [markers, setMarkers] = React.useState(null);
+  const [indexDetails, setIndexDetails] = React.useState(null);
   const [selected, setSelected] = React.useState(null);
 
   const mapRef = React.useRef();
@@ -82,6 +83,7 @@ export default function MapDetailsInner() {
   }, [])
 
   function loopMarkers(list) {
+    setDealerDetails(list)
     const markerList =  []
 
     for (let i = 0; i < list.length; i++) {
@@ -92,9 +94,46 @@ export default function MapDetailsInner() {
 
     setMarkers(markerList)
   }
+  function efefef(params) {
+    debugger
+  }
+
+  function infowindow(params) {
+    const markerList =  []
+
+    markerList.push(
+      <InfoWindow
+        position={{lat: selected[0], lng: selected[1]}}
+        onCloseClick = {() => {
+          setSelected(null)
+        }}
+        onClick = {(e) => efefef(e)}
+      >
+        <div>
+          <div className="topside">
+            <div className="mercedes-logo"></div>
+            <h4>{dealerDetails[indexDetails].name}</h4>
+            <i>Şuanda Açık</i>
+          </div>
+          <div className="info">
+            <b>Adres</b> <p> {dealerDetails[indexDetails].name}</p>
+            <b>E-Posta</b> <a href={"mailto:"+dealerDetails[indexDetails].email}>{dealerDetails[indexDetails].email}</a>
+            <b>Telefon</b> <a href={"tel:"+dealerDetails[indexDetails].phone}>{dealerDetails[indexDetails].phone}</a>
+            <b>Faks</b> <a href={"fax:"+dealerDetails[indexDetails].fax}>{dealerDetails[indexDetails].fax}</a>
+
+            <a href="" className="details-map">Detaylar</a>
+          </div>
+        </div>
+      </InfoWindow>
+    )
+
+    return markerList
+  }
 
   if(loadError) return "Error"
   if(!isLoaded) return "Loading Error"
+
+  debugger;
 
   return (
     <div className="MapLocation">
@@ -126,6 +165,7 @@ export default function MapDetailsInner() {
                     origin: new window.google.maps.Point(0,0)
                   }}
                   onClick={() => {
+                    setIndexDetails(index)
                     setSelected(marker)
                   }}
                 />
@@ -133,30 +173,11 @@ export default function MapDetailsInner() {
             ))
           }
 
-          {selected ? (
-              <InfoWindow
-                position={{lat: selected[0], lng: selected[1]}}
-                onCloseClick = {() => {
-                  setSelected(null)
-                }}
-              >
-                <div>
-                  <div className="topside">
-                    <div className="mercedes-logo"></div>
-                    <h4>Mergerler İstanbul Etiler</h4>
-                    <i>Şuanda Açık</i>
-                  </div>
-                  <div className="info">
-                    <b>Adres</b> <p> Etiler Mahallesi Ahular Sokak No: 10 34337 İstanbul</p>
-                    <b>E-Posta</b> <a href="mailto:istanbul@avm.com.tr">istanbul@avm.com.tr</a>
-                    <b>Telefon</b> <a href="tel:+902124843300">+90 212 484 33 00</a>
-                    <b>Faks</b> <a href="tel:+902124843300">+90 212 484 33 00</a>
-
-                    <a href="" className="details-map">Detaylar</a>
-                  </div>
-                </div>
-              </InfoWindow>
-            ):null}
+          {selected ? 
+              infowindow()
+            :
+            null
+          }
 
         </GoogleMap>
     
