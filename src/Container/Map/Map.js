@@ -10,6 +10,7 @@ import MapFilterDetails from '../../Components/MapFilterDetails/MapFilterDetails
 import MapMarkerDetails from '../../Components/MapMarkerDetails/MapMarkerDetails'
 import mapStyles from './mapStyles'
 
+
 import {
   Combobox,
   ComboboxInput,
@@ -39,6 +40,11 @@ const mapContainerStyle = {
   height: "100%"
 }
 export default function MapDetailsInner() {
+  const [ dealerDetails, setDealerDetails ] = useState(null);
+
+  function updateMapDetails(e, dealers) {
+    loopMarkers(e)
+  }
 
   const [ currentPosition, setCurrentPosition ] = useState({
       lat: 41.3851,
@@ -62,12 +68,7 @@ export default function MapDetailsInner() {
   })
 
 
-  const [markers, setMarkers] = React.useState([
-    [43.653225,-79.383186],
-    [42.653225,-79.383186],
-    [41.653225,-79.383186]
-
-  ]);
+  const [markers, setMarkers] = React.useState(null);
   const [selected, setSelected] = React.useState(null);
 
   const mapRef = React.useRef();
@@ -80,17 +81,32 @@ export default function MapDetailsInner() {
     mapRef.current.setZoom(14)
   }, [])
 
+  function loopMarkers(list) {
+    const markerList =  []
+
+    for (let i = 0; i < list.length; i++) {
+      markerList.push(
+        [parseInt(list[i].latitude), parseInt(list[i].longitude)]
+      )
+    }
+
+    setMarkers(markerList)
+  }
+
   if(loadError) return "Error"
   if(!isLoaded) return "Loading Error"
- 
+
   return (
     <div className="MapLocation">
       <div className="col-lg-3 float-left pl-0 pr-0 result-details">
         <NavLink className="backside" exact to="/" >Back</NavLink>
-        <MapFilterDetails />
+        <MapFilterDetails update={updateMapDetails} />
       </div>
       <div className="col-lg-9 float-left pl-0 pr-0 map-details">
-      <GoogleMap 
+        {
+          markers !== null
+          ?
+          <GoogleMap 
         mapContainerStyle={mapContainerStyle} 
         zoom={10} 
         center={currentPosition}
@@ -144,6 +160,10 @@ export default function MapDetailsInner() {
 
         </GoogleMap>
     
+      
+          :
+          ''
+        }
       </div>
     </div>
   )

@@ -2,7 +2,7 @@ import { getDefaultNormalizer } from '@testing-library/react';
 import axios from 'axios';
 import {API, GetPriceList, Headers} from '../Services/config';
 
-export async function GetPriceListF (langid, routevalue) {
+export async function GetPriceListF (langid, vehicleType) {
   let a = await axios.get(`${API}${GetPriceList}`,
   {
     headers : {
@@ -12,7 +12,7 @@ export async function GetPriceListF (langid, routevalue) {
     },
     params: {
       'languageId': langid,
-      'pageRouteValue': routevalue
+      'vehicleType': vehicleType
     }
   }
   ).then((response) => {

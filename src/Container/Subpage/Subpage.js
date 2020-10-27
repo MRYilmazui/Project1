@@ -21,6 +21,8 @@ import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 
+import $ from 'jquery'
+
 import languageJson from '../../language.json';
 const lng = languageJson[localStorage.lang];
 
@@ -77,6 +79,25 @@ export default class Subpage extends Component {
       GetGeneralContentsPage = await GetGeneralContents(localStorage.langid, this.props.match.params.pagename)
     }
     this.setState({content : GetGeneralContentsPage})
+
+    
+    $('.nav.nav-tabs a').on('click', function (event) {
+      event.preventDefault();
+      
+      $('li').removeClass('active');
+      $(this).parent().addClass('active');
+      $('.tab-content div').hide();
+      $($(this).attr('href')).show();
+    });
+    $('.nav.nav-tabs li:first a').trigger('click'); // Default
+
+    $('.overlay').click(function(){
+      $('.popup-details').addClass('d-none')
+    })
+
+    $('.footerBottom').click(function(){
+      $('.popup-details').removeClass('d-none')
+    })
   }
 
   componentDidUpdate = async() => {
@@ -140,135 +161,50 @@ export default class Subpage extends Component {
 
             <p>
               {ReactHtmlParser(this.state.content.body)}
-              <Tabs
-                id="controlled-tab-example"
-              >
-                <Tab eventKey="ServisPaketli" title="Servis Paketli">
-                  <button className="pdfbutton" onClick={this.download}>PDF Olarak indir</button>
-                  <button className="excelbutton">Excel Olarak indir</button>
-                  <table className="table table-borderless">
-                    <thead>
-                      <tr>
-                        <th scope="col">Kredi Miktarı</th>
-                        <th scope="col">Vade</th>
-                        <th scope="col">Aylık Ödeme(TL)</th>
-                        <th scope="col">Toplam Ödeme(TL)</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row" rowSpan="3">200.000</th>
-                        <td>12</td>
-                        <td>17.885</td>
-                        <td>214.620</td>
-                      </tr>
-                      <tr>
-                        <td>12</td>
-                        <td>17.885</td>
-                        <td>214.620</td>
-                      </tr>
-                      <tr>
-                        <td>12</td>
-                        <td>17.885</td>
-                        <td>214.620</td>
-                      </tr>
-                    </tbody>
-                    <tbody>
-                      <tr>
-                        <th scope="row" rowSpan="3">200.000</th>
-                        <td>12</td>
-                        <td>17.885</td>
-                        <td>214.620</td>
-                      </tr>
-                      <tr>
-                      <td>12</td>
-                        <td>17.885</td>
-                        <td>214.620</td>
-                      </tr>
-                      <tr>
-                      <td>12</td>
-                        <td>17.885</td>
-                        <td>214.620</td>
-                      </tr>
-                    </tbody>
-                    <tbody>
-                      <tr>
-                        <th scope="row" rowSpan="3">200.000</th>
-                        <td>12</td>
-                        <td>17.885</td>
-                        <td>214.620</td>
-                      </tr>
-                      <tr>
-                      <td>12</td>
-                        <td>17.885</td>
-                        <td>214.620</td>
-                      </tr>
-                      <tr>
-                      <td>12</td>
-                        <td>17.885</td>
-                        <td>214.620</td>
-                      </tr>
-                    </tbody>
-                    <tbody>
-                      <tr>
-                        <th scope="row" rowSpan="3">200.000</th>
-                        <td>12</td>
-                        <td>17.885</td>
-                        <td>214.620</td>
-                      </tr>
-                      <tr>
-                      <td>12</td>
-                        <td>17.885</td>
-                        <td>214.620</td>
-                      </tr>
-                      <tr>
-                      <td>12</td>
-                        <td>17.885</td>
-                        <td>214.620</td>
-                      </tr>
-                    </tbody>
-                    <tbody>
-                      <tr>
-                        <th scope="row" rowSpan="3">200.000</th>
-                        <td>12</td>
-                        <td>17.885</td>
-                        <td>214.620</td>
-                      </tr>
-                      <tr>
-                      <td>12</td>
-                        <td>17.885</td>
-                        <td>214.620</td>
-                      </tr>
-                      <tr>
-                      <td>12</td>
-                        <td>17.885</td>
-                        <td>214.620</td>
-                      </tr>
-                    </tbody>
-                    <tbody>
-                      <tr>
-                        <th scope="row" rowSpan="3">200.000</th>
-                        <td>12</td>
-                        <td>17.885</td>
-                        <td>214.620</td>
-                      </tr>
-                      <tr>
-                      <td>12</td>
-                        <td>17.885</td>
-                        <td>214.620</td>
-                      </tr>
-                      <tr>
-                      <td>12</td>
-                        <td>17.885</td>
-                        <td>214.620</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </Tab>
-                <Tab eventKey="ServisPaketsiz" title="Servis Paketsiz">
-                  bbb
-                </Tab>
-              </Tabs>
+              <ul class="tabs" role="tablist">
+                <div>
+                    <ul class="nav nav-tabs">
+                      <li class="active"><a href="#tab-0" rel="nofollow">Site Haritası</a></li>
+                      <li class=""><a href="#tab-1" rel="nofollow">Site Haritası</a></li>
+                      <li class=""><a href="#tab-2" rel="nofollow">Yasal Uyarılar</a></li>
+                      <li class=""><a href="#tab-3" rel="nofollow">Çerezler</a></li>
+                      <li class=""><a href="#tab-4" rel="nofollow">Gizlilik</a></li>
+                      <li class=""><a href="#tab-5" rel="nofollow">Bilgi Toplumu Hizmetleri</a></li>
+                    </ul>
+                    <div class="tab-content">
+                      <div id="tab-0" >
+                          <p>
+                          <p><span>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</span></p>
+                          </p>
+                      </div>
+                      <div id="tab-1" >
+                          <p>
+                          <p><span >"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</span></p>
+                          </p>
+                      </div>
+                      <div id="tab-2" >
+                          <p>
+                          <p><span >"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</span></p>
+                          </p>
+                      </div>
+                      <div id="tab-3"x>
+                          <p>
+                          <p><span >"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</span></p>
+                          </p>
+                      </div>
+                      <div id="tab-4" >
+                          <p>
+                          <p><span >"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</span>x</p>
+                          </p>
+                      </div>
+                      <div id="tab-5" >
+                          <p>
+                          <p><span >"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</span></p>
+                          </p>
+                      </div>
+                    </div>
+                </div>
+              </ul>
               <div>
                 <button type="button" className="button" >
                   Controlled Popup

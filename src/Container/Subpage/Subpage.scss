@@ -1,6 +1,10 @@
 @import '../../Assets/SCSS/ColourPalette.scss';
 .Subpage {
 
+    ul {
+        padding: 0px;
+    }
+
     img {
         max-width: 100%;
     }

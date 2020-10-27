@@ -29,6 +29,15 @@ class App extends React.Component {
       GetLanguageState: null
     }
   }
+  pathControl() {
+    const element = document.getElementsByTagName('body')[0]
+    
+    if (this.props.location.pathname == '/'+lng.mainurl.title[5]) {
+      element.classList.add('Map')
+    } else {
+      element.classList.remove('Map')
+    }
+  }
 
   componentWillMount = async() => {
     let GetLanguageUpdate = await GetLanguageF()
@@ -48,8 +57,10 @@ class App extends React.Component {
   }
 
   componentDidMount = async() => {
+    this.pathControl()
   }
   componentDidUpdate = (prevProps, prevState) => {
+    this.pathControl()
   }
   
   render()
