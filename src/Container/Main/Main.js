@@ -73,7 +73,7 @@ export default class Main extends React.Component {
             <Route path={"/"+lng.title[3]+"/:pagename/:subpage?"} component={Subpage}/>
             <Route path={"/"+lng.title[4]+"/:pagename/:subpage?"} component={Subpage}/>
             <Route path={"/Price"} component={PriceList}/>
-            <Route path={"/"+lng.mainurl.title[5]} component={MapLocation} />
+            <Route path={"/"+lng.mainurl.title[5]} exact component={MapLocation} />
             <Route path={"/"+lng.mainurl.title[6]+"&=:searchText"} component={Search} />
             <Route path={"/"+lng.mainurl.title[7]} component={PriceList} />
           </Switch>

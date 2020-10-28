@@ -10,7 +10,7 @@ export async function getCities (language) {
       'Ocp-Apim-Trace': 'true'
     }
   }
-  ).then((response) => {
+  ).then(response => {
     return response.data;
   })
   .catch(function (error) {

@@ -1,25 +1,33 @@
 import { event } from 'jquery';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { getCities } from '../../Actions/GetCities';
 import { getDealers } from '../../Actions/GetDealers';
 
 
 export default function MapFilterDetails (props) {
+  const _isMounted = useRef(true); // Initial value _isMounted = true
   const [ cities, setCities ] = useState(null);
   const [ dealers, setDealers ] = useState(null);
   const [ pickDealer, setPickDealers ] = useState(null);
+  const datas = null;
 
-  useEffect(async() => {
-    const a = await getCities()
-    const getDealer = await getDealers(localStorage.langid)
-    const pickDealer = await getDealers(localStorage.langid)
+
+  useEffect(() => {
+     
+    async function fetchDatas() {
+      const a = await getCities()
+      const getDealer = await getDealers(localStorage.langid)
+      const pickDealer = await getDealers(localStorage.langid)
+      
+      setCities(a)
+      setDealers(getDealer)
+      setPickDealers(getDealer)
+
+      props.update(pickDealer)
+    }
     
-    setCities(a)
-    setDealers(getDealer)
-    setPickDealers(getDealer)
-
-    props.update(pickDealer)
-  }, [])
+    fetchDatas()
+  }, [datas])
 
   function loopBuild (loop) {
     const NewsSlider = [];
@@ -44,7 +52,7 @@ export default function MapFilterDetails (props) {
     if (pickDealer !== null && pickDealer !== undefined) {
       for (let i = 0; i < pickDealer.length; i++) {
         NewsSlider.push(
-          <a href="javascript:void(0)" id={pickDealer[i].id} className="result-item">
+          <a href="javascript:void(0)" id={pickDealer[i].id} className="result-item" onClick={(e) => props.updateDetails(pickDealer[i].id)}>
             <h4>{pickDealer[i].name}</h4>
             <p>{pickDealer[i].address}</p>
           </a>

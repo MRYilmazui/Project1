@@ -1,5 +1,9 @@
 .MapMarkerDetails {
 
+    &.active {
+        display: none;
+    }
+
     h5 {
         margin-top: 17px !important;
     }
@@ -45,5 +49,11 @@
                 background: #000;
             }
         }
+    }
+
+    button {
+        outline: none !important;
+        border: 0px;
+        margin-left: -34px;
     }
 }

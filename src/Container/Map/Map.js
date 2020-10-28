@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link, NavLink } from "react-router-dom";
 
 import { compose, withProps } from "recompose";
@@ -39,9 +39,16 @@ const mapContainerStyle = {
   width: "100%",
   height: "100%"
 }
+
 export default function MapDetailsInner() {
   const [ dealerDetails, setDealerDetails ] = useState(null);
+  const [markers, setMarkers] = useState(null);
+  const [indexDetails, setIndexDetails] = useState(null);
+  const [selected, setSelected] = useState(null);
+  const [dealer, setDealer] = useState([])
+  const [activate, setactivate] = useState(false);
 
+  
   function updateMapDetails(e, dealers) {
     loopMarkers(e)
   }
@@ -60,17 +67,14 @@ export default function MapDetailsInner() {
   };
 
   React.useEffect(() => {
+    changeDisplayFalse()
     navigator.geolocation.getCurrentPosition(success);
-  })
+  },[])
   
   const {isLoaded, loadError} = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY
   })
 
-
-  const [markers, setMarkers] = React.useState(null);
-  const [indexDetails, setIndexDetails] = React.useState(null);
-  const [selected, setSelected] = React.useState(null);
 
   const mapRef = React.useRef();
   const onMapLoad = React.useCallback((map) => {
@@ -83,19 +87,29 @@ export default function MapDetailsInner() {
   }, [])
 
   function loopMarkers(list) {
-    setDealerDetails(list)
-    const markerList =  []
-
-    for (let i = 0; i < list.length; i++) {
-      markerList.push(
-        [parseInt(list[i].latitude), parseInt(list[i].longitude)]
-      )
-    }
-
-    setMarkers(markerList)
-  }
-  function efefef(params) {
     debugger
+
+    if (list !== undefined && list !== null) {
+        
+      setDealerDetails(list)
+      const markerList =  []
+
+      for (let i = 0; i < list.length; i++) {
+        markerList.push(
+          [parseInt(list[i].latitude), parseInt(list[i].longitude)]
+        )
+      }
+
+      setMarkers(markerList)
+    }
+  }
+  async function updateDetails(params) {
+    for (let i = 0; i < dealerDetails.length; i++) {
+      if(dealerDetails[i].id === params) {
+        setDealer(dealerDetails[i])
+      }
+    }
+    await changeDisplayTrue()
   }
 
   function infowindow(params) {
@@ -107,7 +121,6 @@ export default function MapDetailsInner() {
         onCloseClick = {() => {
           setSelected(null)
         }}
-        onClick = {(e) => efefef(e)}
       >
         <div>
           <div className="topside">
@@ -121,7 +134,7 @@ export default function MapDetailsInner() {
             <b>Telefon</b> <a href={"tel:"+dealerDetails[indexDetails].phone}>{dealerDetails[indexDetails].phone}</a>
             <b>Faks</b> <a href={"fax:"+dealerDetails[indexDetails].fax}>{dealerDetails[indexDetails].fax}</a>
 
-            <a href="" className="details-map">Detaylar</a>
+            <a href="javascript:void(0)" className="details-map" onClick={(e) => updateDetails(dealerDetails[indexDetails].id)}>Detaylar</a>
           </div>
         </div>
       </InfoWindow>
@@ -130,16 +143,29 @@ export default function MapDetailsInner() {
     return markerList
   }
 
+  async function changeDisplayFalse (a) {
+    setactivate(false)  }
+  async function changeDisplayTrue(a) {
+    setactivate(true)
+  }
+
   if(loadError) return "Error"
   if(!isLoaded) return "Loading Error"
-
-  debugger;
 
   return (
     <div className="MapLocation">
       <div className="col-lg-3 float-left pl-0 pr-0 result-details">
-        <NavLink className="backside" exact to="/" >Back</NavLink>
-        <MapFilterDetails update={updateMapDetails} />
+        
+        
+        { 
+          activate === true ?
+            <MapMarkerDetails data={dealer} func={changeDisplayFalse} />
+          :
+            ''
+        }
+
+        <a className="backside" href="/" >Back</a>
+        <MapFilterDetails update={updateMapDetails} updateDetails={updateDetails}  />
       </div>
       <div className="col-lg-9 float-left pl-0 pr-0 map-details">
         {

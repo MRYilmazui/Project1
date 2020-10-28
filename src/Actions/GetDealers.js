@@ -1,8 +1,7 @@
 import axios from 'axios';
 import {API, GetDealerList, Headers} from '../Services/config';
 
-export async function getDealers (language, cityId, postalCode, dealerId) {
-
+export async function getDealers (language, cityId, postalCode, dealerId, cancel) {
   let a = await axios.get(`${API}${GetDealerList}`,
   {
     headers : {
@@ -17,7 +16,7 @@ export async function getDealers (language, cityId, postalCode, dealerId) {
       'dealerId': dealerId
     }
   }
-  ).then((response) => {
+  ).then(response => {
     return response.data;
   })
   .catch(function (error) {
