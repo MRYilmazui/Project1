@@ -10,7 +10,11 @@ import SocialMedia from '../../Components/SocialMedia/SocialMedia';
 import { GetCampaignDetails } from '../../Actions/GetCampaignDetails'
 
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import findValue from '../../Components/FindValue/findValue'
 
+import language from '../../newLanguage.json';
+
+const lang = language[localStorage.lang];
 export default class CampaignDetails extends Component {
   constructor(props) {
     super(props)
@@ -47,7 +51,17 @@ export default class CampaignDetails extends Component {
   }
   
   componentDidMount = async() => {
-    let getCampaignDetails = await GetCampaignDetails(localStorage.langid, this.props.match.params.pagename, this.props.match.params.subname)
+    const name = '';
+    this.name = this.props.match.params.pagename
+
+    debugger;
+
+    const pageValue = findValue(lang, this.name, this.props.match.params.subname)
+
+    const splitlocation = window.location.pathname.split('/')
+    const splitlocationFull = splitlocation[splitlocation.length-1]
+
+    let getCampaignDetails = await GetCampaignDetails(localStorage.langid, pageValue, splitlocationFull)
     this.setState({getCampaign : getCampaignDetails})
   }
   render() {

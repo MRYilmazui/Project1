@@ -27,7 +27,6 @@ export default class AnnouncementList extends Component {
   componentDidUpdate = async() => {
     let GetAnnouncementListC = await GetAnnouncementList(localStorage.langid, "1")
 
-    debugger
     if(GetAnnouncementListC.data[0].id !== this.state.GetAnnouncementListPage[0].id){
       this.setState({GetAnnouncementListPage : GetAnnouncementListC.data})
     }

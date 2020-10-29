@@ -32,7 +32,11 @@ export default class PriceList extends Component {
           <tr id={this.state.PriceList.priceses[i].id}>
             <td>
               <div className="img">
-                <img src='' alt=""/>
+                { this.state.PriceList.vehicleImageUrl !== null ?
+                    <img src={this.state.PriceList.vehicleImageUrl} alt=""/>
+                  :
+                    ''
+                } 
               </div>
               <span>
               {this.state.PriceList.priceses[i].model}

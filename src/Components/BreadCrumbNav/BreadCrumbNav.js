@@ -10,8 +10,6 @@ export default class BreadCrumbNav extends Component {
     }
   }
   renderLoop (e) {
-    debugger
-
     const a = [] 
 
     if(e.length-1 === 0){

@@ -5,8 +5,10 @@ import { DropdownButton, Dropdown } from 'react-bootstrap';
 
 import './Menu.scss';
 import languageJson from '../../language.json';
+import language from '../../newLanguage.json';
 
 const lng = languageJson[localStorage.lang];
+const lang = language[localStorage.lang];
 
 
 export default class Menu extends Component {
@@ -21,6 +23,7 @@ export default class Menu extends Component {
   }
 
   componentDidMount = async() => {
+
   }
   triggerNavigation() {
     if(this.state.displayMenu == '' ){
@@ -98,94 +101,111 @@ export default class Menu extends Component {
     return m;
   }
 
+  menuSubSubBuild (param) {
+    const subMenu = []
+
+    for (let i = 0; i < param.length; i++) {
+      if(param[i].sub !== null) {
+
+        subMenu.push(
+          <div>
+            <NavLink activeClassName="active" to={param[i].link}>{param[i].name}</NavLink>
+
+            <div className="dropdown-list">
+              {this.menuSubSubSubBuild(param[i].sub)}
+            </div>
+          </div>
+        )
+
+      } else {
+        subMenu.push(
+          <NavLink activeClassName="active" to={param[i].link}>{param[i].name}</NavLink>
+        )
+      }
+      
+    }
+
+    return subMenu;
+  }
+
+  
+  menuSubSubSubBuild (param) {
+    const subMenu = []
+
+    for (let i = 0; i < param.length; i++) {
+
+        subMenu.push(
+          <NavLink activeClassName="active" to={param[i].link}>{param[i].name}</NavLink>
+        )
+      
+    }
+
+    return subMenu;
+  }
+
+  menuSubBuild (param) {
+    const subMenu = []
+
+    for (let i = 0; i < param.length; i++) {
+      if(param[i].sub !== null) {
+
+        subMenu.push(
+          <div>
+            <NavLink activeClassName="active" to={param[i].link}>{param[i].name}</NavLink>
+
+            <div className="dropdown-list">
+              {this.menuSubSubBuild(param[i].sub)}
+            </div>
+          </div>
+        )
+
+      } else {
+        subMenu.push(
+          <NavLink activeClassName="active" to={param[i].link}>{param[i].name}</NavLink>
+        )
+      }
+      
+    }
+
+    return subMenu;
+  }
+
+  menuBuildFunction (e) {
+    const menuConst = [];
+
+    for (let i = 0; i < lang.length-1; i++) {
+      if(lang[i].sub !== null) {
+        menuConst.push(
+          <div className="dropdown-item-list">
+            <NavLink activeClassName="active" onClick={e => e.preventDefault()} to={lang[i].link}>{lang[i].name}</NavLink>
+  
+            <div className="dropdown-list">
+              {this.menuSubBuild(lang[i].sub)}
+    
+            </div>
+          </div>
+        )
+      } else {
+        menuConst.push(
+          <NavLink activeClassName="active" to={lang[i].link}>{lang[i].name}</NavLink>
+        )
+      }
+    }
+
+    return menuConst;
+  }
+
   render() {
 
     return (
       <div className="Menu">
         <button className="menuNavButton" onClick={()=>this.triggerNavigation()}></button>
         <nav className={this.state.displayMenu}>
-          <NavLink activeClassName="active" exact to="/" >
-            {lng.title[0]}
-          </NavLink>
-          <div className="dropdown-item-list">
-            <NavLink activeClassName="active" onClick={e => e.preventDefault()} to={"/"+lng.mainurl.title[4]}>{lng.title[1]}</NavLink>
 
-            <div className="dropdown-list">
-              <Link activeClassName="active"  
-              to={"/"+lng.title[1]+"/"+lng.Kurumsal.value[0]}>{lng.Kurumsal.title[0]}</Link>
+          {
+            this.menuBuildFunction()
+          }
 
-              <div className="dropdown-list">
-                {this.menuBuild(lng.Kurumsal.Hakkimizda, null, lng.title[1])}
-              </div>
-              <NavLink activeClassName="active" to={"/"+lng.title[1]+"/"+lng.Kurumsal.value[1]}>{lng.Kurumsal.title[1]}</NavLink>
-              <NavLink activeClassName="active" to={"/"+lng.title[1]+"/"+lng.Kurumsal.value[2]}>{lng.Kurumsal.title[2]}</NavLink>
-              <NavLink activeClassName="active" to={"/"+lng.title[1]+"/"+lng.Kurumsal.value[3]}>{lng.Kurumsal.title[3]}</NavLink>
-              <NavLink activeClassName="active" to={"/"+lng.title[1]+"/"+lng.Kurumsal.value[4]}>{lng.Kurumsal.title[4]}</NavLink>
-            </div>
-          </div>
-
-          <div className="dropdown-item-list">
-              <NavLink activeClassName="active"  onClick={e => e.preventDefault()} to={"/"+lng.mainurl.title[4]}>{lng.title[2]}</NavLink>
-
-            <div className="dropdown-list">
-              <NavLink activeClassName="active" onClick={e => e.preventDefault()} to={"/"+lng.Urunlerimiz.title[0]}>{lng.Urunlerimiz.title[0]}</NavLink>
-
-              <div className="dropdown-list">
-                <NavLink activeClassName="active"  to={"/"+lng.Urunlerimiz.title[0]+"/"+lng.Urunlerimiz.Kamyon.value[0]}>{lng.Urunlerimiz.Kamyon.title[0]}</NavLink>
-                <div className="dropdown-list">
-                  {this.menuBuild(lng.Urunlerimiz.Kamyon.Satis, null, lng.title[2])}
-                </div>
-
-                <NavLink activeClassName="active" to={"/"+lng.Urunlerimiz.title[0]+"/"+lng.Urunlerimiz.Kamyon.value[1]}>{lng.Urunlerimiz.Kamyon.title[1]}</NavLink>
-                <div className="dropdown-list">
-                  {this.menuBuild(lng.Urunlerimiz.Kamyon.Kampanyalar, null, lng.mainurl.title[2])}
-                </div>
-                
-                <NavLink activeClassName="active" to={"/"+lng.Urunlerimiz.title[0]+"/"+lng.Urunlerimiz.Kamyon.value[2]}>{lng.Urunlerimiz.Kamyon.title[2]}</NavLink>
-                <NavLink activeClassName="active" to={"/"+lng.Urunlerimiz.title[0]+"/"+lng.Urunlerimiz.Kamyon.value[3]}>{lng.Urunlerimiz.Kamyon.title[3]}</NavLink>
-
-                <div className="dropdown-list">
-                  {this.menuBuild(lng.Urunlerimiz.Kamyon.SatisSonrasi, null, lng.mainurl.title[2])}
-                </div>
-              </div>
-
-              <NavLink activeClassName="active" onClick={e => e.preventDefault()} to={"/"+lng.Urunlerimiz.title[1]}>{lng.Urunlerimiz.title[1]}</NavLink>
-
-              <div className="dropdown-list">
-                <NavLink activeClassName="active" to={"/"+lng.mainurl.title[4]+"/"+lng.Urunlerimiz.Otobus.value[0]}>{lng.Urunlerimiz.Otobus.title[0]}</NavLink>
-                <div className="dropdown-list">
-                  {this.menuBuild(lng.Urunlerimiz.Otobus.Satis)}
-                </div>
-
-                <NavLink activeClassName="active" to={"/"+lng.mainurl.title[4]+"/"+lng.Urunlerimiz.Otobus.value[1]}>{lng.Urunlerimiz.Otobus.title[1]}</NavLink>
-                <div className="dropdown-list">
-                  {this.menuBuild(lng.Urunlerimiz.Otobus.Kampanyalar, 'Kampanya')}
-                </div>
-                
-                <NavLink activeClassName="active" to={"/"+lng.mainurl.title[4]+"/"+lng.Urunlerimiz.Otobus.value[2]}>{lng.Urunlerimiz.Otobus.title[2]}</NavLink>
-                <NavLink activeClassName="active" to={"/"+lng.mainurl.title[4]+"/"+lng.Urunlerimiz.Otobus.value[3]}>{lng.Urunlerimiz.Otobus.title[3]}</NavLink>
-
-                <div className="dropdown-list">
-                  {this.menuBuild(lng.Urunlerimiz.Otobus.SatisSonrasi)}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="dropdown-item-list">
-            <NavLink activeClassName="active"  onClick={e => e.preventDefault()} to={"/"+lng.mainurl.title[4]+"/"+lng.value[3]}>{lng.title[3]}</NavLink>
-
-            <div className="dropdown-list">
-              {this.menuBuild(lng.Innovasyon)}
-            </div>
-          </div>          
-          <div className="dropdown-item-list">
-            <NavLink activeClassName="active"  onClick={e => e.preventDefault()} to={"/"+lng.mainurl.title[4]+"/"+lng.value[4]}>{lng.title[4]}</NavLink>
-
-            <div className="dropdown-list">
-              {this.menuBuild(lng.Kariyer)}
-            </div>
-          </div>   
-          <NavLink activeClassName="active" to={'/'+lng.mainurl.title[0]}>{lng.title[5]}</NavLink>
         </nav>
       </div>
     )

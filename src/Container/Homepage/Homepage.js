@@ -19,13 +19,34 @@ export default class Homepage extends Component {
     super(props)
 
     this.state = {
-      GetMainPage: null
+      GetMainPage: null,
+      content: null
     }
   }
+
+  
 
   componentDidMount = async() => {
     let GetMainPage = await GetMainPageF(localStorage.langid)
     this.setState({GetMainPage : GetMainPage})
+
+    window.addEventListener('storage', async function(e) {  
+      debugger;
+      let GetMainPage = await GetMainPageF(localStorage.langid)
+      this.setState({GetMainPage : GetMainPage})
+    });
+
+  }
+
+  componentDidUpdate = async() => {
+    
+    let GetMainPage = await GetMainPageF(localStorage.langid)
+    this.setState({GetMainPage : GetMainPage})
+
+
+    if(this.state.GetMainPage.mainPageSections.id !== GetMainPage.mainPageSections.id) {
+      this.setState({GetMainPage : GetMainPage})
+    }
   }
 
   render() {

@@ -9,23 +9,40 @@ import SocialMedia from '../../Components/SocialMedia/SocialMedia';
 
 import { GetCampaignLists } from '../../Actions/GetCampaignList'
 import SubPosts from '../../Components/SubPosts/SubPosts';
+import findValue from '../../Components/FindValue/findValue'
+
+import language from '../../newLanguage.json';
+
+const lang = language[localStorage.lang];
 
 export default class CampaignList extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      getCampaignListPage: null
+      getCampaignListPage: null,
+      retry: ''
     }
   }
   
   componentDidMount = async() => {
-    let getCampaigns = await GetCampaignLists(localStorage.langid, this.props.match.params.pagename)
+    const name = '';
+    this.name = this.props.match.params.pagename
+
+    const pageValue = findValue(lang, this.name, window.location.pathname)
+    this.setState({retry: pageValue})
+
+    let getCampaigns = await GetCampaignLists(localStorage.langid, pageValue)
     this.setState({getCampaignListPage : getCampaigns})
   }
 
   componentDidUpdate = async() => {
-    let getCampaigns = await GetCampaignLists(localStorage.langid, this.props.match.params.pagename)
+    const name = '';
+    this.name = this.props.match.params.pagename
+
+    const pageValue = findValue(lang, this.name, window.location.pathname)
+
+    let getCampaigns = await GetCampaignLists(localStorage.langid, pageValue)
 
     if(this.state.getCampaignListPage.data[0].id !== getCampaigns.data[0].id) {
       this.setState({getCampaignListPage : getCampaigns})
@@ -47,7 +64,7 @@ export default class CampaignList extends Component {
         ?  
           <div className="container">
             <p>
-              <SubPosts data={this.state.getCampaignListPage.data} uppername={this.props.match.params.pagename}/>
+              <SubPosts data={this.state.getCampaignListPage.data} uppername={window.location.pathname.split('/'+lang[6].mainurl.title[2])[1]}/>
             </p>
           </div>
          : ''

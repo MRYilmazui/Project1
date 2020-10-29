@@ -3,10 +3,10 @@ import './AnnouncementSummary.scss';
 
 import Slider from "react-slick";
 import { Link, NavLink } from "react-router-dom";
-import languageJson from '../../language.json';
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import language from '../../newLanguage.json';
 
-const lng = languageJson[localStorage.lang];
+const lang = language[localStorage.lang];
 
 export default class AnnouncementSummary extends Component {
   constructor(props) {
@@ -28,7 +28,7 @@ export default class AnnouncementSummary extends Component {
 
           <p>{ReactHtmlParser(this.props.data[i].body)}</p>
 
-          <NavLink activeClassName="active" to={"/"+lng.mainurl.title[1]+"/"+this.props.data[i].routeValue}>
+          <NavLink activeClassName="active" to={'/'+lang[6].mainurl.title[0]+'/'+lang[6].mainurl.title[1]+"/"+this.props.data[i].routeValue}>
             Detaylar
           </NavLink>
         </div>

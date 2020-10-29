@@ -17,6 +17,8 @@ import { GetGeneralContents } from '../../Actions/GetGeneralContents'
 import Slider from "react-slick";
 import { render } from '@testing-library/react';
 
+import findValue from '../../Components/FindValue/findValue'
+
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
@@ -24,7 +26,10 @@ import html2canvas from "html2canvas";
 import $ from 'jquery'
 
 import languageJson from '../../language.json';
+import language from '../../newLanguage.json';
+
 const lng = languageJson[localStorage.lang];
+const lang = language[localStorage.lang];
 
 export default class Subpage extends Component {
   constructor(props) {
@@ -33,7 +38,8 @@ export default class Subpage extends Component {
     this.state = {
       displayMenu: '',
       content: null,
-      Loader: false
+      Loader: false,
+      success: false
     }
   }
 
@@ -66,18 +72,22 @@ export default class Subpage extends Component {
     return NewsSlider;
   }
 
-  findValue() {
- 
-  }
-
   componentDidMount = async() => {
     let GetGeneralContentsPage = null;
-
-    if(this.props.match.params.subpage !== undefined){
-      GetGeneralContentsPage= await GetGeneralContents(localStorage.langid, this.props.match.params.subpage)
+    
+    const name = '';
+    
+    if(this.props.match.params.subdetails !== undefined) {
+      this.name = this.props.match.params.subdetails
+    } else if(this.props.match.params.subpage !== undefined) {
+      this.name = this.props.match.params.subpage
     } else {
-      GetGeneralContentsPage = await GetGeneralContents(localStorage.langid, this.props.match.params.pagename)
+      this.name = this.props.match.params.pagename
     }
+    const pageValue = findValue(lang, this.name)
+    
+    GetGeneralContentsPage= await GetGeneralContents(localStorage.langid, pageValue)
+    
     this.setState({content : GetGeneralContentsPage})
 
     
@@ -102,12 +112,19 @@ export default class Subpage extends Component {
 
   componentDidUpdate = async() => {
     let GetGeneralContentsPage = null;
-
-    if(this.props.match.params.subpage !== undefined){
-      GetGeneralContentsPage= await GetGeneralContents(localStorage.langid, this.props.match.params.subpage)
+    const name = '';
+    
+    if(this.props.match.params.subdetails !== undefined) {
+      this.name = this.props.match.params.subdetails
+    } else if(this.props.match.params.subpage !== undefined) {
+      this.name = this.props.match.params.subpage
     } else {
-      GetGeneralContentsPage = await GetGeneralContents(localStorage.langid, this.props.match.params.pagename)
+      this.name = this.props.match.params.pagename
     }
+    const pageValue = findValue(lang, this.name)
+
+    GetGeneralContentsPage= await GetGeneralContents(localStorage.langid, pageValue)
+
     if(this.state.content.id !== GetGeneralContentsPage.id) {
       this.setState({content : GetGeneralContentsPage})
     }

@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import BreadCrumbNav from '../../Components/BreadCrumbNav/BreadCrumbNav'
 import { Link, NavLink } from "react-router-dom";
 import languageJson from '../../language.json';
+import language from '../../newLanguage.json';
 
 import './SubPosts.scss';
 
-const lng = languageJson[localStorage.lang];
+const lang = language[localStorage.lang];
 
 export default class SubPosts extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ export default class SubPosts extends Component {
     for (let i = 0; i < this.props.data.length; i++) {
       NewsSlider.push(
         <div class="subposts">
-          <NavLink activeClassName="active" to={"/"+lng.mainurl.title[3]+"/"+this.props.uppername+"/"+this.props.data[i].routeValue}>
+          <NavLink activeClassName="active" to={"/"+lang[6].mainurl.title[3]+this.props.uppername+"/"+this.props.data[i].routeValue}>
             <span class="subcategory-image col-lg-6 float-left pr-0">
               <img src={this.props.data[i].listImageUrl} alt="" />
             </span>

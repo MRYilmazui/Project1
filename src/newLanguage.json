@@ -1,0 +1,99 @@
+    {
+        "tr": 
+        [
+            {"name": "Anasayfa", "link": "/", "value": "/", "sub": null},
+            {"name": "Kurumsal", "link": "/Kurumsal", "value":"aboutus", "sub": 
+                [
+                    {"name": "Hakkımızda", "link": "/Kurumsal/Hakkimizda", "value":"aboutus", "sub": [
+                        {"name": "Çevre ve Biz", "link": "/Kurumsal/Hakkimizda/Cevre-ve-Biz", "value":"environmentandus", "sub": null},
+                        {"name": "Kalite Yönetimi", "link": "/Kurumsal/Hakkimizda/Kalite-Yonetimi", "value":"qualitymanagement", "sub": null},
+                        {"name": "Laboratuvar Hizmetleri", "link": "/Kurumsal/Hakkimizda/Laboratuvar-Hizmetleri", "value":"laboratoryservices", "sub": null}
+                    ]},
+                    {"name": "Stratejimiz", "link": "/Kurumsal/Stratejimiz", "value":"strategy", "sub": null},
+                    {"name": "Değerlerimiz", "link": "/Kurumsal/Degerlerimiz", "value":"values", "sub": null},
+                    {"name": "Kurumsal Sosyal Sorumluluk Projelerimiz", "link": "/Kurumsal/Kurumsal-Sosyal-Sorumluluk-Projelerimiz", "value":"socialresponsibility", "sub": null},
+                    {"name": "İletişim ve Lokasyon", "link": "/Kurumsal/İletisim-ve-Lokasyon", "value":"intracompanycommunication", "sub": null}
+                ]
+            },
+            {"name": "Ürünlerimiz", "link": "/Urunlerimiz", "value":"products", "sub": 
+                [
+                    {"name": "Kamyon", "link": "/Urunlerimiz/Kamyon", "value":"aboutus", "sub": [
+                        {"name": "Satış", "link": "/Urunlerimiz/Kamyon/Satis", "value":"truck_sales", "sub": [
+                            {"name": "Danışmanlık ve İletişim", "link": "/Urunlerimiz/Kamyon/Satis/Danismanlik-ve-İletisim", "value":"truck_consultingandcommunication", "sub": null},
+                            {"name": "Truck Store", "link": "/Urunlerimiz/Kamyon/Satis/Truck-Store", "value":"truck_truckstore", "sub": null},
+                            {"name": "Broşürler ve İndirilebilir Öğeler", "link": "/Urunlerimiz/Kamyon/Satis/Brosurler-ve-Indirilebilir-Ogeler", "value":"truck_brochuresanddownloads", "sub": null},
+                            {"name": "Fiyat Listesi", "link": "/FiyatListesi/Kamyon/Satis/Fiyat-Listesi", "value":"truck_pricelist", "sub": null}
+                        ]},
+                        {"name": "Kampanyalar", "link": "/Kampanyalar", "value":"truck_campaigns", "sub": [
+                            {"name": "Satış Kampanyaları", "link": "/Kampanyalar/Kamyon/Satis-Kampanyalari", "value":"truck_salescampaigns", "sub": null},
+                            {"name": "SSH Kampanyaları", "link": "/Kampanyalar/Kamyon/SSH-Kampanyalari", "value":"truck_sshcampaigns", "sub": null}
+                        ]},
+                        {"name": "Bayiler ve Yetkili Servisler", "link": "/Urunlerimiz/Kamyon/Bayiler-ve-Yetkili-Servisler", "value":"truck_dealersandauthorizedservices", "sub": null},
+                        {"name": "Satış Sonrası Hizmetler", "link": "/Urunlerimiz/Kamyon/Satis-Sonrasi-Hizmetler", "value":"truck_aftersalesservices", "sub": [
+                            {"name": "Hizmetler", "link": "/Urunlerimiz/Kamyon/Satis-Sonrasi-Hizmetler/Hizmetler", "value":"truck_services", "sub": null},
+                            {"name": "Garanti", "link": "/Urunlerimiz/Kamyon/Satis-Sonrasi-Hizmetler/Garanti", "value":"truck_warranty", "sub": null},
+                            {"name": "Sigorta", "link": "/Urunlerimiz/Kamyon/Satis-Sonrasi-Hizmetler/Sigorta", "value":"truck_insurance", "sub": null},
+                            {"name": "MB Kasko", "link": "/Urunlerimiz/Kamyon/Satis-Sonrasi-Hizmetler/MB-Kasko", "value":"truck_mb_insurance", "sub": null},
+                            {"name": "Yedek Parça ve Aksesuar", "link": "/Urunlerimiz/Kamyon/Satis-Sonrasi-Hizmetler/Yedek-Parca-ve-Aksesuar", "value":"truck_sparepartsandaccessories", "sub": null},
+                            {"name": "Gönüllü Geri Çağırma Aksiyonları", "link": "/Urunlerimiz/Kamyon/Satis-Sonrasi-Hizmetler/Gonullu-Geri-Cagirma-Aksiyonlari", "value":"truck_voluntaryrecallactions", "sub": null},
+                            {"name": "Servisler için Bilgiler", "link": "/Urunlerimiz/Kamyon/Satis-Sonrasi-Hizmetler/Servisler-icin-Bilgiler", "value":"truck_informationforservices", "sub": null}
+                            
+                        ]}
+                    ]},
+                    {"name": "Otobüs", "link": "/Urunlerimiz/Otobus", "value":"aboutus", "sub": [
+                        {"name": "Satış", "link": "/Urunlerimiz/Otobus/Satis", "value":"bus_sales", "sub": [
+                            {"name": "Danışmanlık ve İletişim", "link": "/Urunlerimiz/Otobus/Satis/Danismanlik-ve-İletisim", "value":"bus_consultingandcommunication", "sub": null},
+                            {"name": "Truck Store", "link": "/Urunlerimiz/Otobus/Satis/Truck-Store", "value":"bus_busstore", "sub": null},
+                            {"name": "Broşürler ve İndirilebilir Öğeler", "link": "/Urunlerimiz/Otobus/Satis/Brosurler-ve-Indirilebilir-Ogeler", "value":"bus_brochuresanddownloads", "sub": null},
+                            {"name": "Fiyat Listesi", "link": "/FiyatListesi/Otobus/Satis/Fiyat-Listesi", "value":"bus_pricelist", "sub": null}
+                        ]},
+                        {"name": "Kampanyalar", "link": "/Kampanyalar", "value":"bus_campaigns", "sub": [
+                            {"name": "Satış Kampanyaları", "link": "/Kampanyalar/Otobus/Satis-Kampanyalari", "value":"bus_salescampaigns", "sub": null},
+                            {"name": "SSH Kampanyaları", "link": "/Kampanyalar/Otobus/SSH-Kampanyalari", "value":"bus_sshcampaigns", "sub": null}
+                        ]},
+                        {"name": "Bayiler ve Yetkili Servisler", "link": "/Urunlerimiz/Otobus/Bayiler-ve-Yetkili-Servisler", "value":"bus_dealersandauthorizedservices", "sub": null},
+                        {"name": "Satış Sonrası Hizmetler", "link": "/Urunlerimiz/Otobus/Satis-Sonrasi-Hizmetler", "value":"bus_aftersalesservices", "sub": [
+                            {"name": "Hizmetler", "link": "/Urunlerimiz/Otobus/Satis-Sonrasi-Hizmetler/Hizmetler", "value":"bus_services", "sub": null},
+                            {"name": "Garanti", "link": "/Urunlerimiz/Otobus/Satis-Sonrasi-Hizmetler/Garanti", "value":"bus_warranty", "sub": null},
+                            {"name": "Sigorta", "link": "/Urunlerimiz/Otobus/Satis-Sonrasi-Hizmetler/Sigorta", "value":"bus_insurance", "sub": null},
+                            {"name": "MB Kasko", "link": "/Urunlerimiz/Otobus/Satis-Sonrasi-Hizmetler/MB-Kasko", "value":"bus_mb_insurance", "sub": null},
+                            {"name": "Yedek Parça ve Aksesuar", "link": "/Urunlerimiz/Otobus/Satis-Sonrasi-Hizmetler/Yedek-Parca-ve-Aksesuar", "value":"bus_sparepartsandaccessories", "sub": null},
+                            {"name": "Gönüllü Geri Çağırma Aksiyonları", "link": "/Urunlerimiz/Otobus/Satis-Sonrasi-Hizmetler/Gonullu-Geri-Cagirma-Aksiyonlari", "value":"bus_voluntaryrecallactions", "sub": null},
+                            {"name": "Servisler için Bilgiler", "link": "/Urunlerimiz/Otobus/Satis-Sonrasi-Hizmetler/Servisler-icin-Bilgiler", "value":"bus_informationforservices", "sub": null}
+                            
+                        ]}
+                    ]}
+                ]
+            },
+            {"name": "İnnovasyon ve Sürdürülebilirlik", "link": "/Innovasyon-ve-Surdurulebilirlik", "value":"innovationandsustainability", "sub": 
+                [
+                    {"name": "Verimli ve Emisyonsuz", "link": "/Innovasyon-ve-Surdurulebilirlik/Verimli-ve-Emisyonsuz", "value":"efficientandemissionfree", "sub": null},
+                    {"name": "Güvenli ve Otomatik", "link": "/Innovasyon-ve-Surdurulebilirlik/Guvenli-ve-Otomatik", "value":"safeandautomatic", "sub": null},
+                    {"name": "Güvenilir ve Bağlı", "link": "/Innovasyon-ve-Surdurulebilirlik/Guvenilir-ve-Bagli", "value":"reliableandconnected", "sub": null}
+                ]
+            },
+            {"name": "Kariyer", "link": "/Kariyer", "value":"career", "sub": 
+                [
+                    {"name": "Kariyer Fırsatları", "link": "/Kariyer/Kariyer-Firsatlari", "value":"careeropportunities", "sub": null},
+                    {"name": "Sosyal Hayat", "link": "/Kariyer/Sosyal-Hayat", "value":"sociallife", "sub": null},
+                    {"name": "Staj İmkanları", "link": "/Kariyer/Staj-Imkanlari", "value":"internshipopportunities", "sub": null},
+                    {"name": "Şirket İçi İletişim", "link": "/Kariyer/Sirket-Ici-Iletisim", "value":"intracompanycommunication", "sub": null}
+                ]
+            },
+            {"name": "Haberler", "link": "/Haberler", "value":"news", "sub": null},
+            {
+                "mainurl": {
+                    "title": [
+                        "Haber",
+                        "Detay",
+                        "Kampanyalar",
+                        "KampanyaDetayi",
+                        "Detaylar",
+                        "Harita",
+                        "Arama",
+                        "FiyatListesi"
+                    ]
+                }
+            }
+        ]
+    }
