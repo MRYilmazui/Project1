@@ -18,6 +18,7 @@ export async function GetMainPageF (langid) {
     return response.data;
   })
   .catch(function (error) {
+    return null
   })
 
   return a;

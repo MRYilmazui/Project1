@@ -45,7 +45,7 @@ export default class AnnouncementList extends Component {
       <div className="AnnouncementDetails">
         {this.state.GetAnnouncementDetailsPage !== null
         ?  
-          <div className="container">
+          <div className="container animate__animated animate__fadeIn animate__fast">
             <p>
               <SubCategories data={this.state.GetAnnouncementListPage}/>
             </p>

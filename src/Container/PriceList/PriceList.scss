@@ -1,6 +1,12 @@
 @import '../../Assets/SCSS/ColourPalette.scss';
 
-
+.footerBottom2 {
+    display: block !important;
+    margin: 0px !important;
+    padding: 10px !important;
+    color: $blue !important;
+    cursor: pointer
+}
 table.price-content {
 
     thead {
@@ -9,6 +15,10 @@ table.price-content {
             th,
             td {
                 background: none;
+
+                &:first-child {
+                    min-width: 250px;
+                }
             }
         }
     }
@@ -19,6 +29,8 @@ table.price-content {
 
                 img {
                     float: left;
+                    width: 70px;
+                    margin-top: 14px;
                 }
                 span {
                     font-size: 14px;
@@ -58,7 +70,24 @@ table.price-content {
         }
     }
 }
-
+.brochure {
+    display: block;
+    border-top: 1px solid #efefef;
+    padding: 7px 10px !important;
+    font-weight: 500 !important;
+    font-size: 14px;
+}
+.footerBottom2 {
+    font-weight: 500 !important;
+}
+.price-content {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+.AnnouncementDetails {
+    position: relative;
+    z-index: 99;
+}
 
 .dropdown {
         

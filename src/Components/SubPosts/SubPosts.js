@@ -41,10 +41,11 @@ export default class SubPosts extends Component {
     return NewsSlider;
   }
   render() {
+    const BC = ['Kampanyalar']
 
     return (
       <div className="SubPosts">
-        <BreadCrumbNav mainpage={'Kampanyalar'}/>
+        <BreadCrumbNav mainpage={BC}/>
         
         {this.props.data !== null
           ?  

@@ -62,7 +62,7 @@ export default class CampaignList extends Component {
       <div className="AnnouncementDetails">
         {this.state.getCampaignListPage !== null
         ?  
-          <div className="container">
+          <div className="container animate__animated animate__fadeIn animate__fast">
             <p>
               <SubPosts data={this.state.getCampaignListPage.data} uppername={window.location.pathname.split('/'+lang[6].mainurl.title[2])[1]}/>
             </p>

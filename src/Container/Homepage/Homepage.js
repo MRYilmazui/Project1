@@ -3,10 +3,14 @@ import SliderComp from '../../Components/SliderComp/SliderComp'
 import MainCategories from '../../Components/MainCategories/MainCategories'
 import MainPosts from '../../Components/MainPosts/MainPosts'
 import AnnouncementSummary from '../../Components/AnnouncementSummary/AnnouncementSummary'
+import { Helmet } from 'react-helmet'
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
 import { GetMainPageF } from '../../Actions/GetMainPage'
+import { GetMainPagePreviews } from '../../Actions/GetMainPagePreview'
 
 import { NavLink } from "react-router-dom";
+import jQuery from 'jquery'
 
 import './Homepage.scss';
 
@@ -24,17 +28,20 @@ export default class Homepage extends Component {
     }
   }
 
-  
-
   componentDidMount = async() => {
-    let GetMainPage = await GetMainPageF(localStorage.langid)
-    this.setState({GetMainPage : GetMainPage})
-
-    window.addEventListener('storage', async function(e) {  
-      debugger;
+    if(window.location.href.split('previewId=')[1] !== undefined){
+      let GetMainPage = await GetMainPagePreviews(localStorage.langid, window.location.href.split('previewId=')[1])
+      this.setState({GetMainPage : GetMainPage})
+    } else {
       let GetMainPage = await GetMainPageF(localStorage.langid)
       this.setState({GetMainPage : GetMainPage})
-    });
+  
+      window.addEventListener('storage', async function(e) {  
+        let GetMainPage = await GetMainPageF(localStorage.langid)
+        this.setState({GetMainPage : GetMainPage})
+      });
+    }
+
 
   }
 
@@ -56,45 +63,60 @@ export default class Homepage extends Component {
         {this.state.GetMainPage !== null
                 ?  
                 <div>       
+                  <Helmet>
+                    <title>{'Anasayfa'}</title>
+                  </Helmet>
                   <SliderComp data={this.state.GetMainPage.slider} />
 
                   <div className="container">
-                    <div className="aboutus">
+                    <div className="aboutus animate__animated  star animate__fast star">
                     
                       <h3>
                         {this.state.GetMainPage.mainPageSections.sectionOneTitle}
                       </h3>
-                      <i className="title-desc">Welcome to Daimler Truck AG</i>
+                      <i className="title-desc">
+                        {this.state.GetMainPage.mainPageSections.sectionOneSubTitle}
+                      </i>
                       <p className="col-lg-6 pl-0 pr-0">
-                        {this.state.GetMainPage.mainPageSections.sectionOneBody}
+                        {ReactHtmlParser(this.state.GetMainPage.mainPageSections.sectionOneBody)}
                       </p>
                     </div>
                   </div>
           
-                  <div className="main-categories">
+                  <div className="main-categories animate__animated star animate__fast star">
                     <MainCategories data={this.state.GetMainPage.mainPageSections} />
                   </div>
           
                   <div className="container">
-                    <div className="mainposts">
-                      <h3>Our Purpose</h3>
-                      <i className="title-desc">This is our mission and what drives.</i>
+                    <div className="mainposts animate__animated star animate__fast star">
+                      <h3>
+                        {this.state.GetMainPage.mainPageSections.sectionThreeTitle}
+                      </h3>
+                      <i className="title-desc">
+                        {this.state.GetMainPage.mainPageSections.sectionThreeDescription}
+                      </i>
                       <MainPosts data={this.state.GetMainPage.mainPageSections}/>
                     </div>
                   </div>
-                  <div className="mainmap">
+                  <div className="mainmap animate__animated star animate__fast star">
                     <div className="container">
                       <div className="col-lg-6">
-                          <h3>Dealers</h3>
-                          <i className="title-desc">View Dealers on The Map</i>
+                          <h3>
+                            {this.state.GetMainPage.mainPageSections.dealerTitle}
+                          </h3>
+                          <i className="title-desc">
+                            {this.state.GetMainPage.mainPageSections.dealerSubTitle}
+                          </i>
           
-                          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                          <p>
+                            {this.state.GetMainPage.mainPageSections.dealerDescription}
+                          </p>
           
                           <NavLink to={"/"+lng.mainurl.title[5]} >Lokasyonlara gözat</NavLink>
                       </div>
                     </div>
                   </div>
-                  <div className="announcementslider">
+                  <div className="announcementslider animate__animated star animate__fast star">
                     <div className="container">
                       <AnnouncementSummary data={this.state.GetMainPage.news} />
                     </div>

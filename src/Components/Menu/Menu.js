@@ -2,14 +2,12 @@ import React, {Component} from 'react';
 import { Link, NavLink, Redirect, useParams } from "react-router-dom";
 import { MovieConsumer, MovieProvider } from '../../Context/Context'
 import { DropdownButton, Dropdown } from 'react-bootstrap';
+import getLanguage from '../getLanguage/getLanguage'
 
 import './Menu.scss';
-import languageJson from '../../language.json';
 import language from '../../newLanguage.json';
 
-const lng = languageJson[localStorage.lang];
 const lang = language[localStorage.lang];
-
 
 export default class Menu extends Component {
   constructor(props) {
@@ -58,48 +56,7 @@ export default class Menu extends Component {
 
     return NewsSlider;
   }
-  menuBuild (e, type, title) {
-    const m = [];
-    const splitURL = e.upperside.split('/')
 
-    if(title === 'Kurumsal' || title === 'Corporate'){
-      for (let i = 0; i < e.title.length; i++) {
-
-        m.push(
-          <NavLink activeClassName="active" to={"/"+title+"/"+splitURL[splitURL.length-1].slice(1)+"/"+e.value[i]}>{e.title[i]}</NavLink>
-        )
-      }
-    } else if(title === 'Ürünlerimiz' || title === 'Products'){
-        for (let i = 0; i < e.title.length; i++) {
-
-        m.push(
-          <NavLink activeClassName="active" to={"/"+title+"/"+splitURL[splitURL.length-1].slice(1)+"/"+e.value[i]}>{e.title[i]}</NavLink>
-        )
-      }
-    } else {
-
-      if(title === "Kampanyalar") {
-        for (let i = 0; i < e.title.length; i++) {
-  
-          m.push(
-            <NavLink activeClassName="active" to={"/"+splitURL[splitURL.length-1].slice(1)+"/"+e.value[i]}>{e.title[i]}</NavLink>
-          )
-        }
-      } else {
-  
-        for (let i = 0; i < e.title.length; i++) {
-  
-          m.push(
-            <NavLink activeClassName="active" to={"/"+lng.mainurl.title[4]+"/"+e.value[i]}>{e.title[i]}</NavLink>
-          )
-        }
-      }
-    }
-
-
-
-    return m;
-  }
 
   menuSubSubBuild (param) {
     const subMenu = []

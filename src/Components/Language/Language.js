@@ -15,8 +15,10 @@ export default class Language extends Component {
   updateLang(e, id) {
     localStorage.lang = e;
     localStorage.langid = id;
-    
-    window.location.reload('/')
+
+    debugger;
+
+    window.location.pathname = '/'
   }
 
   loadLanguage () {

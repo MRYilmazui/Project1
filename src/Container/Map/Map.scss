@@ -283,3 +283,53 @@
 .Map .gm-style .gm-style-iw-c .gm-style-iw-d {
     max-width: 320px;
 }
+
+@media only screen and (max-width: 414px) {
+    html .Map .Header .logo-section .mercedes-logo {
+        width: 44px !important;
+    }
+    
+    .menuNavButton {
+        width: 24px;
+        height: 24px;
+        border: 0px;
+        float: left;
+        margin: 5px;
+        margin-right: 17px;
+        background-image: url(../../Assets/img/menu.svg);
+        background-position: center;
+        background-size: 100%;
+        background-color: transparent;
+        margin-top: -62px;
+        position: fixed;
+        z-index: 999999;
+        top: 150px;
+        right: 0px;
+        display: block !important;
+    }
+
+    .col-lg-3.result-details {
+        left: -100% !important;
+        transition: 400ms all;
+    }
+
+    .col-lg-3.result-details.active-filters {
+        left: 0px !important;
+    }
+
+    .topside+.info {
+
+        b,
+        p,
+        a {
+            display: none !important;
+
+            &.details-map {
+                display: block !important;
+            }
+        }
+    }
+    .Map .gm-style .gm-style-iw-c .info {
+        width: 100%;
+    }
+}

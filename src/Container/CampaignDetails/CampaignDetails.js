@@ -8,9 +8,11 @@ import AnnouncementSummary from '../../Components/AnnouncementSummary/Announceme
 import SocialMedia from '../../Components/SocialMedia/SocialMedia';
 
 import { GetCampaignDetails } from '../../Actions/GetCampaignDetails'
+import { GetCampaignDetailsPreviews } from '../../Actions/GetCampaignDetailsPreview'
 
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import findValue from '../../Components/FindValue/findValue'
+import { Helmet } from 'react-helmet'
 
 import language from '../../newLanguage.json';
 
@@ -52,17 +54,21 @@ export default class CampaignDetails extends Component {
   
   componentDidMount = async() => {
     const name = '';
+    let getCampaignDetails = null;
     this.name = this.props.match.params.pagename
 
-    debugger;
-
     const pageValue = findValue(lang, this.name, this.props.match.params.subname)
-
     const splitlocation = window.location.pathname.split('/')
     const splitlocationFull = splitlocation[splitlocation.length-1]
 
-    let getCampaignDetails = await GetCampaignDetails(localStorage.langid, pageValue, splitlocationFull)
-    this.setState({getCampaign : getCampaignDetails})
+    if(window.location.href.split('previewId=')[1] !== undefined){
+      getCampaignDetails = await GetCampaignDetailsPreviews(localStorage.langid, pageValue, splitlocationFull, window.location.href.split('previewId=')[1])
+      this.setState({getCampaign : getCampaignDetails})
+    } else {
+      getCampaignDetails = await GetCampaignDetails(localStorage.langid, pageValue, splitlocationFull)
+      this.setState({getCampaign : getCampaignDetails})
+    }
+
   }
   render() {
     const settings = {
@@ -79,7 +85,10 @@ export default class CampaignDetails extends Component {
       <div className="AnnouncementDetails">
         {this.state.getCampaign !== null
         ?  
-          <div className="container">
+          <div className="container animate__animated animate__fadeIn animate__fast">
+            <Helmet>
+              <title>{this.state.getCampaign.title}</title>
+            </Helmet>
             <BreadCrumbNav mainpage={breadcrumbData}/>
             
             <Slider {...settings}>

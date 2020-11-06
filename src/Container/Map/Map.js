@@ -9,6 +9,8 @@ import mapIco from '../../Assets/img/mercedes-map-logo.png'
 import MapFilterDetails from '../../Components/MapFilterDetails/MapFilterDetails'
 import MapMarkerDetails from '../../Components/MapMarkerDetails/MapMarkerDetails'
 import mapStyles from './mapStyles'
+import { Helmet } from 'react-helmet'
+import jQuery from 'jquery'
 
 
 import {
@@ -69,6 +71,14 @@ export default function MapDetailsInner() {
   React.useEffect(() => {
     changeDisplayFalse()
     navigator.geolocation.getCurrentPosition(success);
+
+    jQuery(document).on('click', '.menuNavButton', function(){
+      jQuery('.col-lg-3.result-details').toggleClass('active-filters')
+    })
+    jQuery(document).on('click', '.details-map', function(){
+      jQuery('.col-lg-3.result-details').toggleClass('active-filters')
+      changeDisplayTrue()
+    })
   },[])
   
   const {isLoaded, loadError} = useLoadScript({
@@ -87,7 +97,6 @@ export default function MapDetailsInner() {
   }, [])
 
   function loopMarkers(list) {
-    debugger
 
     if (list !== undefined && list !== null) {
         
@@ -126,7 +135,6 @@ export default function MapDetailsInner() {
           <div className="topside">
             <div className="mercedes-logo"></div>
             <h4>{dealerDetails[indexDetails].name}</h4>
-            <i>Şuanda Açık</i>
           </div>
           <div className="info">
             <b>Adres</b> <p> {dealerDetails[indexDetails].name}</p>
@@ -153,9 +161,11 @@ export default function MapDetailsInner() {
   if(!isLoaded) return "Loading Error"
 
   return (
-    <div className="MapLocation">
-      <div className="col-lg-3 float-left pl-0 pr-0 result-details">
-        
+    <div className="MapLocation ">
+      <div className="col-lg-3 float-left pl-0 pr-0 result-details ">
+      <Helmet>
+        <title>{'Harita'}</title>
+      </Helmet>
         
         { 
           activate === true ?
@@ -163,7 +173,7 @@ export default function MapDetailsInner() {
           :
             ''
         }
-
+        <button className="menuNavButton"></button>
         <a className="backside" href="/" >Back</a>
         <MapFilterDetails update={updateMapDetails} updateDetails={updateDetails}  />
       </div>

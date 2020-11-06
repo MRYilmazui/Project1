@@ -3,6 +3,8 @@ import SlideImage from '../../Assets/img/image_4.png';
 import SlideImage2 from '../../Assets/img/nopath.png';
 import './Subpage.scss';
 import BreadCrumbNav from '../../Components/BreadCrumbNav/BreadCrumbNav'
+import { Link, NavLink, Redirect, useParams } from "react-router-dom";
+import { Helmet } from 'react-helmet'
 
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
@@ -14,6 +16,7 @@ import {Dropdown, DropdownButton} from 'react-bootstrap'
 import SubCategories from '../../Components/SubCategories/SubCategories';
 import SubPosts from '../../Components/SubPosts/SubPosts';
 import { GetGeneralContents } from '../../Actions/GetGeneralContents'
+import { GetGeneralContentPreviews } from '../../Actions/GetGeneralContentsPreview'
 import Slider from "react-slick";
 import { render } from '@testing-library/react';
 
@@ -24,9 +27,13 @@ import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 
 import $ from 'jquery'
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import Popper from 'popper.js';
 
 import languageJson from '../../language.json';
 import language from '../../newLanguage.json';
+import { GetGeneralContentsPreviews } from '../../Actions/GetGeneralContentsPreview';
 
 const lng = languageJson[localStorage.lang];
 const lang = language[localStorage.lang];
@@ -85,10 +92,20 @@ export default class Subpage extends Component {
       this.name = this.props.match.params.pagename
     }
     const pageValue = findValue(lang, this.name)
+    debugger;
+
+    if(window.location.href.split('previewId=')[1] !== undefined){
+      GetGeneralContentsPage= await GetGeneralContentsPreviews(localStorage.langid, pageValue, window.location.href.split('previewId=')[1])
+      this.setState({content : GetGeneralContentsPage})
+    } else {
+      GetGeneralContentsPage= await GetGeneralContents(localStorage.langid, pageValue, window.location.href.split('previewId=')[1])
+      this.setState({content : GetGeneralContentsPage})
+    }
+
+    if(GetGeneralContentsPage === null) {
+      return window.location.pathname = '/'
+    }
     
-    GetGeneralContentsPage= await GetGeneralContents(localStorage.langid, pageValue)
-    
-    this.setState({content : GetGeneralContentsPage})
 
     
     $('.nav.nav-tabs a').on('click', function (event) {
@@ -123,11 +140,25 @@ export default class Subpage extends Component {
     }
     const pageValue = findValue(lang, this.name)
 
-    GetGeneralContentsPage= await GetGeneralContents(localStorage.langid, pageValue)
-
-    if(this.state.content.id !== GetGeneralContentsPage.id) {
+    if(window.location.href.split('previewId=')[1] !== undefined){
+      GetGeneralContentsPage= await GetGeneralContentsPreviews(localStorage.langid, pageValue, window.location.href.split('previewId=')[1])
+      this.setState({content : GetGeneralContentsPage})
+    } else {
+      GetGeneralContentsPage= await GetGeneralContents(localStorage.langid, pageValue, window.location.href.split('previewId=')[1])
       this.setState({content : GetGeneralContentsPage})
     }
+    
+    if(GetGeneralContentsPage !== null){
+
+      if(this.state.content === null) {
+        this.setState({content : GetGeneralContentsPage})
+      } else if(this.state.content.id !== GetGeneralContentsPage.id ) {
+        this.setState({content : GetGeneralContentsPage})
+      }
+    } else {
+      return window.location.pathname = '/'
+    }
+
   }
 
   download () {
@@ -161,7 +192,10 @@ export default class Subpage extends Component {
       <div className="Subpage">
         {this.state.content !== null
           ?
-        <div className="container">
+        <div className="container animate__animated animate__fadeIn animate__fast">
+          <Helmet>
+            <title>{this.state.content.title}</title>
+          </Helmet>
           <BreadCrumbNav mainpage={breadcrumbData} title={this.state.content.title} />
 
           <div className="details">
@@ -222,22 +256,7 @@ export default class Subpage extends Component {
                     </div>
                 </div>
               </ul>
-              <div>
-                <button type="button" className="button" >
-                  Controlled Popup
-                </button>
-                <Popup closeOnDocumentClick >
-                  <div className="open-modal animate__animated animate__fadeInDown">
-                    <a className="close" >
-                      &times;
-                    </a>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae magni
-                    omnis delectus nemo, maxime molestiae dolorem numquam mollitia, voluptate
-                    ea, accusamus excepturi deleniti ratione sapiente! Laudantium, aperiam
-                    doloribus. Odit, aut.
-                  </div>
-                </Popup>
-              </div>
+
               <table className="table table-borderless downloadable-content">
                 <thead>
                   <tr>
@@ -293,6 +312,52 @@ export default class Subpage extends Component {
                   </tr>
                 </tbody>
               </table>
+
+              <div id="accordion">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Collapsible Group Item #1
+                      </button>
+                    </h5>
+                  </div>
+
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Collapsible Group Item #2
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Collapsible Group Item #3
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div class="card-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               <table className="table table-borderless price-content">
                 <thead>
@@ -396,7 +461,8 @@ export default class Subpage extends Component {
             </p>
           </div>
         </div>
-        : ''
+        :
+        ''
       }
       </div>
     )

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { DropdownButton, Dropdown } from 'react-bootstrap';
 import './SocialMedia.scss';
+import { GetSocialMedias } from '../../Actions/GetSocialMedia'
 
 import {
   FacebookShareButton,
@@ -19,24 +20,48 @@ export default class SocialMedia extends Component {
     super(props)
     this.Follow = this.Follow.bind(this);
     this.state = {
-      location: null
+      location: null,
+      social: null
     };
   }
 
-  Follow = () => {
-    const follow = <div className="social-media">
-      <a href="javascript:void(0)" id="youtube"></a>
-      <a href="javascript:void(0)" id="instagram"></a>
-      <DropdownButton id={'twitter'} title="Dropdown button">
-        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-      </DropdownButton>
-      <a href="javascript:void(0)" id="linkedin"></a>
-      <a href="javascript:void(0)" id="facebook"></a>
-    </div>;
+  componentDidMount = async() => {
+    let getSocial = null;
+    getSocial= await GetSocialMedias(localStorage.langid)
+
+    this.setState({social : getSocial})
+  }
+  followinner (e) {
+    const follow = [];
+
+    for (let i = 0; i < e.length; i++) {
+      follow.push(
+        <Dropdown.Item href={'http://'+e[i].link}>{e[i].name}</Dropdown.Item>
+      )
+    }
+
 
     return follow;
+  }
+
+  Follow = () => {
+
+    if(this.state.social !== null){
+      const follow = [];
+
+      for (let i = 0; i < this.state.social.length; i++) {
+        follow.push(
+          <DropdownButton id={this.state.social[i].socialMediaTypeName}  title={
+            <img src={this.state.social[i].socialMediaTypeImageUrl} />
+          }>
+            {this.followinner(this.state.social[i].socialMedias)}
+          </DropdownButton>
+        )
+      }
+  
+      return follow;
+    }
+
   }
   Share = () => {
     if(this.state.location !== window.location.href) {
@@ -67,7 +92,9 @@ export default class SocialMedia extends Component {
         <h5>Social Media</h5>
 
         {this.props.Follow ? (
-          this.Follow()
+          <div className="social-media">
+            {this.Follow()}
+          </div>
         ) : (
           this.Share()
         )}

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import SlideImage from '../../Assets/img/image_4.png';
 import './AnnouncementDetails.scss';
+import { Helmet } from 'react-helmet'
 import BreadCrumbNav from '../../Components/BreadCrumbNav/BreadCrumbNav'
 
 import Slider from "react-slick";
@@ -9,6 +10,7 @@ import SocialMedia from '../../Components/SocialMedia/SocialMedia';
 
 import { GetMainPageF } from '../../Actions/GetMainPage'
 import { GetAnnouncementDetails } from '../../Actions/GetAnnouncementDetails'
+import { GetAnnouncementDetailsPreviews } from '../../Actions/GetAnnouncementDetailsPreview'
 
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
@@ -21,27 +23,29 @@ export default class AnnouncementDetails extends Component {
       GetAnnouncementDetailsPage: null
     }
   }
-  imageRepeater () {
+  imageRepeater = () => {
     const NewsSlider = [];
+    if(this.state.GetAnnouncementDetailsPage !== ''){
 
-    if (this.state.GetAnnouncementDetailsPage.galleries.length !== 0) {
-      for (let i = 0; i < this.state.GetAnnouncementDetailsPage.galleries.length; i++) {
+      if (this.state.GetAnnouncementDetailsPage.galleries.length !== 0) {
+        for (let i = 0; i < this.state.GetAnnouncementDetailsPage.galleries.length; i++) {
+          NewsSlider.push(
+            <div className="slide">
+              <div>
+                <img src={this.state.GetAnnouncementDetailsPage.galleries[i].imageUrl} alt=""/>
+              </div>
+            </div>
+          )
+        }
+      } else {
         NewsSlider.push(
           <div className="slide">
             <div>
-              <img src={this.state.GetAnnouncementDetailsPage.galleries[i].imageUrl} alt=""/>
+              <img src={this.state.GetAnnouncementDetailsPage.imageUrl} alt=""/>
             </div>
           </div>
         )
       }
-    } else {
-      NewsSlider.push(
-        <div className="slide">
-          <div>
-            <img src={this.state.GetAnnouncementDetailsPage.imageUrl} alt=""/>
-          </div>
-        </div>
-      )
     }
 
 
@@ -51,11 +55,19 @@ export default class AnnouncementDetails extends Component {
   componentDidMount = async() => {
     let GetMainPage = await GetMainPageF(localStorage.langid)
     this.setState({GetMainPage : GetMainPage})
+    let GetAnnouncementDetailsC = null;
 
-    let GetAnnouncementDetailsC = await GetAnnouncementDetails(localStorage.langid, this.props.match.params.pagename)
-    this.setState({GetAnnouncementDetailsPage : GetAnnouncementDetailsC})
+    if(window.location.href.split('previewId=')[1] !== undefined){
+      GetAnnouncementDetailsC = await GetAnnouncementDetailsPreviews(localStorage.langid, this.props.match.params.pagename, window.location.href.split('previewId=')[1])
+      this.setState({GetAnnouncementDetailsPage : GetAnnouncementDetailsC})
+    } else {
+      GetAnnouncementDetailsC = await GetAnnouncementDetails(localStorage.langid, this.props.match.params.pagename)
+      this.setState({GetAnnouncementDetailsPage : GetAnnouncementDetailsC})
+    }
 
-    
+    if(GetAnnouncementDetailsC === null || GetAnnouncementDetailsC === '') {
+      return window.location.pathname = '/'
+    }
   }
   render() {
     const settings = {
@@ -73,7 +85,10 @@ export default class AnnouncementDetails extends Component {
       <div className="AnnouncementDetails">
         {this.state.GetAnnouncementDetailsPage !== null
         ?  
-          <div className="container">
+          <div className="container animate__animated animate__fadeIn animate__fast">
+            <Helmet>
+              <title>{this.state.GetAnnouncementDetailsPage.title}</title>
+            </Helmet>
             <BreadCrumbNav mainpage={BC} title={this.state.GetAnnouncementDetailsPage.title}/>
             
             <Slider {...settings}>

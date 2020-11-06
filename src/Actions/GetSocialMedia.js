@@ -1,9 +1,9 @@
 import { getDefaultNormalizer } from '@testing-library/react';
 import axios from 'axios';
-import {API, GetGeneralContent, Headers} from '../Services/config';
+import {API, GetSocialMedia, Headers} from '../Services/config';
 
-export async function GetGeneralContents (langid, routevalue) {
-  let a = await axios.get(`${API}${GetGeneralContent}`,
+export async function GetSocialMedias (langid) {
+  let a = await axios.get(`${API}${GetSocialMedia}`,
   {
     headers : {
       'Content-Type' : 'application/json; charset=utf-8',
@@ -11,8 +11,7 @@ export async function GetGeneralContents (langid, routevalue) {
       'Ocp-Apim-Trace': 'true',
     },
     params: {
-      'languageId': langid,
-      'pageRouteValue': routevalue
+      'languageId': langid
     }
   }
   ).then((response) => {

@@ -86,7 +86,7 @@ export default class Footer extends Component {
   render() {
       
     return (
-      <div className="Footer">
+      <div className="Footer  animate__animated animate__fast star">
         {this.state.Footer !== null
         ? 
           <div className="container">

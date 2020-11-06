@@ -7,6 +7,7 @@
     background: url(../../Assets/img/world-map.png) no-repeat;
     background-position: right;
     background-size: auto 107%;
+    opacity: 0;
 
     h3 {
         font-size: 40px;
@@ -26,17 +27,23 @@
     }
 }
 
+.main-categories {
+    opacity: 0;
+}
+
 .mainposts {
     @extend .aboutus;
     background: none;
     display: inline-block;
     width: 100%;
+    opacity: 0;
 }
 
 .mainmap {
     @extend .aboutus;
     background-image: url(../../Assets/img/map-location.png);
     background-position: right;
+    opacity: 0;
 
     h3 {
         font-size: 50px;
@@ -65,4 +72,5 @@
 .announcementslider {
     @extend .aboutus;
     background: none;
+    opacity: 0;
 }

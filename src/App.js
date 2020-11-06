@@ -18,6 +18,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 const Header = importedComponent( () => import('./Components/Header/Header'));
 const Footer = importedComponent( () => import('./Components/Footer/Footer'));
 getLanguage();
+
 const lng = languageJson[localStorage.lang];
 
 class App extends React.Component {
@@ -41,6 +42,10 @@ class App extends React.Component {
   }
 
   componentWillMount = async() => {
+    if(localStorage.lang === undefined){
+      localStorage.lang = 'tr'
+      localStorage.langid = "20dd5d1f-3c87-48a5-8ff5-bcefb810bcc2"
+    }
   }
 
   componentDidMount = async() => {
@@ -56,7 +61,7 @@ class App extends React.Component {
       <div className="App">
         <div>
           <Header />
-          <Main/>
+          <Main />
           <Footer />
         </div>
       </div>

@@ -19,6 +19,7 @@ export async function GetPriceListF (langid, vehicleType) {
     return response.data;
   })
   .catch(function (error) {
+    return null;
   })
 
   return a;

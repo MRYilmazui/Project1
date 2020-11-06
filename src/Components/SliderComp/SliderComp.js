@@ -53,6 +53,7 @@ export default class SliderComp extends Component {
         slidesToScroll: 1,
         draggable: false,
         focusOnSelect: false,
+        adaptiveHeight: true,
         touchMove: false,
       beforeChange: (current, next) =>
         this.setState({ oldSlide: current, activeSlide: next }),
@@ -60,9 +61,9 @@ export default class SliderComp extends Component {
     };
 
     return (
-      <div className="SliderComp">
+      <div className="SliderComp animate__animated animate__fadeIn animate__fast star">
         <div className="blurbg" style={{background: "url("+ this.props.data[this.state.activeSlide2].imageUrl +")"}}></div>
-        <div className="container">
+        <div className="container ">
           <Slider {...settings}>
             {this.sliderBuild()}
           </Slider>

@@ -1,9 +1,9 @@
 import { getDefaultNormalizer } from '@testing-library/react';
 import axios from 'axios';
-import {API, GetGeneralContent, Headers} from '../Services/config';
+import {API, GetRecall, Headers} from '../Services/config';
 
-export async function GetGeneralContents (langid, routevalue) {
-  let a = await axios.get(`${API}${GetGeneralContent}`,
+export async function GetRecalls (chassisNumber) {
+  let a = await axios.get(`${API}${GetRecall}`,
   {
     headers : {
       'Content-Type' : 'application/json; charset=utf-8',
@@ -11,14 +11,15 @@ export async function GetGeneralContents (langid, routevalue) {
       'Ocp-Apim-Trace': 'true',
     },
     params: {
-      'languageId': langid,
-      'pageRouteValue': routevalue
+      'chassisNumber': chassisNumber,
     }
   }
   ).then((response) => {
+    debugger;
     return response.data;
   })
   .catch(function (error) {
+    debugger;
     return null;
   })
 

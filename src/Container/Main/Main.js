@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import importedComponent from 'react-imported-component';
 
+import { GetLanguageF } from '../../Actions/GetLanguage'
+import language from '../../newLanguage.json';
+
 import {
   Switch,
   Route
 } from "react-router-dom";
 
-import { GetLanguageF } from '../../Actions/GetLanguage'
-import language from '../../newLanguage.json';
-import languageJson from '../../language.json';
+import jQuery from 'jquery'
 
 /* Styles */
 import './Main.scss';
@@ -32,38 +33,67 @@ const MapLocation = importedComponent( () => import('../../Container/Map/Map'));
 const PriceList = importedComponent( () => import('../../Container/PriceList/PriceList'));
 const Search = importedComponent( () => import('../../Container/Search/Search'));
 const ContactUs = importedComponent( () => import('../../Container/ContactUs/ContactUs'));
+const GetRecall = importedComponent( () => import('../../Container/Subpage/getRecall'));
 
-const lng = languageJson[localStorage.lang];
-const lang = language[localStorage.lang];
 
 export default class Main extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      languageDetails: null
+      languageDetails: null,
     }
   }
 
-  pathControl() {
+  pathControl = () => {
+    const lang = language[localStorage.lang];
     const element = document.getElementsByTagName('body')[0]
-    
-    if (this.props.location.pathname == '/'+lng.mainurl.title[5]) {
+    const splitUrl = window.location.pathname.split('/')
+
+    if (window.location.pathname === '/' + lang[6].mainurl.title[5]) {
       element.classList.add('Map')
     } else {
       element.classList.remove('Map')
     }
   }
-  componentDidMount = async(props) => {
+  componentWillMount = () => {
+  }
+  componentDidMount = () => {
+ 
+    function showImages(el) {
+      var windowHeight = jQuery( window ).height();
+      jQuery(el).each(function(){
+          var thisPos = jQuery(this).offset().top;
+  
+          var topOfWindow = jQuery(window).scrollTop();
+          if (topOfWindow + windowHeight - 200 > thisPos ) {
+            jQuery(this).addClass("animate__fadeIn");
+          }
+      });
+  }
+  
+  // if the image in the window of browser when the page is loaded, show that image
+  jQuery(document).ready(function(){
+      showImages('.star');
+  });
+  
+  // if the image in the window of browser when scrolling the page, show that image
+  jQuery(window).scroll(function() {
+      showImages('.star');
+  });
+
+
+    this.pathControl()
   }
   componentDidUpdate = (prevProps, prevState) => {
-
+    this.pathControl()
   }
   render()
   {
-
+    const lang = language[localStorage.lang];
+    
     return (
-      <div className="App">
+      <div className="App show-on-scroll">
         { 
           lang !== undefined
           ? 
@@ -77,10 +107,11 @@ export default class Main extends React.Component {
             <Route path={lang[2].link+"/:pagename/:subpage?/:subdetails?"} component={Subpage}/>
             <Route path={lang[3].link+"/:pagename/:subpage?/:subdetails?"} component={Subpage}/>
             <Route path={lang[4].link+"/:pagename/:subpage?/:subdetails?"} component={Subpage}/>
-            <Route path={"/"+lng.mainurl.title[5]} exact component={MapLocation} />
-            <Route path={"/"+lng.mainurl.title[6]+"&=:searchText"} component={Search} />
+            <Route path={"/"+lang[6].mainurl.title[5]} exact component={MapLocation} />
+            <Route path={"/"+lang[6].mainurl.title[6]+"&=:searchText"} component={Search} />
             <Route path={lang[2].sub[0].sub[0].sub[3].link} component={PriceList} />
             <Route path={lang[2].sub[1].sub[0].sub[3].link} component={PriceList} />
+            <Route path={'/Sasi'} component={GetRecall} />
           </Switch>
                     : ''
                   }
@@ -88,3 +119,4 @@ export default class Main extends React.Component {
     );
   }
 }
+

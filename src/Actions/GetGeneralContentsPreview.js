@@ -1,9 +1,9 @@
 import { getDefaultNormalizer } from '@testing-library/react';
 import axios from 'axios';
-import {API, GetGeneralContent, Headers} from '../Services/config';
+import {API, GetGeneralContentPreview, Headers} from '../Services/config';
 
-export async function GetGeneralContents (langid, routevalue) {
-  let a = await axios.get(`${API}${GetGeneralContent}`,
+export async function GetGeneralContentsPreviews (langid, routevalue, previewID) {
+  let a = await axios.get(`${API}${GetGeneralContentPreview}`,
   {
     headers : {
       'Content-Type' : 'application/json; charset=utf-8',
@@ -12,7 +12,8 @@ export async function GetGeneralContents (langid, routevalue) {
     },
     params: {
       'languageId': langid,
-      'pageRouteValue': routevalue
+      'pageRouteValue': routevalue,
+      'previewId' : previewID
     }
   }
   ).then((response) => {

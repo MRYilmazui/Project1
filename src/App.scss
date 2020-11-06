@@ -30,3 +30,120 @@
         border-radius: 5px;
     }
 }
+
+
+@media only screen and (max-width: 768px) {
+    html {
+        .Menu {
+
+            nav {
+
+                div.dropdown-item-list {
+                    width: 100%;
+
+                    .dropdown-list {
+                        background-color: #efefef !important;
+                        position: relative !important;
+                        left: 0px;
+                        top: 0px !important;
+                        background-size: 20% !important;
+
+                        div.dropdown-list {
+                            background-color: #ccc !important;
+                            left: 0px !important;
+                            width: 100%;
+                            margin: 0px !important;
+                            box-shadow: 0px 0px 0px 0px #000;
+                            background-size: 20% !important;
+                        }
+                    }
+                }
+            }
+            .Language,
+            .Search {
+            }
+        }
+        .Footer {
+            background-size: auto 48%;
+            background-position: -150px bottom;
+            .Menu {
+
+                button {
+                    display: none !important;
+                }
+                nav {
+                    display: block !important;
+                    background: transparent;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+        .SubCategories {
+
+            .subcategory {
+
+                .text {
+                    padding: 20px 40px;
+
+                    h5 {
+                        width: 100%;
+                        float: right;
+                        height: 69px;
+                        margin-left: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:500px) {
+    .Header .logo-section .mercedes-turk {
+        width: 160px !important;
+        background-size: 100%;
+    }
+    .Header .logo-section .mercedes-logo {
+        width: 51px !important;
+        background-size: 100% !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+    }
+    .AnnouncementDetails {
+        padding: 20px;
+    }
+    .aboutus,
+    .mainposts,
+    .announcementslider,
+    .Subpage {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .announcementslider {
+
+        img {
+            width: 100%;
+        }
+    }
+    .slick-arrow {
+        margin-top: 53px;
+    }
+    .search-details {
+        
+        .search-input {
+            width: 70%;
+            left: 50%;
+            margin-left: -35%;
+        }
+    }
+    .SliderComp .slick-list .slick-slide div > div div.desc {
+        margin-left: 20px !important;
+    }
+    .SliderComp .slick-list .slick-slide div > div div.desc div.title {
+        font-size: 12px !important;
+    }
+    .SubCategories .subcategory .subcategory-image {
+        height: auto !important;
+    }
+}
