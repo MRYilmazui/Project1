@@ -45,7 +45,7 @@ export default class SubPosts extends Component {
 
     return (
       <div className="SubPosts">
-        <BreadCrumbNav mainpage={BC}/>
+        {/*<BreadCrumbNav mainpage={BC}/>*/}
         
         {this.props.data !== null
           ?  

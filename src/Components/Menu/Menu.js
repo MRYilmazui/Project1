@@ -108,7 +108,7 @@ export default class Menu extends Component {
 
         subMenu.push(
           <div>
-            <NavLink activeClassName="active" to={param[i].link}>{param[i].name}</NavLink>
+            <NavLink activeClassName="active" exact  to={param[i].link}>{param[i].name}</NavLink>
 
             <div className="dropdown-list">
               {this.menuSubSubBuild(param[i].sub)}
@@ -118,7 +118,7 @@ export default class Menu extends Component {
 
       } else {
         subMenu.push(
-          <NavLink activeClassName="active" to={param[i].link}>{param[i].name}</NavLink>
+          <NavLink activeClassName="active" exact to={param[i].link}>{param[i].name}</NavLink>
         )
       }
       
@@ -131,22 +131,30 @@ export default class Menu extends Component {
     const menuConst = [];
 
     for (let i = 0; i < lang.length-1; i++) {
-      if(lang[i].sub !== null) {
-        menuConst.push(
-          <div className="dropdown-item-list">
-            <NavLink activeClassName="active" exact to={lang[i].link}>{lang[i].name}</NavLink>
-  
-            <div className="dropdown-list">
-              {this.menuSubBuild(lang[i].sub)}
-    
-            </div>
-          </div>
-        )
-      } else {
+      if(lang[i].link === '/'){
         menuConst.push(
           <NavLink activeClassName="active" exact to={lang[i].link}>{lang[i].name}</NavLink>
         )
+      } else {
+
+        if(lang[i].sub !== null) {
+          menuConst.push(
+            <div className="dropdown-item-list">
+              <NavLink activeClassName="active" to={lang[i].link}>{lang[i].name}</NavLink>
+    
+              <div className="dropdown-list">
+                {this.menuSubBuild(lang[i].sub)}
+      
+              </div>
+            </div>
+          )
+        } else {
+          menuConst.push(
+            <NavLink activeClassName="active" to={lang[i].link}>{lang[i].name}</NavLink>
+          )
+        }
       }
+      
     }
 
     return menuConst;

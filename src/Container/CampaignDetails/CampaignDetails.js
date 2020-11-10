@@ -89,7 +89,7 @@ export default class CampaignDetails extends Component {
             <Helmet>
               <title>{this.state.getCampaign.title}</title>
             </Helmet>
-            <BreadCrumbNav mainpage={breadcrumbData}/>
+            {/*<BreadCrumbNav mainpage={breadcrumbData}/>*/}
             
             <Slider {...settings}>
               {this.imageRepeater()}

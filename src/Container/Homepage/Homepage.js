@@ -72,7 +72,7 @@ export default class Homepage extends Component {
                   <SliderComp data={this.state.GetMainPage.slider} />
 
                   <div className="container">
-                    <div className="aboutus animate__animated  star animate__fast star" 
+                    <div className="aboutus" 
                     style ={ { backgroundImage: "url(" + this.state.GetMainPage.mainPageSections.sectionOneImageUrl + ")" } }>
                     
                       <h3>

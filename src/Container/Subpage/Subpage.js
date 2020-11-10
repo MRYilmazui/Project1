@@ -209,7 +209,7 @@ export default class Subpage extends Component {
           <Helmet>
             <title>{this.state.content.title}</title>
           </Helmet>
-          <BreadCrumbNav mainpage={breadcrumbData} title={this.state.content.title} />
+          {/*<BreadCrumbNav mainpage={breadcrumbData} title={this.state.content.title} />*/}
 
           <div className="details">
             <div className="topside">

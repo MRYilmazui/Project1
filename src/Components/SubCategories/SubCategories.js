@@ -44,7 +44,7 @@ export default class SubCategories extends Component {
 
     return (
       <div className="SubCategories">
-        <BreadCrumbNav mainpage={BC}/>
+        {/*<BreadCrumbNav mainpage={BC}/>*/}
 
         {this.props.data !== null
           ?  

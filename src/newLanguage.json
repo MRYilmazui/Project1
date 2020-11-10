@@ -17,7 +17,7 @@
             },
             {"name": "Ürünlerimiz", "link": "/Urunlerimiz", "value":"products", "sub": 
                 [
-                    {"name": "Kamyon", "link": "/Urunlerimiz/Kamyon", "value":"", "sub": [
+                    {"name": "Kamyon", "link": "/Urunlerimiz/Kamyon", "value":"truck", "sub": [
                         {"name": "Satış", "link": "/Urunlerimiz/Kamyon/Satis", "value":"truck_sales", "sub": [
                             {"name": "Danışmanlık ve İletişim", "link": "/Urunlerimiz/Kamyon/Satis/Danismanlik-ve-İletisim", "value":"truck_consultingandcommunication", "sub": null},
                             {"name": "Truck Store", "link": "/Urunlerimiz/Kamyon/Satis/Truck-Store", "value":"truck_truckstore", "sub": null},
@@ -40,7 +40,7 @@
                             
                         ]}
                     ]},
-                    {"name": "Otobüs", "link": "/Urunlerimiz/Otobus", "value":"", "sub": [
+                    {"name": "Otobüs", "link": "/Urunlerimiz/Otobus", "value":"bus", "sub": [
                         {"name": "Satış", "link": "/Urunlerimiz/Otobus/Satis", "value":"bus_sales", "sub": [
                             {"name": "Danışmanlık ve İletişim", "link": "/Urunlerimiz/Otobus/Satis/Danismanlik-ve-İletisim", "value":"bus_consultingandcommunication", "sub": null},
                             {"name": "Truck Store", "link": "/Urunlerimiz/Otobus/Satis/Truck-Store", "value":"bus_busstore", "sub": null},

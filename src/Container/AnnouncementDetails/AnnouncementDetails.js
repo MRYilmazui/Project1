@@ -107,7 +107,8 @@ export default class AnnouncementDetails extends Component {
             <Helmet>
               <title>{this.state.GetAnnouncementDetailsPage.title}</title>
             </Helmet>
-            <BreadCrumbNav mainpage={BC} title={this.state.GetAnnouncementDetailsPage.title}/>
+            
+            {/*<BreadCrumbNav mainpage={BC} title={this.state.GetAnnouncementDetailsPage.title}/>*/}
             
             <Slider {...settings}>
               {this.imageRepeater()}

@@ -34,7 +34,7 @@ export default class PriceList extends Component {
         if(this.state.PriceList.priceses[i].isSpecial === true){
           NewsSlider.push(
 
-            <tr id={this.state.PriceList.priceses[i].id} >
+            <tr id={this.state.PriceList.priceses[i].id} className="notSpecial">
               <td>
                 <div className="img">
                   { this.state.PriceList.priceses[i].vehicleImageUrl !== null ?
@@ -52,16 +52,16 @@ export default class PriceList extends Component {
               </td>
               <td>{this.state.PriceList.priceses[i].productType}</td>
               <td>
-                <NumberFormat value={this.state.PriceList.priceses[i].taxFree} displayType={'text'} thousandSeparator={true} renderText={value => <div>{value}</div>} />
+                <NumberFormat value={this.state.PriceList.priceses[i].taxFree} displayType={'text'} thousandSeparator={'.'} decimalSeparator={','} renderText={value => <div>{value}</div>} />
               </td>
               <td>
-                <NumberFormat value={this.state.PriceList.priceses[i].otv} displayType={'text'} thousandSeparator={true} renderText={value => <div>{value}</div>} />
+                <NumberFormat value={this.state.PriceList.priceses[i].otv} displayType={'text'} thousandSeparator={'.'} decimalSeparator={','} renderText={value => <div>{value}</div>} />
               </td>
               <td>
-                <NumberFormat value={this.state.PriceList.priceses[i].kdv} displayType={'text'} thousandSeparator={true} renderText={value => <div>{value}</div>} />
+                <NumberFormat value={this.state.PriceList.priceses[i].kdv} displayType={'text'} thousandSeparator={'.'} decimalSeparator={','} renderText={value => <div>{value}</div>} />
               </td>
               <td>
-                <NumberFormat value={this.state.PriceList.priceses[i].kdV_OTV} displayType={'text'} thousandSeparator={true} renderText={value => <div>{value}</div>} />
+                <NumberFormat value={this.state.PriceList.priceses[i].kdV_OTV} displayType={'text'} thousandSeparator={'.'} decimalSeparator={','} renderText={value => <div>{value}</div>} />
               </td>
               <td>
                 {this.state.PriceList.priceses[i].currencyUnit}
@@ -105,16 +105,16 @@ export default class PriceList extends Component {
               </td>
               <td>{this.state.PriceList.priceses[i].productType}</td>
               <td>
-                <NumberFormat value={this.state.PriceList.priceses[i].taxFree} displayType={'text'} thousandSeparator={true} renderText={value => <div>{value}</div>} />
+                <NumberFormat value={this.state.PriceList.priceses[i].taxFree} displayType={'text'} thousandSeparator={'.'} decimalSeparator={','} renderText={value => <div>{value}</div>} />
               </td>
               <td>
-                <NumberFormat value={this.state.PriceList.priceses[i].otv} displayType={'text'} thousandSeparator={true} renderText={value => <div>{value}</div>} />
+                <NumberFormat value={this.state.PriceList.priceses[i].otv} displayType={'text'} thousandSeparator={'.'} decimalSeparator={','} renderText={value => <div>{value}</div>} />
               </td>
               <td>
-                <NumberFormat value={this.state.PriceList.priceses[i].kdv} displayType={'text'} thousandSeparator={true} renderText={value => <div>{value}</div>} />
+                <NumberFormat value={this.state.PriceList.priceses[i].kdv} displayType={'text'} thousandSeparator={'.'} decimalSeparator={','} renderText={value => <div>{value}</div>} />
               </td>
               <td>
-                <NumberFormat value={this.state.PriceList.priceses[i].kdV_OTV} displayType={'text'} thousandSeparator={true} renderText={value => <div>{value}</div>} />
+                <NumberFormat value={this.state.PriceList.priceses[i].kdV_OTV} displayType={'text'} thousandSeparator={'.'} decimalSeparator={','} renderText={value => <div>{value}</div>} />
               </td>
               <td>
                 {this.state.PriceList.priceses[i].currencyUnit}

@@ -22,11 +22,20 @@
 .specialPriceList {
 
     .special {
-        display: none;
+        display: none !important;
+    }
+    .notSpecial {
+        display: table-row !important;
     }
 }
 table.price-content {
 
+    .special {
+        display: table-row;
+    }
+    .notSpecial {
+        display: none;
+    }
     thead {
 
         tr {
