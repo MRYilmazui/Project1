@@ -3,7 +3,6 @@ import axios from 'axios';
 import {API, GetNewsDetail, Headers} from '../Services/config';
 
 export async function GetAnnouncementDetails (langid, routevalue) {
-  debugger;
   let a = await axios.get(`${API}${GetNewsDetail}`,
   {
     headers : {

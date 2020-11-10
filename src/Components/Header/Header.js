@@ -19,8 +19,8 @@ export default class Header extends Component {
 
         <div className="logo-section">
           <div className="container">
-            <div className="mercedes-logo"></div>
-            <div className="mercedes-turk"></div>
+            <a href="/" className="mercedes-logo"></a>
+            <a href="/"  className="mercedes-turk"></a>
           </div>
         </div>
         

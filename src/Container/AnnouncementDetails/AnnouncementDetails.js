@@ -69,6 +69,24 @@ export default class AnnouncementDetails extends Component {
       return window.location.pathname = '/'
     }
   }
+
+  componentDidUpdate = async() => {
+    let GetMainPage = await GetMainPageF(localStorage.langid)
+    this.setState({GetMainPage : GetMainPage})
+    let GetAnnouncementDetailsC = null;
+
+    if(window.location.href.split('previewId=')[1] !== undefined){
+      GetAnnouncementDetailsC = await GetAnnouncementDetailsPreviews(localStorage.langid, this.props.match.params.pagename, window.location.href.split('previewId=')[1])
+      this.setState({GetAnnouncementDetailsPage : GetAnnouncementDetailsC})
+    } else {
+      GetAnnouncementDetailsC = await GetAnnouncementDetails(localStorage.langid, this.props.match.params.pagename)
+      this.setState({GetAnnouncementDetailsPage : GetAnnouncementDetailsC})
+    }
+
+    if(this.state.GetMainPage.news[0].id !== GetMainPage.news[0].id) {
+      this.setState({GetMainPage : GetMainPage})
+    }
+  }
   render() {
     const settings = {
       dots: false,
@@ -98,7 +116,7 @@ export default class AnnouncementDetails extends Component {
               <h5>
                 {this.state.GetAnnouncementDetailsPage.title}
               </h5>
-              <i>{this.state.GetAnnouncementDetailsPage.newsDate}</i>
+        <i>{this.state.GetAnnouncementDetailsPage.newsDate.split('T')[0]} / {this.state.GetAnnouncementDetailsPage.newsDate.split('T')[1]}</i>
             </div>
 
             <hr/>
@@ -109,7 +127,7 @@ export default class AnnouncementDetails extends Component {
 
             <hr/>
 
-            <SocialMedia Share={true} />
+            <SocialMedia Share={true} data={this.state.GetAnnouncementDetailsPage} />
 
             <AnnouncementSummary data={this.state.GetMainPage.news}/>
           </div>

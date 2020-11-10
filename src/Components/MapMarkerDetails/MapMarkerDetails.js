@@ -31,9 +31,24 @@ export default function MyComponent(props) {
       <div className="info-type">
         <h5>{props.data.name}</h5>
         <div className="info-type-details">
-          <span>Otomobil Satış</span>
-          <span>Otomobil Satış - Kullanılmış Otomobil</span>
-          <span>Otomobil</span>
+        {
+            props.data.serviceType[0] === '1' && props.data.serviceType[0] !== undefined ?
+            <span>Otomobil Satış</span>
+            :
+            ''
+          }
+          {
+            props.data.serviceType[1] === '2' && props.data.serviceType[1] !== undefined?
+            <span>Otomobil Satış 2. El</span>
+            :
+            ''
+          }
+          {
+            props.data.serviceType[2] === '3' && props.data.serviceType[2] !== undefined ?
+            <span>Servis</span>
+            :
+            ''
+          }
         </div>
       </div>
       <div className="contactus">

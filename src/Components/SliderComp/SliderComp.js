@@ -29,6 +29,8 @@ export default class SliderComp extends Component {
               {this.props.data[i].title}
               </div>
               <p>{this.props.data[i].description}</p>
+
+              <a href={this.props.data[i].redirectUrl}>Detaylar</a>
             </div>
           </div>
         )

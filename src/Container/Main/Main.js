@@ -103,10 +103,10 @@ export default class Main extends React.Component {
             <Route path={'/'+lang[6].mainurl.title[0] + '/' + lang[6].mainurl.title[1]+"/:pagename"} component={AnnouncementDetails}/>
             <Route path={"/"+lang[6].mainurl.title[2]+"/:pagename"} component={CampaignList}/>
             <Route path={"/"+lang[6].mainurl.title[3]+"/:pagename/:subname"} component={CampaignDetails}/>
-            <Route path={lang[1].link+"/:pagename/:subpage?/:subdetails?"} component={Subpage}/>
-            <Route path={lang[2].link+"/:pagename/:subpage?/:subdetails?"} component={Subpage}/>
-            <Route path={lang[3].link+"/:pagename/:subpage?/:subdetails?"} component={Subpage}/>
-            <Route path={lang[4].link+"/:pagename/:subpage?/:subdetails?"} component={Subpage}/>
+            <Route path={lang[1].link+"/:pagename?/:subpage?/:subdetails?"} component={Subpage}/>
+            <Route path={lang[2].link+"/:pagename?/:subpage?/:subdetails?"} component={Subpage}/>
+            <Route path={lang[3].link+"/:pagename?/:subpage?/:subdetails?"} component={Subpage}/>
+            <Route path={lang[4].link+"/:pagename?/:subpage?/:subdetails?"} component={Subpage}/>
             <Route path={"/"+lang[6].mainurl.title[5]} exact component={MapLocation} />
             <Route path={"/"+lang[6].mainurl.title[6]+"&=:searchText"} component={Search} />
             <Route path={lang[2].sub[0].sub[0].sub[3].link} component={PriceList} />

@@ -173,9 +173,17 @@ export default function MapDetailsInner() {
           :
             ''
         }
-        <button className="menuNavButton"></button>
-        <a className="backside" href="/" >Back</a>
-        <MapFilterDetails update={updateMapDetails} updateDetails={updateDetails}  />
+        { 
+          activate === false ?
+          <>
+            <button className="menuNavButton"></button>
+            <a className="backside" href="/" >Back</a>
+            <MapFilterDetails update={updateMapDetails} updateDetails={updateDetails}  />
+          </>
+          :
+            ''
+        }
+
       </div>
       <div className="col-lg-9 float-left pl-0 pr-0 map-details">
         {

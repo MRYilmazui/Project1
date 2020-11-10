@@ -20,6 +20,7 @@ const Footer = importedComponent( () => import('./Components/Footer/Footer'));
 getLanguage();
 
 const lng = languageJson[localStorage.lang];
+let updatePage = false;
 
 class App extends React.Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class App extends React.Component {
     this.state = {
       LoaderDetails: false,
       GetLanguageState: null,
-      updatePage: null
+      updatePage: false
     }
   }
   pathControl() {
@@ -50,6 +51,9 @@ class App extends React.Component {
 
   componentDidMount = async() => {
   }
+
+  componentWillUpdate = (prevProps, prevState) => {
+  }
   componentDidUpdate = (prevProps, prevState) => {
   }
   
@@ -64,6 +68,12 @@ class App extends React.Component {
           <Main />
           <Footer />
         </div>
+        {
+          updatePage === true ?
+            <Loader />
+          :
+            ''
+        }
       </div>
     );
   }

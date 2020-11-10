@@ -17,7 +17,7 @@ import './Homepage.scss';
 import languageJson from '../../language.json';
 
 const lng = languageJson[localStorage.lang];
-
+let styles = {}
 export default class Homepage extends Component {
   constructor(props) {
     super(props)
@@ -41,8 +41,11 @@ export default class Homepage extends Component {
         this.setState({GetMainPage : GetMainPage})
       });
     }
-
-
+    styles = {
+      backgroundImage: 'url(' + this.state.GetMainPage.mainPageSections.sectionOneImageUrl + ') no-repeat !important', 
+      backgroundPosition: 'right !important',
+      backgroundSize: 'auto 107% !important'
+    }
   }
 
   componentDidUpdate = async() => {
@@ -64,12 +67,13 @@ export default class Homepage extends Component {
                 ?  
                 <div>       
                   <Helmet>
-                    <title>{'Anasayfa'}</title>
+                    <title>{'Anasayfa - Mercedes-Benz Trucks - Trucks you can trust'}</title>
                   </Helmet>
                   <SliderComp data={this.state.GetMainPage.slider} />
 
                   <div className="container">
-                    <div className="aboutus animate__animated  star animate__fast star">
+                    <div className="aboutus animate__animated  star animate__fast star" 
+                    style ={ { backgroundImage: "url(" + this.state.GetMainPage.mainPageSections.sectionOneImageUrl + ")" } }>
                     
                       <h3>
                         {this.state.GetMainPage.mainPageSections.sectionOneTitle}

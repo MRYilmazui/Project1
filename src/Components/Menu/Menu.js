@@ -134,7 +134,7 @@ export default class Menu extends Component {
       if(lang[i].sub !== null) {
         menuConst.push(
           <div className="dropdown-item-list">
-            <NavLink activeClassName="active" onClick={e => e.preventDefault()} to={lang[i].link}>{lang[i].name}</NavLink>
+            <NavLink activeClassName="active" exact to={lang[i].link}>{lang[i].name}</NavLink>
   
             <div className="dropdown-list">
               {this.menuSubBuild(lang[i].sub)}
@@ -144,7 +144,7 @@ export default class Menu extends Component {
         )
       } else {
         menuConst.push(
-          <NavLink activeClassName="active" to={lang[i].link}>{lang[i].name}</NavLink>
+          <NavLink activeClassName="active" exact to={lang[i].link}>{lang[i].name}</NavLink>
         )
       }
     }

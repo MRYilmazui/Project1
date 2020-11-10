@@ -16,8 +16,6 @@ export default class Language extends Component {
     localStorage.lang = e;
     localStorage.langid = id;
 
-    debugger;
-
     window.location.pathname = '/'
   }
 

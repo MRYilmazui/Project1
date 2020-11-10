@@ -7,6 +7,24 @@
     color: $blue !important;
     cursor: pointer
 }
+.active-popup {
+    z-index: 9999 !important;
+}
+.specialPrice {
+    float: right;
+    padding: 10px 20px;
+    color: #fff !important;
+    border-radius: 5px;
+    background: #007bff;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.specialPriceList {
+
+    .special {
+        display: none;
+    }
+}
 table.price-content {
 
     thead {

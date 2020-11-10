@@ -3,7 +3,7 @@ export const SKey = 'e7dff51e117448e1a56e301912d70d83';
 export const OCP = 'true';
 
 /* EndPoints */
-export const GetCities = '/api/UI/getCities';
+export const GetCities = '/api/UI/GetCities';
 
 export const GetLanguages = '/api/UI/GetLanguages';
 

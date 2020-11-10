@@ -9,6 +9,8 @@ export async function GetMainPageF (langid) {
       'Content-Type' : 'application/json; charset=utf-8',
       'Ocp-Apim-Subscription-Key': 'e7dff51e117448e1a56e301912d70d83',
       'Ocp-Apim-Trace': 'true',
+      'Access-Control-Allow-Origin' : '*', // Required for CORS support to work
+      'Access-Control-Allow-Credentials' : true // Required for cookies, authorization headers with HTTPS
     },
     params: {
       'languageId': langid

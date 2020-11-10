@@ -2,7 +2,7 @@
         "tr": 
         [
             {"name": "Anasayfa", "link": "/", "value": "/", "sub": null},
-            {"name": "Kurumsal", "link": "/Kurumsal", "value":"", "sub": 
+            {"name": "Kurumsal", "link": "/Kurumsal", "value":"corporate", "sub": 
                 [
                     {"name": "Hakkımızda", "link": "/Kurumsal/Hakkimizda", "value":"aboutus", "sub": [
                         {"name": "Çevre ve Biz", "link": "/Kurumsal/Hakkimizda/Cevre-ve-Biz", "value":"environmentandus", "sub": null},
@@ -65,11 +65,11 @@
                     ]}
                 ]
             },
-            {"name": "İnnovasyon ve Sürdürülebilirlik", "link": "/Innovasyon-ve-Surdurulebilirlik", "value":"innovationandsustainability", "sub": 
+            {"name": "İnovasyon ve Sürdürülebilirlik", "link": "/Inovasyon-ve-Surdurulebilirlik", "value":"innovationandsustainability", "sub": 
                 [
-                    {"name": "Verimli ve Emisyonsuz", "link": "/Innovasyon-ve-Surdurulebilirlik/Verimli-ve-Emisyonsuz", "value":"efficientandemissionfree", "sub": null},
-                    {"name": "Güvenli ve Otomatik", "link": "/Innovasyon-ve-Surdurulebilirlik/Guvenli-ve-Otomatik", "value":"safeandautomatic", "sub": null},
-                    {"name": "Güvenilir ve Bağlı", "link": "/Innovasyon-ve-Surdurulebilirlik/Guvenilir-ve-Bagli", "value":"reliableandconnected", "sub": null}
+                    {"name": "Verimli ve Emisyonsuz", "link": "/Inovasyon-ve-Surdurulebilirlik/Verimli-ve-Emisyonsuz", "value":"efficientandemissionfree", "sub": null},
+                    {"name": "Güvenli ve Otomatik", "link": "/Inovasyon-ve-Surdurulebilirlik/Guvenli-ve-Otomatik", "value":"safeandautomatic", "sub": null},
+                    {"name": "Güvenilir ve Bağlı", "link": "/Inovasyon-ve-Surdurulebilirlik/Guvenilir-ve-Bagli", "value":"reliableandconnected", "sub": null}
                 ]
             },
             {"name": "Kariyer", "link": "/Kariyer", "value":"career", "sub": 

@@ -67,23 +67,31 @@ export default class SocialMedia extends Component {
     if(this.state.location !== window.location.href) {
       this.setState({location: window.location.href})
     }
+    
     const follow = <div>
       <FacebookShareButton 
+        title = {this.props.title} 
         url={this.state.location}>
           <FacebookIcon size={36} />
       </FacebookShareButton>
-      <LinkedinShareButton url={this.state.location}>
+      <LinkedinShareButton 
+        title = {this.props.title} 
+        url={this.state.location}>
           <LinkedinIcon size={36} />
       </LinkedinShareButton>
-      <TwitterShareButton url={this.state.location}>
+      <TwitterShareButton 
+        title = {this.props.title} 
+        url={this.state.location}>
           <TwitterIcon size={36} />
       </TwitterShareButton>
-      <WhatsappShareButton url={this.state.location}>
+      <WhatsappShareButton title = {this.props.title} 
+        url={this.state.location}>
           <WhatsappIcon size={36} />
       </WhatsappShareButton>
     </div>; 
 
     return follow;
+
   }
   render() {
 
