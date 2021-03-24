@@ -25,15 +25,26 @@
         margin-bottom: -6px;
     }
 
+    .slick-list .slick-active.slick-current {
+        visibility: visible;
+
+        .desc {
+            display: block !important;
+        }
+    }
+    .desc {
+        display: none !important;
+    }
     .slick-list {
 
         .slick-slide {
+            visibility: hidden;
 
             div > div {
                 outline: none;
 
                 div.desc {
-                    margin-top: -230px;
+                    margin-top: -160px;
                     margin-left: 70px;
                     position: relative;
                     top: -30px;
@@ -63,6 +74,10 @@
                         border-radius: 5px;
                         line-height: 9px;
                         height: 32px;
+
+                        &.nullElementSlider {
+                            background: transparent !important;
+                        }
                     }
                 }
                         

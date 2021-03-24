@@ -92,7 +92,7 @@ export default class Menu extends Component {
     for (let i = 0; i < param.length; i++) {
 
         subMenu.push(
-          <NavLink activeClassName="active" to={param[i].link}>{param[i].name}</NavLink>
+          <NavLink activeClassName="active" key={i}  to={param[i].link}>{param[i].name}</NavLink>
         )
       
     }
@@ -108,7 +108,7 @@ export default class Menu extends Component {
 
         subMenu.push(
           <div>
-            <NavLink activeClassName="active" exact  to={param[i].link}>{param[i].name}</NavLink>
+            <NavLink activeClassName="active" exact key={i}  to={param[i].link}>{param[i].name}</NavLink>
 
             <div className="dropdown-list">
               {this.menuSubSubBuild(param[i].sub)}
@@ -140,7 +140,7 @@ export default class Menu extends Component {
         if(lang[i].sub !== null) {
           menuConst.push(
             <div className="dropdown-item-list">
-              <NavLink activeClassName="active" to={lang[i].link}>{lang[i].name}</NavLink>
+              <NavLink activeClassName="active" key={i}  to={lang[i].link}>{lang[i].name}</NavLink>
     
               <div className="dropdown-list">
                 {this.menuSubBuild(lang[i].sub)}

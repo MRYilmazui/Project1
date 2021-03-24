@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { DropdownButton, Dropdown } from 'react-bootstrap';
 import './SocialMedia.scss';
 import { GetSocialMedias } from '../../Actions/GetSocialMedia'
+import { Helmet } from 'react-helmet'
 
 import {
   FacebookShareButton,
@@ -70,33 +71,44 @@ export default class SocialMedia extends Component {
 
     const follow = <div>
       <FacebookShareButton 
-        title = {this.props.data.title} 
+        title={this.props.data.title}
         url={this.state.location}>
           <FacebookIcon size={36} />
       </FacebookShareButton>
       <LinkedinShareButton 
-        title = {this.props.data.title} 
+        title={this.props.data.title}
         url={this.state.location}>
           <LinkedinIcon size={36} />
       </LinkedinShareButton>
       <TwitterShareButton 
-        title = {this.props.data.title} 
+        title={this.props.data.title}
         url={this.state.location}>
           <TwitterIcon size={36} />
       </TwitterShareButton>
-      <WhatsappShareButton title = {this.props.data.title} 
+      <WhatsappShareButton 
+        title={this.props.data.title}
         url={this.state.location}>
           <WhatsappIcon size={36} />
       </WhatsappShareButton>
     </div>; 
 
     return follow;
-
   }
   render() {
 
     return (
       <div className="SocialMedia">
+        { this.props.data !== undefined ?
+          <Helmet>
+            <title>{this.props.data.title}</title>
+            <meta name="description"        content={this.props.data.listDescription} />
+            <meta property="og:title"       content={this.props.data.title} />
+            <meta property="og:description" content={this.props.data.listDescription} />
+          </Helmet>
+        :
+          ''
+        }
+
         <h5>Social Media</h5>
 
         {this.props.Follow ? (

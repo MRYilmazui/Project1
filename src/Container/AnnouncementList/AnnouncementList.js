@@ -24,11 +24,14 @@ export default class AnnouncementList extends Component {
     let GetAnnouncementListC = await GetAnnouncementList(localStorage.langid, "1")
     this.setState({GetAnnouncementListPage : GetAnnouncementListC.data})
   }
-  componentDidUpdate = async() => {
-    let GetAnnouncementListC = await GetAnnouncementList(localStorage.langid, "1")
+  componentDidUpdate = async(prevProps, prevState, snapshot) => {
 
-    if(GetAnnouncementListC.data[0].id !== this.state.GetAnnouncementListPage[0].id){
-      this.setState({GetAnnouncementListPage : GetAnnouncementListC.data})
+    if(prevProps.location.pathname !== window.location.pathname){
+      let GetAnnouncementListC = await GetAnnouncementList(localStorage.langid, "1")
+
+      if(GetAnnouncementListC.data[0].id !== this.state.GetAnnouncementListPage[0].id){
+        this.setState({GetAnnouncementListPage : GetAnnouncementListC.data})
+      }
     }
   }
   render() {

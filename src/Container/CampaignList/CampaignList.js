@@ -36,16 +36,18 @@ export default class CampaignList extends Component {
     this.setState({getCampaignListPage : getCampaigns})
   }
 
-  componentDidUpdate = async() => {
-    const name = '';
-    this.name = this.props.match.params.pagename
+  componentDidUpdate = async(prevProps, prevState, snapshot) => {
+    if(prevProps.location.pathname !== window.location.pathname){
+      const name = '';
+      this.name = this.props.match.params.pagename
 
-    const pageValue = findValue(lang, this.name, window.location.pathname)
+      const pageValue = findValue(lang, this.name, window.location.pathname)
 
-    let getCampaigns = await GetCampaignLists(localStorage.langid, pageValue)
+      let getCampaigns = await GetCampaignLists(localStorage.langid, pageValue)
 
-    if(this.state.getCampaignListPage.data[0].id !== getCampaigns.data[0].id) {
-      this.setState({getCampaignListPage : getCampaigns})
+      if(this.state.getCampaignListPage.data[0].id !== getCampaigns.data[0].id) {
+        this.setState({getCampaignListPage : getCampaigns})
+      }
     }
   }
   render() {

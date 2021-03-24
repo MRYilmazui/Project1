@@ -83,27 +83,6 @@ constructor(props) {
   }
 
   componentDidMount = async() => {
-
-    
-
-    
-    $('.nav.nav-tabs a').on('click', function (event) {
-      event.preventDefault();
-      
-      $('li').removeClass('active');
-      $(this).parent().addClass('active');
-      $('.tab-content div').hide();
-      $($(this).attr('href')).show();
-    });
-    $('.nav.nav-tabs li:first a').trigger('click'); // Default
-
-    $('.overlay').click(function(){
-      $('.popup-details').addClass('d-none')
-    })
-
-    $('.footerBottom').click(function(){
-      $('.popup-details').removeClass('d-none')
-    })
   }
   async postData (data) {
     const GetGeneralContentsPage = await GetRecalls(data);
@@ -160,6 +139,7 @@ constructor(props) {
 
     return (
       <div className="Subpage">
+        <img src="https://tcorpblobbackupstorage.blob.core.windows.net/tcorpblob/img72020-10-2220201022t233810106_2020-11-0920201109T143025906.png" alt="" />
         <div className="container sasi">
           <label htmlFor="">Şasi Numarası</label>
           <input type="text" value={this.state.inputValue} onChange={this.handleChange} />

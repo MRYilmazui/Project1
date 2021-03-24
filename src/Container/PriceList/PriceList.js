@@ -21,7 +21,8 @@ export default class PriceList extends Component {
     super(props)
 
     this.state = {
-      PriceList: null
+      PriceList: null,
+      ModalDetails : null
     }
   }
   TableRepeater (e) {
@@ -73,7 +74,7 @@ export default class PriceList extends Component {
                   </Dropdown.Toggle>
   
                   <Dropdown.Menu>
-                    <span className='footerBottom2'>Ödeme Koşulları</span>
+                    <span className='footerBottom2' onClick={()=>this.modalDetailsFullfilled(this.state.PriceList.priceses[i])}>Ödeme Koşulları</span>
                     <a href={this.state.PriceList.priceses[i].brochureUrl} class="brochure" download>
                       Broşür İndir
                     </a>
@@ -117,16 +118,13 @@ export default class PriceList extends Component {
                 <NumberFormat value={this.state.PriceList.priceses[i].kdV_OTV} displayType={'text'} thousandSeparator={'.'} decimalSeparator={','} renderText={value => <div>{value}</div>} />
               </td>
               <td>
-                {this.state.PriceList.priceses[i].currencyUnit}
-              </td>
-              <td>
                 <Dropdown>
                   <Dropdown.Toggle variant="success" id="moreButton">
                     Dropdown Button
                   </Dropdown.Toggle>
   
                   <Dropdown.Menu>
-                    <span className='footerBottom2'>Ödeme Koşulları</span>
+                    <span className='footerBottom2' onClick={()=>this.modalDetailsFullfilled(this.state.PriceList.priceses[i])}>Ödeme Koşulları</span>
                     <a href={this.state.PriceList.priceses[i].brochureUrl} class="brochure" download>
                       Broşür İndir
                     </a>
@@ -152,6 +150,13 @@ export default class PriceList extends Component {
 
 
     return NewsSlider;
+  }
+
+  modalDetailsFullfilled (e) {
+
+    if(e !== null && e !== undefined){
+      this.setState({modalDetailsFullfilled: e.paymentPlan})
+    }
   }
   
   componentDidMount = async() => {
@@ -224,18 +229,16 @@ export default class PriceList extends Component {
             <Slider {...settings}>
               
             </Slider>
-            <a href="javascript:void(0)" className='specialPrice' onClick={this.TableRepeater('Special')}>Özel Fiyat Listesi</a>
 
-            <table className="table table-borderless price-content">
+            <table className="table table-borderless price-content table-responsive">
                 <thead>
                   <tr>
-                    <th scope="col">Model</th>
-                    <th scope="col">Model Tipi</th>
-                    <th scope="col">Vergi</th>
-                    <th scope="col">ÖTV</th>
-                    <th scope="col">KDV</th>
-                    <th scope="col">KDV & ÖTV</th>
-                    <th scope="col">Para Tipi</th>
+                    <th scope="col">Model (TL)</th>
+                    <th scope="col">Model Tipi (TL)</th>
+                    <th scope="col">Vergi (TL)</th>
+                    <th scope="col">ÖTV (TL)</th>
+                    <th scope="col">KDV (TL)</th>
+                    <th scope="col">KDV & ÖTV (TL)</th>
                     <th scope="col"></th>
                   </tr>
                 </thead>
@@ -243,6 +246,8 @@ export default class PriceList extends Component {
                   {this.TableRepeater()}
                 </tbody>
               </table>
+            <a href="javascript:void(0)" className='specialPrice' onClick={this.TableRepeater('Special')}>Özel Fiyat Listesi</a>
+
           </div>
          : ''
         }
@@ -252,6 +257,13 @@ export default class PriceList extends Component {
             {this.state.PriceList !== null
             ? 
             <div>
+              {
+                this.state.modalDetailsFullfilled !== null 
+                && 
+                this.state.modalDetailsFullfilled !== undefined ? 
+                  ReactHtmlParser(this.state.modalDetailsFullfilled)
+                :
+                  ''}
               {ReactHtmlParser(this.state.PriceList.footNote.body)}
             </div>
             :''

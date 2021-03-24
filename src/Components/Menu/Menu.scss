@@ -52,7 +52,27 @@
             }
         }
     }
-    nav {
+    .Menu nav {
         display: none;
+        position: relative;
+        z-index: 999 !important;
+    }
+    .popup-details div.overlay, .popup-details2 div.overlay {
+        position: fixed !important;
+        left: 0px;
+        top: 0px;
+    }
+    .popup-details .tabs, .popup-details2 .tabs {
+        left: 35% !important;
+    }
+    .popup-details2 .tabs {
+        width: 80% !important;
+    }
+    .Menu .menuNavButton {
+        z-index: 9999;
+    }
+    .Search .search-details .search-input {
+        width: 80% !important;
+        left: 27% !important;
     }
 }

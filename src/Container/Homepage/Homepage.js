@@ -30,6 +30,7 @@ export default class Homepage extends Component {
 
   componentDidMount = async() => {
     if(window.location.href.split('previewId=')[1] !== undefined){
+      debugger;
       let GetMainPage = await GetMainPagePreviews(localStorage.langid, window.location.href.split('previewId=')[1])
       this.setState({GetMainPage : GetMainPage})
     } else {
@@ -49,14 +50,7 @@ export default class Homepage extends Component {
   }
 
   componentDidUpdate = async() => {
-    
-    let GetMainPage = await GetMainPageF(localStorage.langid)
-    this.setState({GetMainPage : GetMainPage})
 
-
-    if(this.state.GetMainPage.mainPageSections.id !== GetMainPage.mainPageSections.id) {
-      this.setState({GetMainPage : GetMainPage})
-    }
   }
 
   render() {

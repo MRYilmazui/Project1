@@ -107,7 +107,6 @@ export default function MapFilterDetails (props) {
               <option value="" selected>Şehre Göre Arama</option>
               {loopBuild(cities)}
             </select>
-            <input type="number" placeholder="Posta Kodu" onKeyDown={e => postalCode(e)}/>
             <select name="" id="" onChange={e => selectedDealer(e)}>
               <option value="">Tüm Mercedes-Benz Yetkili Bayileri</option>
               {loopBuild(dealers)}

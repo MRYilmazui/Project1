@@ -8,7 +8,7 @@ a {
 }
 
 h5 {
-    font-family: 'Corporate A Cond Pro'
+    font-family: 'Corporate A Cond Pro Regular'
 }
 
 .container {
@@ -33,4 +33,28 @@ h5 {
   .inline-photo.is-visible {
     opacity: 1;
     transform: rotateZ(-2deg);
+  }
+
+  .accept-cookie {
+    position: fixed;
+    bottom: 0px;
+    z-index: 999999;
+    left: 0px;
+    padding: 20px;
+    background: #000000c4;
+    color: #fff;
+    width: 100%;
+
+    p {
+        width: 80%;
+        float: left;
+        margin-bottom: 0px;
+    }
+    button {
+        float: right;
+        border: 0px;
+        background: #fff;
+        padding: 5px 20px;
+        border-radius: 4px;
+    }
   }

@@ -70,17 +70,23 @@ export default class Main extends React.Component {
             jQuery(this).addClass("animate__fadeIn");
           }
       });
-  }
+    }
   
-  // if the image in the window of browser when the page is loaded, show that image
-  jQuery(document).ready(function(){
-      showImages('.star');
-  });
-  
-  // if the image in the window of browser when scrolling the page, show that image
-  jQuery(window).scroll(function() {
-      showImages('.star');
-  });
+    // if the image in the window of browser when the page is loaded, show that image
+    jQuery(document).ready(function(){
+        showImages('.star');
+
+        jQuery('#closeCookie').on('click', function(){
+            localStorage.cookie = false;
+
+            jQuery('.accept-cookie').addClass('d-none');
+        })
+    });
+    
+    // if the image in the window of browser when scrolling the page, show that image
+    jQuery(window).scroll(function() {
+        showImages('.star');
+    });
 
 
     this.pathControl()
@@ -97,24 +103,35 @@ export default class Main extends React.Component {
         { 
           lang !== undefined
           ? 
-          <Switch>
-            <Route path="/" exact component={Homepage} />
-            <Route path={lang[5].link+"/:counter?"} component={AnnouncementList}/>
-            <Route path={'/'+lang[6].mainurl.title[0] + '/' + lang[6].mainurl.title[1]+"/:pagename"} component={AnnouncementDetails}/>
-            <Route path={"/"+lang[6].mainurl.title[2]+"/:pagename"} component={CampaignList}/>
-            <Route path={"/"+lang[6].mainurl.title[3]+"/:pagename/:subname"} component={CampaignDetails}/>
-            <Route path={lang[1].link+"/:pagename?/:subpage?/:subdetails?"} component={Subpage}/>
-            <Route path={lang[2].link+"/:pagename?/:subpage?/:subdetails?"} component={Subpage}/>
-            <Route path={lang[3].link+"/:pagename?/:subpage?/:subdetails?"} component={Subpage}/>
-            <Route path={lang[4].link+"/:pagename?/:subpage?/:subdetails?"} component={Subpage}/>
-            <Route path={"/"+lang[6].mainurl.title[5]} exact component={MapLocation} />
-            <Route path={"/"+lang[6].mainurl.title[6]+"&=:searchText"} component={Search} />
-            <Route path={lang[2].sub[0].sub[0].sub[3].link} component={PriceList} />
-            <Route path={lang[2].sub[1].sub[0].sub[3].link} component={PriceList} />
-            <Route path={'/Sasi'} component={GetRecall} />
-          </Switch>
-                    : ''
-                  }
+            <Switch>
+              <Route path="/" exact component={Homepage} />
+              <Route path={lang[5].link+"/:counter?"} component={AnnouncementList}/>
+              <Route path={'/'+lang[6].mainurl.title[0] + '/' + lang[6].mainurl.title[1]+"/:pagename"} component={AnnouncementDetails}/>
+              <Route path={"/"+lang[6].mainurl.title[2]+"/:pagename"} component={CampaignList}/>
+              <Route path={"/"+lang[6].mainurl.title[3]+"/:pagename/:subname"} component={CampaignDetails}/>
+              <Route path={lang[1].link+"/:pagename?/:subpage?/:subdetails?"} component={Subpage}/>
+              <Route path={lang[2].link+"/:pagename?/:subpage?/:subdetails?"} component={Subpage}/>
+              <Route path={lang[3].link+"/:pagename?/:subpage?/:subdetails?"} component={Subpage}/>
+              <Route path={lang[4].link+"/:pagename?/:subpage?/:subdetails?"} component={Subpage}/>
+              <Route path={"/"+lang[6].mainurl.title[5]} exact component={MapLocation} />
+              <Route path={"/"+lang[6].mainurl.title[6]+"&=:searchText"} component={Search} />
+              <Route path={lang[2].sub[0].sub[0].sub[3].link} component={PriceList} />
+              <Route path={lang[2].sub[1].sub[0].sub[3].link} component={PriceList} />
+              <Route path={'/Sasi'} component={GetRecall} />
+            </Switch>
+          : ''
+        }
+        { 
+          localStorage.cookie !== 'false'
+          ? 
+          <div className="accept-cookie">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt optio non labore dolorem iste consequatur eveniet, fuga nostrum nam eum pariatur. Officia consequatur debitis velit voluptates voluptate, veniam cum ducimus?
+            </p>
+            <button id="closeCookie">Close</button>
+          </div>
+          : ''
+        }
       </div>
     );
   }

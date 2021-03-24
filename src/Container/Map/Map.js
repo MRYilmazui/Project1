@@ -56,11 +56,12 @@ export default function MapDetailsInner() {
   }
 
   const [ currentPosition, setCurrentPosition ] = useState({
-      lat: 41.3851,
-      lng: 2.1734
+      lat: 41.091320, 
+      lng: 29.061234
   });
 
   const success = position => {
+    debugger;
     const currentPosition = {
       lat: position.coords.latitude,
       lng: position.coords.longitude
@@ -70,6 +71,7 @@ export default function MapDetailsInner() {
 
   React.useEffect(() => {
     changeDisplayFalse()
+    debugger;
     navigator.geolocation.getCurrentPosition(success);
 
     jQuery(document).on('click', '.menuNavButton', function(){

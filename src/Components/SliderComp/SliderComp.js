@@ -15,10 +15,27 @@ export default class SliderComp extends Component {
       activeSlide2: 0
     };
   }
+  getButton (e) {
+    let a = [];
+
+    if(e !== null){
+
+      a.push(
+        <a href={e}>Detaylar</a>
+      )
+    } else {
+      a.push(
+        <a href={e} class="nullElementSlider"></a>
+      )
+    }
+
+
+    return a;
+  }
   
   sliderBuild () {
     const slider = [];
-    
+
     for (let i = 0; i < this.props.data.length; i++) {
       if(this.props.data[i].videoUrl === null) {
         slider.push(
@@ -29,8 +46,7 @@ export default class SliderComp extends Component {
               {this.props.data[i].title}
               </div>
               <p>{this.props.data[i].description}</p>
-
-              <a href={this.props.data[i].redirectUrl}>Detaylar</a>
+              {this.getButton(this.props.data[i].redirectUrl)}
             </div>
           </div>
         )
@@ -48,8 +64,8 @@ export default class SliderComp extends Component {
   render() {
     const settings = {
         dots: false,
-        fade: true,
-        infinite: true,
+        fade: false,
+        infinite: false,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,

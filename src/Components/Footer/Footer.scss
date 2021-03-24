@@ -8,12 +8,11 @@
     font-weight: 300;
     padding-top: 70px;
     padding-bottom: 20px;
-    background-image: url(../../Assets/img/footer-logo.png);
+    background-image: url(/static/media/footer-logo.8aa05b4a.png);
     background-repeat: no-repeat;
-    background-size: auto 150%;
-    background-position: -150px 30px;
+    background-size: auto 80%;
+    background-position: bottom left;
     margin-bottom: -6px;
-    opacity: 0;
     position: relative;
     z-index: 9999;
     
@@ -165,7 +164,7 @@
 .popup-details2 {
 
     .tabs {
-        width: 50%;
+        width: 70%;
     }
 }
 .popup-details,
@@ -180,7 +179,7 @@
 
     .tabs {
         position: absolute;
-        left: 50%;
+        left: 40%;
         top: 20px;
         margin-left: -25%;
         z-index: 99;
@@ -197,7 +196,7 @@
     }
 }
 .popup-details .tabs {
-    width: 50%;
+    width: 70%;
 }
 .tabs-nav {
     border-bottom: 1px solid #efefef;

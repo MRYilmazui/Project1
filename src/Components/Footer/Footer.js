@@ -24,7 +24,7 @@ export default class Footer extends Component {
 
     for (let i = 0; i < this.state.Footer.length; i++) {
       footer.push(
-        <a href="javascript:void(0)" className="footer-item">
+        <a href={"#tab"+i} className="footer-item">
           {this.state.Footer[i].title}
         </a>
       )
@@ -38,7 +38,7 @@ export default class Footer extends Component {
     for (let i = 0; i < this.state.Footer.length; i++) {
       footer.push(
         <li class="">
-          <a href={"#tab-"+i} rel="nofollow">{this.state.Footer[i].title}</a>
+          <a href={"#tab"+i} rel="nofollow">{this.state.Footer[i].title}</a>
         </li>
       )
     }
@@ -52,7 +52,7 @@ export default class Footer extends Component {
     for (let i = 0; i < this.state.Footer.length; i++) {
       footer.push(
         
-        <div id={"tab-"+i}>
+        <div id={"tab"+i}>
           <p>{ReactHtmlParser(this.state.Footer[i].body)}</p>
         </div>
       )
@@ -66,12 +66,24 @@ export default class Footer extends Component {
     this.setState({Footer : Footer})
 
     $('.nav.nav-tabs a').on('click', function (event) {
-      event.preventDefault();
+      event.preventDefault()
       
       $('li').removeClass('active');
       $(this).parent().addClass('active');
-      $('.tab-content div').hide();
-      $($(this).attr('href')).show();
+
+      var a = this.attributes[0].value
+      $('.tab-content div').addClass('d-none');
+      $(a).removeClass('d-none');
+    });
+    $('.footerBottom a').on('click', function (event) {
+      event.preventDefault()
+      
+      $('li').removeClass('active');
+      $('[href="'+ this.attributes[0].value +'"]').parent().addClass('active');
+
+      var a = this.attributes[0].value
+      $('.tab-content div').addClass('d-none');
+      $(a).removeClass('d-none');
     });
     $('.nav.nav-tabs li:first a').trigger('click'); // Default
 
@@ -86,21 +98,21 @@ export default class Footer extends Component {
   render() {
       
     return (
-      <div className="Footer  animate__animated animate__fast star">
+      <div className="Footer">
         {this.state.Footer !== null
         ? 
           <div className="container">
             <div className="col-lg-4 float-left">
-              <h5>About Daimler Truck AG</h5>
-              <p>Daimler Trucks & Buses is one of the world’s largest commercial vehicle manufacturers, with more than 35 primary locations around the world and around 100,000 employees. The company brings seven vehicle brands under one roof.</p>
+              <h5>Daimler Truck AG</h5>
+              <p>1967 yılında Daimler-Benz AG’nin % 36 ortaklığı ile Otomarsan unvanıyla İstanbul Davutpaşa’da kurulmuştur. Marka, efsanevi O302 tipi otobüslerin üretimine kuruluşundan yalnızca bir yıl sonra, 1968 yılında başlamıştır. 1970 yılında ilk ihracatını gerçekleştiren şirket, 1984 yılında Mercedes-Benz Türkiye Genel Mümessili olmuştur.</p>
             </div>
             <div className="col-lg-4 float-left">
               <h5>Navigasyon</h5>
               <Menu />
             </div>
             <div className="col-lg-4 float-left">
-              <h5>Contact Us</h5>
-              <p>Cecilia Chapman 711-2880 Nulla St. Mankato Mississippi 96522</p>
+              <h5>İletişim</h5>
+              <p>Akçaburgaz Mah. Süleyman Şah Cad. No:2 34522 Esenyurt/İstanbul</p>
 
               <SocialMedia  Follow={true}/>
             </div>
@@ -116,7 +128,7 @@ export default class Footer extends Component {
           ''
         }
 
-        <div className="popup-details Subpage d-none">
+        <div className="popup-details Subpage  animate__animated animate__fast star  d-none">
           <ul class="tabs" role="tablist">
             {this.state.Footer !== null
             ? 

@@ -68,7 +68,6 @@ export default class CampaignDetails extends Component {
       getCampaignDetails = await GetCampaignDetails(localStorage.langid, pageValue, splitlocationFull)
       this.setState({getCampaign : getCampaignDetails})
     }
-
   }
   render() {
     const settings = {
@@ -109,7 +108,7 @@ export default class CampaignDetails extends Component {
 
             <hr/>
 
-            <SocialMedia Share={true} />
+            <SocialMedia Share={true} data={this.state.getCampaign} />
           </div>
          : ''
         }

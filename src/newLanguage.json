@@ -12,19 +12,19 @@
                     {"name": "Stratejimiz", "link": "/Kurumsal/Stratejimiz", "value":"strategy", "sub": null},
                     {"name": "Değerlerimiz", "link": "/Kurumsal/Degerlerimiz", "value":"values", "sub": null},
                     {"name": "Kurumsal Sosyal Sorumluluk Projelerimiz", "link": "/Kurumsal/Kurumsal-Sosyal-Sorumluluk-Projelerimiz", "value":"socialresponsibility", "sub": null},
-                    {"name": "İletişim ve Lokasyon", "link": "/Kurumsal/İletisim-ve-Lokasyon", "value":"intracompanycommunication", "sub": null}
+                    {"name": "İletişim ve Lokasyon", "link": "/Kurumsal/Iletisim-ve-Lokasyon", "value":"intracompanycommunication", "sub": null}
                 ]
             },
             {"name": "Ürünlerimiz", "link": "/Urunlerimiz", "value":"products", "sub": 
                 [
                     {"name": "Kamyon", "link": "/Urunlerimiz/Kamyon", "value":"truck", "sub": [
                         {"name": "Satış", "link": "/Urunlerimiz/Kamyon/Satis", "value":"truck_sales", "sub": [
-                            {"name": "Danışmanlık ve İletişim", "link": "/Urunlerimiz/Kamyon/Satis/Danismanlik-ve-İletisim", "value":"truck_consultingandcommunication", "sub": null},
+                            {"name": "Danışmanlık ve İletişim", "link": "/Urunlerimiz/Kamyon/Satis/Danismanlik-ve-Iletisim", "value":"truck_consultingandcommunication", "sub": null},
                             {"name": "Truck Store", "link": "/Urunlerimiz/Kamyon/Satis/Truck-Store", "value":"truck_truckstore", "sub": null},
                             {"name": "Broşürler ve İndirilebilir Öğeler", "link": "/Urunlerimiz/Kamyon/Satis/Brosurler-ve-Indirilebilir-Ogeler", "value":"truck_brochuresanddownloads", "sub": null},
                             {"name": "Fiyat Listesi", "link": "/FiyatListesi/Kamyon/Satis/Fiyat-Listesi", "value":"truck_pricelist", "sub": null}
                         ]},
-                        {"name": "Kampanyalar", "link": "/Kampanyalar", "value":"truck_campaigns", "sub": [
+                        {"name": "Kampanyalar", "link": "/Urunlerimiz/Kamyon/Kampanya", "value":"truck_campaigns", "sub": [
                             {"name": "Satış Kampanyaları", "link": "/Kampanyalar/Kamyon/Satis-Kampanyalari", "value":"truck_salescampaigns", "sub": null},
                             {"name": "SSH Kampanyaları", "link": "/Kampanyalar/Kamyon/SSH-Kampanyalari", "value":"truck_sshcampaigns", "sub": null}
                         ]},
@@ -42,12 +42,12 @@
                     ]},
                     {"name": "Otobüs", "link": "/Urunlerimiz/Otobus", "value":"bus", "sub": [
                         {"name": "Satış", "link": "/Urunlerimiz/Otobus/Satis", "value":"bus_sales", "sub": [
-                            {"name": "Danışmanlık ve İletişim", "link": "/Urunlerimiz/Otobus/Satis/Danismanlik-ve-İletisim", "value":"bus_consultingandcommunication", "sub": null},
+                            {"name": "Danışmanlık ve İletişim", "link": "/Urunlerimiz/Otobus/Satis/Danismanlik-ve-Iletisim", "value":"bus_consultingandcommunication", "sub": null},
                             {"name": "Truck Store", "link": "/Urunlerimiz/Otobus/Satis/Truck-Store", "value":"bus_busstore", "sub": null},
                             {"name": "Broşürler ve İndirilebilir Öğeler", "link": "/Urunlerimiz/Otobus/Satis/Brosurler-ve-Indirilebilir-Ogeler", "value":"bus_brochuresanddownloads", "sub": null},
                             {"name": "Fiyat Listesi", "link": "/FiyatListesi/Otobus/Satis/Fiyat-Listesi", "value":"bus_pricelist", "sub": null}
                         ]},
-                        {"name": "Kampanyalar", "link": "/Kampanyalar", "value":"bus_campaigns", "sub": [
+                        {"name": "Kampanyalar", "link": "/Urunlerimiz/Otobus/Kampanya", "value":"bus_campaigns", "sub": [
                             {"name": "Satış Kampanyaları", "link": "/Kampanyalar/Otobus/Satis-Kampanyalari", "value":"bus_salescampaigns", "sub": null},
                             {"name": "SSH Kampanyaları", "link": "/Kampanyalar/Otobus/SSH-Kampanyalari", "value":"bus_sshcampaigns", "sub": null}
                         ]},
@@ -92,7 +92,8 @@
                         "Detaylar",
                         "Harita",
                         "Arama",
-                        "FiyatListesi"
+                        "FiyatListesi",
+                        "Kampanya"
                     ]
                 }
             }
@@ -122,7 +123,7 @@
                             {"name": "Brochures and Downloads", "link": "/Our-Products/Truck/Sales/Brochures-and-Downloads", "value":"truck_brochuresanddownloads", "sub": null},
                             {"name": "Price List", "link": "/Price-List/Truck/Sales/Price-List", "value":"truck_pricelist", "sub": null}
                         ]},
-                        {"name": "Campaigns", "link": "/Campaigns", "value":"truck_campaigns", "sub": [
+                        {"name": "Campaigns", "link": "/Campaign", "value":"truck_campaigns", "sub": [
                             {"name": "Sales Campaigns", "link": "/Campaigns/Truck/Sales-Campaigns", "value":"truck_salescampaigns", "sub": null},
                             {"name": "SSH Campaigns", "link": "/Campaigns/Truck/SSH-Campaigns", "value":"truck_sshcampaigns", "sub": null}
                         ]},
@@ -145,7 +146,7 @@
                             {"name": "Brochures and Downloads", "link": "/Our-Products/Bus/Sales/Brochures-and-Downloads", "value":"bus_brochuresanddownloads", "sub": null},
                             {"name": "Price List", "link": "/Price-List/Bus/Sales/Price-List", "value":"bus_pricelist", "sub": null}
                         ]},
-                        {"name": "Campaigns", "link": "/Campaigns", "value":"bus_campaigns", "sub": [
+                        {"name": "Campaigns", "link": "/Campaign", "value":"bus_campaigns", "sub": [
                             {"name": "Sales Campaigns", "link": "/Campaigns/Bus/Sales-Campaigns", "value":"bus_salescampaigns", "sub": null},
                             {"name": "SSH Campaigns", "link": "/Campaigns/Bus/SSH-Campaigns", "value":"bus_sshcampaigns", "sub": null}
                         ]},
@@ -189,7 +190,9 @@
                         "Details",
                         "Map",
                         "Search",
-                        "PriceList"
+                        "PriceList",
+                        "Campaign"
+
                     ]
                 }
             }

@@ -1,6 +1,14 @@
 export default function findValue(param, pageName, pathname) {
     const name = pageName;
 
+    if(pageName === 'Kampanya' || pageName === 'Campaign'){
+      
+      if(pathname === 'Kamyon' || pathname === 'Truck'){
+        return param[2].sub[0].sub[1].value
+      } else {
+        return param[2].sub[1].sub[1].value
+      }
+    }
     if(pathname !== undefined) {
 
         if(param[2].sub[0].name === pageName){
@@ -116,4 +124,5 @@ export default function findValue(param, pageName, pathname) {
         }
       }
     }
+
   }

@@ -45,13 +45,21 @@ export default class AnnouncementSummary extends Component {
       speed: 500,
       slidesToShow: 2,
       slidesToScroll: 1,
-      centerPadding: '20px'
+      centerPadding: '20px',
+      responsive: [{
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 2
+        }
+      }]
     };
 
     return (
       <div className="AnnouncementSummary">
-        <h3>News & Announcements</h3>
-        <i className="title-desc">Press releases and statements</i>
+        <h3>Haberler</h3>
+        <i className="title-desc">Basın Bültenleri ve Açıklamalar</i>
 
         <div className="announcements">
           <Slider {...settings}>

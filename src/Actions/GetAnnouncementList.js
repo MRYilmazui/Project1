@@ -13,7 +13,7 @@ export async function GetAnnouncementList (langid, currentpage) {
     params: {
       'languageId': langid,
       'currentPage': currentpage,
-      'count': '1'
+      'count': '1000'
     }
   }
   ).then((response) => {

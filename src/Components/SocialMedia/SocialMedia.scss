@@ -35,9 +35,28 @@
             max-width: 200px;
             top: 10px !important;
 
+            &:before {
+                content: '';
+                background: #fff;
+                width: 7px;
+                height: 12px;
+                display: block;
+                margin-top: -12px;
+                margin-left: 5px;
+                transform: rotate(45deg);
+                margin-bottom: -7px;
+            }
+
             a {
                 width: 100%;
                 height: auto;
+                border-bottom: 1px solid #ccc;
+                padding: 11px 20px;
+
+                &:last-child {
+                    border: 0px !important;
+                    margin-bottom: -5px;
+                }
             }
         }
     }
