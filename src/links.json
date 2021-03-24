@@ -1,0 +1,16 @@
+{
+    "links": [
+        {
+            "link": "https://tcorpblobbackupstorage.blob.core.windows.net/tcorpblob/PdfFiles/kamyon-fiyat-lisesi.pdf"
+        },
+        {
+            "link": "https://tcorpblobbackupstorage.blob.core.windows.net/tcorpblob/PdfFiles/kamyon-ozel-fiyat-lisesi.pdf"
+        },
+        {
+            "link": "https://tcorpblobbackupstorage.blob.core.windows.net/tcorpblob/PdfFiles/otobus-fiyat-lisesi.pdf"
+        },
+        {
+            "link": "https://tcorpblobbackupstorage.blob.core.windows.net/tcorpblob/PdfFiles/otobus-ozel-fiyat-lisesi.pdf"
+        }
+    ]
+}

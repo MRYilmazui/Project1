@@ -51,11 +51,41 @@ export default class CampaignDetails extends Component {
 
     return NewsSlider;
   }
+
+  loopDealers () {
+    let dealerState = this.state.getCampaign.dealers;
+    let dealers = [];
+
+    for (let i = 0; i < dealerState.length; i++) {
+      dealers.push(
+        <div className="Dealer col-lg-4 float-left">
+          <div className="DealerInner">
+            <div className="imgLogo">
+              
+            </div>
+            <div className="name">
+              {dealerState[i].name}
+            </div>
+            <div className="address">
+              {dealerState[i].address}
+            </div>
+            <div className="phone">
+              {dealerState[i].phone}
+            </div>
+          </div>
+        </div>
+      )
+    }
+
+
+    return dealers;
+  }
   
   componentDidMount = async() => {
     const name = '';
     let getCampaignDetails = null;
     this.name = this.props.match.params.pagename
+
 
     const pageValue = findValue(lang, this.name, this.props.match.params.subname)
     const splitlocation = window.location.pathname.split('/')
@@ -84,7 +114,7 @@ export default class CampaignDetails extends Component {
       <div className="AnnouncementDetails">
         {this.state.getCampaign !== null
         ?  
-          <div className="container animate__animated animate__fadeIn animate__fast">
+          <div className="container animate__animated animate__fadeInRight animate__fast">
             <Helmet>
               <title>{this.state.getCampaign.title}</title>
             </Helmet>
@@ -106,9 +136,19 @@ export default class CampaignDetails extends Component {
               {ReactHtmlParser(this.state.getCampaign.body)}
             </p>
 
+
             <hr/>
 
+
+            
+            <div class="dealers">
+                {this.loopDealers()}
+            </div>
+            
+            <hr />
+
             <SocialMedia Share={true} data={this.state.getCampaign} />
+
           </div>
          : ''
         }

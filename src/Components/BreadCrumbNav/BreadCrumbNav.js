@@ -34,7 +34,6 @@ export default class BreadCrumbNav extends Component {
         var language = "tr";
         var query = window.location.pathname;
         var breadCrumb = '';
-        debugger;
 
         if (language == "tr") {
             breadCrumb += data.tr[0].name;

@@ -3,21 +3,16 @@
 
     .category {
         overflow: hidden;
-        height: 550px;
         position: relative;
 
         img {
-            margin-top: -25%;
+            width: 100%;
             position: relative;
-            top: 10%;
         }
     }
 
     a {
         text-decoration: none;
-        position: absolute;
-        left: 0px;
-        top: 0px;
         height: 100%;
         width: 100%;
 

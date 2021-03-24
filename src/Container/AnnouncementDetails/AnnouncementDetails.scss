@@ -99,4 +99,20 @@
     .AnnouncementSummary {
         margin-bottom: 50px;
     }
+    .slick-slide img {
+        display: block;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .slick-slide img {
+        display: block;
+        width: 100%;
+    }
+    .AnnouncementDetails .info {
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
 }

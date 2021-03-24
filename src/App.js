@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from "react-router-dom";
+import { Helmet } from 'react-helmet'
 
 import importedComponent from 'react-imported-component';
 
@@ -7,7 +8,6 @@ import Main from './Container/Main/Main';
 import Loader from 'react-loader-spinner'
 import languageJson from './language.json';
 import getLanguage from './Components/getLanguage/getLanguage'
-
 
 /* Styles */
 import './App.scss';
@@ -63,6 +63,9 @@ class App extends React.Component {
 
     return (
       <div className="App">
+        <Helmet>
+          <meta name="facebook-domain-verification" content="2y33dajq47ot2oix5i7n519j23slo8" />
+        </Helmet>
         <div>
           <Header />
           <Main />

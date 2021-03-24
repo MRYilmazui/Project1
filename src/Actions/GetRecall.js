@@ -15,11 +15,9 @@ export async function GetRecalls (chassisNumber) {
     }
   }
   ).then((response) => {
-    debugger;
     return response.data;
   })
   .catch(function (error) {
-    debugger;
     return null;
   })
 

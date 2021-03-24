@@ -100,3 +100,28 @@
         margin-bottom: 50px;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    
+    .subcategory {
+        margin: 0px !important;
+
+        h5 {
+            margin: 0px !important;
+            height: auto !important;
+            margin-bottom: 30px !important;
+
+            &:before {
+                display: none;
+            }
+        }
+
+    }
+
+        .text {
+    
+            h5 {
+            }
+        }
+
+}

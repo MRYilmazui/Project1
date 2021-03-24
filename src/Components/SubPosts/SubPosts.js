@@ -44,7 +44,7 @@ export default class SubPosts extends Component {
     const BC = ['Kampanyalar']
 
     return (
-      <div className="SubPosts">
+      <div className="SubPosts animate__animated animate__fadeIn animate__fast">
         {/*<BreadCrumbNav mainpage={BC}/>*/}
         
         {this.props.data !== null

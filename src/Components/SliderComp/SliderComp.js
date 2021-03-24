@@ -40,13 +40,15 @@ export default class SliderComp extends Component {
       if(this.props.data[i].videoUrl === null) {
         slider.push(
           <div>
-            <img src={this.props.data[i].imageUrl} alt=""/>
+            <a href={this.props.data[i].redirectUrl}>
+              <img src={this.props.data[i].imageUrl} alt=""/>
+            </a>
             <div className="desc">
               <div className="title">
               {this.props.data[i].title}
               </div>
               <p>{this.props.data[i].description}</p>
-              {this.getButton(this.props.data[i].redirectUrl)}
+              
             </div>
           </div>
         )
@@ -72,7 +74,7 @@ export default class SliderComp extends Component {
         draggable: false,
         focusOnSelect: false,
         adaptiveHeight: true,
-        touchMove: false,
+        touchMove: true,
       beforeChange: (current, next) =>
         this.setState({ oldSlide: current, activeSlide: next }),
       afterChange: current => this.setState({ activeSlide2: current })
@@ -80,7 +82,7 @@ export default class SliderComp extends Component {
 
     return (
       <div className="SliderComp animate__animated animate__fadeIn animate__fast star">
-        <div className="blurbg" style={{background: "url("+ this.props.data[this.state.activeSlide2].imageUrl +")"}}></div>
+        <div className="blurbg" style={{background: "url("+ this.props.data[this.state.activeSlide].imageUrl +")"}}></div>
         <div className="container ">
           <Slider {...settings}>
             {this.sliderBuild()}

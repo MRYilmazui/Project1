@@ -33,7 +33,7 @@
             
         div.dropdown-menu {
             max-width: 200px;
-            top: 10px !important;
+            border-radius: 0px;
 
             &:before {
                 content: '';
@@ -48,10 +48,17 @@
             }
 
             a {
+                position: relative;
+                z-index: 9999;
                 width: 100%;
                 height: auto;
-                border-bottom: 1px solid #ccc;
                 padding: 11px 20px;
+
+                &:hover {
+                    color: #fff;
+                    background: #000;
+                    font-weight: 500;
+                }
 
                 &:last-child {
                     border: 0px !important;

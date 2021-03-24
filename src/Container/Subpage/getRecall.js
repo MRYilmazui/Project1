@@ -46,7 +46,8 @@ constructor(props) {
       content: null,
       Loader: false,
       success: false,
-      inputValue: ''
+      inputValue: '',
+      GetRecallValue: null
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -86,10 +87,7 @@ constructor(props) {
   }
   async postData (data) {
     const GetGeneralContentsPage = await GetRecalls(data);
-
-    debugger;
-
-    alertify.success('Accepted');
+    this.setState({GetRecallValue: GetGeneralContentsPage})
 
   }
 
@@ -101,7 +99,6 @@ constructor(props) {
 
     html2canvas(table)
     .then((canvas) => {
-      debugger;
       const imgData = canvas.toDataURL('image/png');
       const pdf = new jsPDF();
       pdf.addImage(imgData, 'PNG', 0, 0);
@@ -110,14 +107,12 @@ constructor(props) {
   }
   async postData (data) {
     const GetGeneralContentsPage = await GetRecalls(data);
-
-    if(GetGeneralContentsPage === null){
-      alertify.error('Accepted');
+    if(GetGeneralContentsPage.length === 0) {
+      this.setState({GetRecallValue: 'error'})
     } else {
-      alertify.success('Accepted');
+      this.setState({GetRecallValue: GetGeneralContentsPage})
     }
-
-
+    
   }
   handleChange(event){
     this.setState({
@@ -136,15 +131,53 @@ constructor(props) {
     };
 
     const breadcrumbData = this.props.match.url.split('/')
-
     return (
       <div className="Subpage">
-        <img src="https://tcorpblobbackupstorage.blob.core.windows.net/tcorpblob/img72020-10-2220201022t233810106_2020-11-0920201109T143025906.png" alt="" />
+        <img src="https://pcorpweb-tcorpweb.azurewebsites.net/MB.png" alt="" />
         <div className="container sasi">
-          <label htmlFor="">Şasi Numarası</label>
+          <p className="recalltext">
+            {lng.allsite.title[18]}
+          </p>
+          <label htmlFor="">{lng.allsite.title[19]}</label>
           <input type="text" value={this.state.inputValue} onChange={this.handleChange} />
 
-          <button onClick={()=>this.postData(this.state.inputValue)}>Gönder</button>
+          <button onClick={()=>this.postData(this.state.inputValue)}>{lng.allsite.title[20]}</button>
+
+          { this.state.GetRecallValue !== null ?
+
+            <div className="mb-sasi-details">
+              { this.state.GetRecallValue !== 'error'  ?
+                <>
+                  <h3>{lng.allsite.title[51]}</h3>
+                  <p>
+                  {lng.allsite.title[21]}
+                  </p>
+
+                  <table className="table">
+                    <tr>
+                      <td>{lng.allsite.title[19]}</td>
+                      <td>{this.state.GetRecallValue[0].chassisNumer}</td>
+                    </tr>
+                    <tr>
+                      <td>{lng.allsite.title[22]}</td>
+                      <td>{this.state.GetRecallValue[0].actionName}</td>
+                    </tr>
+                    <tr>
+                      <td>{lng.allsite.title[23]}</td>
+                      <td>{this.state.GetRecallValue[0].status}</td>
+                    </tr>
+                  </table>
+
+                  <a href={"/"+lng.mainurl.title[5]}  className="goToRecall">{lng.allsite.title[24]}</a>
+                </>
+              :
+                lng.allsite.title[17]
+              }
+            </div>
+            :
+            ''
+          }
+
         </div>
       </div>
     )

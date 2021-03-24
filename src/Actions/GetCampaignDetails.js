@@ -17,7 +17,6 @@ export async function GetCampaignDetails (langid, type, subname) {
     }
   }
   ).then((response) => {
-    debugger;
     return response.data;
   })
   .catch(function (error) {

@@ -22,7 +22,7 @@ export default class SubCategories extends Component {
 
     for (let i = 0; i < this.props.data.length; i++) {
       NewsSlider.push(
-        <div className="subcategory">
+        <div className="subcategory animate__animated animate__fadeInRight animate__fast">
           <NavLink activeClassName="active" to={'/'+lang[6].mainurl.title[0]+'/'+lang[6].mainurl.title[1]+"/"+this.props.data[i].routeValue}>
             <span className="subcategory-image col-lg-6 float-left pr-0">
               <img src={this.props.data[i].listImageUrl} alt=""/>

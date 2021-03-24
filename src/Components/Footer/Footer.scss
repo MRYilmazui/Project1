@@ -8,10 +8,6 @@
     font-weight: 300;
     padding-top: 70px;
     padding-bottom: 20px;
-    background-image: url(/static/media/footer-logo.8aa05b4a.png);
-    background-repeat: no-repeat;
-    background-size: auto 80%;
-    background-position: bottom left;
     margin-bottom: -6px;
     position: relative;
     z-index: 9999;
@@ -52,6 +48,7 @@
                 text-decoration: none;
                 display: inline-block;
                 width: 100%;
+                text-transform: uppercase;
     
                 &:before {
                     content: '';
@@ -128,7 +125,7 @@
                 
             div.dropdown-menu {
                 max-width: 200px;
-                top: 10px !important;
+                max-width: initial !important;
 
                 a {
                     width: 100%;
@@ -158,7 +155,12 @@
         display: inline-block;
         text-align: center;
         padding-top: 60px;
-        font-size: 12px;
+        font-size: 12px; 
+
+        .noInspect {
+            float: none !important;
+            display: inline-block !important;
+        }
     }
 }
 .popup-details2 {
@@ -174,7 +176,7 @@
     position: fixed;
     left: 0px;
     top: 0px;
-    z-index: 9999;
+    z-index: 9999999;
     overflow: auto;
 
     .tabs {
@@ -186,14 +188,20 @@
         background: #fff;
         padding: 10px;
         border-radius: 5px;
+
+        height: 94%;
+        overflow: auto;
     }
 
-    div.overlay {
-        background: #00000059;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-    }
+}
+
+div.overlay {
+    background: #00000059;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
 }
 .popup-details .tabs {
     width: 70%;
@@ -213,7 +221,7 @@
             content: '';
             background-image: url(../../Assets/img/not-active-corner-accordion.png);
             background-size: auto 100%;
-            width: 39px;
+            width: 37px;
             height: 42px;
             display: block;
             float: right;
@@ -254,14 +262,14 @@
         margin-right: 30px;
         padding: 8px;
         display: block;
-        border-left: 1px solid #e3e3e3;
-        border-top: 1px solid #e3e3e3;
+        border-left: 1px solid #ececec;
+        border-top: 1px solid #ececec;
 
         &:after {
             content: '';
             background-image: url(../../Assets/img/not-active-corner-accordion.png);
             background-size: auto 100%;
-            width: 39px;
+            width: 37px;
             height: 41px !important;
             display: block;
             float: right;
@@ -312,4 +320,23 @@
     .excelbutton {
         background: #6ECC7E;
     }
+}
+
+.footer-phone-img {
+    width: 130px;
+    margin-left: 10px;
+    display: block;
+    margin-bottom: 10px;
+    margin-left: 0px;
+}
+
+.popup-details {
+}
+
+.closeModal {
+    float: right;
+    width: 20px;
+    height: 20px;
+    border: 0px;
+    background: url(../../Assets/img/cancel.svg)
 }

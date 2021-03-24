@@ -1,3 +1,62 @@
+@font-face {
+    font-family: 'icomoon';
+    src:  url('Assets/SCSS/Fonts/icomoon.eot');
+    src:  url('Assets/SCSS/Fonts/icomoon.eot?zdwhzk#iefix') format('embedded-opentype'),
+      url('Assets/SCSS/Fonts/icomoon.ttf?zdwhzk') format('truetype'),
+      url('Assets/SCSS/Fonts/icomoon.woff?zdwhzk') format('woff'),
+      url('Assets/SCSS/Fonts/icomoon.svg?zdwhzk#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-back_thick:before {
+    content: "\e900";
+  }
+  .icon-back_thin:before {
+    content: "\e901";
+  }
+  .icon-forward_thick:before {
+    content: "\e902";
+  }
+  .icon-forward_thin:before {
+    content: "\e903";
+  }
+  .icon-additional_options_flat:before {
+    content: "\e904";
+  }
+  .icon-additional_options_line:before {
+    content: "\e905";
+  }
+  .icon-download_flat:before {
+    content: "\e906";
+  }
+  .icon-download_line:before {
+    content: "\e907";
+  }
+  .icon-download_printed_version_form_flat:before {
+    content: "\e908";
+  }
+  .icon-download_printed_version_form_line:before {
+    content: "\e909";
+  }
+  
+
 .Loader {
     position: fixed;
     z-index: 999999;
@@ -14,6 +73,10 @@
         margin-top: -50px;
         margin-left: -50px;
     }
+}
+
+body {
+    overflow-x: hidden;
 }
 
 table {
@@ -164,6 +227,13 @@ table {
     }
 }
 
+.Footer {
+
+    .dropdownActivate {
+        display: none;
+    }
+}
+
 @media only screen and (max-width:500px) {
     .Header .logo-section .mercedes-turk {
         width: 160px !important;
@@ -211,5 +281,109 @@ table {
     }
     .SubCategories .subcategory .subcategory-image {
         height: auto !important;
+    }
+}
+
+
+.Subpage {
+
+    .details {
+
+        ul {
+            margin-left: 35px;
+        }
+        .subDetailsp {
+
+            img {
+                margin-right: 15px;
+                margin-left: 15px;
+            }
+        }
+    }
+}
+
+
+.recalltext {
+    
+}
+
+.MapFilterDetails {
+
+    .inputs  {
+        display: inline-block;
+        width: 100%;
+
+        label {
+            width: 100%;
+            font-weight: bold;  
+            font-family: 'Corporate A Cond Pro Regular';      
+        }
+
+        .checkbox {
+            float: left;
+            margin-right: 15px;
+
+            label {
+                width: initial;
+                font-size: 16px;
+                margin-left: 10px;
+                line-height: 30px;
+                font-weight: 400; 
+                font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";       
+            }
+        }
+
+
+        input {
+            float: left;
+            margin-top: 9px;
+        }
+    }
+}
+
+.thisCategoriesTotal {
+    text-align: center;
+
+    .subcategoriesDetails {
+        float: none;
+        display: inline-block;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .Subpage .info {
+        margin-top: 10px !important;
+    }
+    .subcategoriesDetails {
+        width: 100% !important;
+    }
+    .MainPosts p {
+        height: auto !important;
+    }
+    .mainmap {
+        background-position: left !important;
+    }
+    .MainCategories .category img {
+        width: 100% !important;
+    }
+
+    .MainPosts span.post-title i {
+        font-size: 25px !important;
+    }
+    .MainPosts p.post-desc {
+        font-size: 14px !important;
+    }
+}
+
+.brochure-img {
+    margin: 0px !important;
+}
+
+.menuActive {
+    overflow: hidden;
+
+    body {
+        overflow: hidden;
     }
 }

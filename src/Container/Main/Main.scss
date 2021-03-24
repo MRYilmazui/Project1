@@ -37,6 +37,7 @@ h5 {
 
   .accept-cookie {
     position: fixed;
+    text-align: left;
     bottom: 0px;
     z-index: 999999;
     left: 0px;
@@ -58,3 +59,96 @@ h5 {
         border-radius: 4px;
     }
   }
+
+  #openCookie {
+    margin-right: 10px !important;
+    background: #1a96e8;
+    color: #fff;
+    float: right;
+    padding: 6px 20px;
+    font-size: 16px;
+    opacity: 1;
+    border-radius: 5px;
+    -webkit-appearance: none;
+  }
+
+  .announcements {
+
+    .slick-track {
+
+        .announcement {
+
+            h5 {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+  }
+
+@media only screen and (max-width: 768px) {
+
+    .accept-cookie {
+
+        p {
+            width: 70%;
+        }
+        #openCookie {
+            margin-top: 10px;
+            margin-right: 0px !important;
+            margin-left: 10px !important;
+        }
+    }
+    .SubPosts .subposts {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+    .SubPosts .subposts .subcategory-image {
+        height: auto !important;
+
+        img {
+            width: 100%;
+        }
+    }
+    .sticky {
+        position: initial !important;
+    }
+
+    .Menu nav.d-block {
+        position: fixed !important;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        z-index: 999999999 !important;
+        width: 249px !important;
+    }
+
+    .menuActive {
+        margin-right: -260px;
+        padding-left: 250px;
+
+        .menuNavButton {
+            background: url(../../Assets/img/cancel.svg) !important;
+            background-size: 20px !important;
+            background-repeat: no-repeat !important;
+            background-position: center !important;
+            height: 28px !important;
+            margin-bottom: 0px !important;
+        }
+    }
+    .AnnouncementSummary .announcement img {
+        float: none !important;
+        max-height: 115px !important;
+        margin-bottom: 16px !important;
+    }
+
+    
+}
+
+
+.noInspect {
+    padding: 0px !important;
+    background: transparent !important;
+    font-size: 13px !important;
+}

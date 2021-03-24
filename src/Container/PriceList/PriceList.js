@@ -13,8 +13,14 @@ import NumberFormat from 'react-number-format';
 import { Helmet } from 'react-helmet'
 import { GetPriceListF } from '../../Actions/GetPriceList'
 
+import links from '../../links.json';
+
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import $ from 'jquery'
+
+import ae from '../../language.json';
+
+const la = ae[localStorage.lang];
 
 export default class PriceList extends Component {
   constructor(props) {
@@ -22,17 +28,31 @@ export default class PriceList extends Component {
 
     this.state = {
       PriceList: null,
-      ModalDetails : null
+      ModalDetails : null,
+      thisLink: null,
+      thisLinkSpecial: null,
+      thisPage: null
     }
   }
   TableRepeater (e) {
     const NewsSlider = [];
-    debugger;
-
+    let value = this.props.match.path.split('/')[2];
     if (this.state.PriceList.priceses.length !== 0) {
-
+      if(value === 'Kamyon' || value === 'Truck'){
+        if(this.state.thisLink !== links.links[0].link) {
+          this.setState({thisLink: links.links[0].link})
+          this.setState({thisLinkSpecial: links.links[1].link})
+        }
+      } else {
+        if(this.state.thisLink !== links.links[2].link) {
+          this.setState({thisLink: links.links[2].link})
+          this.setState({thisLinkSpecial: links.links[3].link})
+        }
+      }
+      
       for (let i = 0; i < this.state.PriceList.priceses.length; i++) {
         if(this.state.PriceList.priceses[i].isSpecial === true){
+          
           NewsSlider.push(
 
             <tr id={this.state.PriceList.priceses[i].id} className="notSpecial">
@@ -67,25 +87,51 @@ export default class PriceList extends Component {
               <td>
                 {this.state.PriceList.priceses[i].currencyUnit}
               </td>
-              <td>
-                <Dropdown>
-                  <Dropdown.Toggle variant="success" id="moreButton">
-                    Dropdown Button
-                  </Dropdown.Toggle>
-  
-                  <Dropdown.Menu>
-                    <span className='footerBottom2' onClick={()=>this.modalDetailsFullfilled(this.state.PriceList.priceses[i])}>Ödeme Koşulları</span>
-                    <a href={this.state.PriceList.priceses[i].brochureUrl} class="brochure" download>
-                      Broşür İndir
-                    </a>
-                  </Dropdown.Menu>
-                </Dropdown>
+              <td width="180px">
+                
+                {
+                  this.state.PriceList.priceses[i].paymentPlan !== null || this.state.PriceList.priceses[i].contactFormUrl !== null || this.state.PriceList.priceses[i].hardwarePriceUrl !== null ?
+                    <Dropdown>
+                      <Dropdown.Toggle variant="success" id="moreButton">
+                        Dropdown Button
+                      </Dropdown.Toggle>
+      
+                      <Dropdown.Menu>
+                        { this.state.PriceList.priceses[i].paymentPlan !== null ?
+                            <span className='footerBottom2' onClick={()=>this.modalDetailsFullfilled(this.state.PriceList.priceses[i])}>{la.allsite.title[13]}</span>
+                          :
+                            ''
+                        }
+                        { this.state.PriceList.priceses[i].contactFormUrl !== null ?
+                            <a href={this.state.PriceList.priceses[i].contactFormUrl} className='footerBottom2'>{la.allsite.title[14]}</a>
+                          :
+                            ''
+                        }
+                        { this.state.PriceList.priceses[i].hardwarePriceUrl !== null ?
+                            <a href={this.state.PriceList.priceses[i].hardwarePriceUrl} className='footerBottom2'>{la.allsite.title[15]}</a>
+                          :
+                            ''
+                        }
+                        
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  :
+                    ''
+                }
+                {
+                    this.state.PriceList.priceses[i].brochureUrl !== null ?
+                  <a href={this.state.PriceList.priceses[i].brochureUrl} class="brochure" download>
+                  </a>
+                :
+                  ''
+                }
               </td>
             </tr>
                   
                 
           )
         } else {
+          
           NewsSlider.push(
 
             <tr id={this.state.PriceList.priceses[i].id} className="special">
@@ -117,19 +163,45 @@ export default class PriceList extends Component {
               <td>
                 <NumberFormat value={this.state.PriceList.priceses[i].kdV_OTV} displayType={'text'} thousandSeparator={'.'} decimalSeparator={','} renderText={value => <div>{value}</div>} />
               </td>
-              <td>
-                <Dropdown>
-                  <Dropdown.Toggle variant="success" id="moreButton">
-                    Dropdown Button
-                  </Dropdown.Toggle>
-  
-                  <Dropdown.Menu>
-                    <span className='footerBottom2' onClick={()=>this.modalDetailsFullfilled(this.state.PriceList.priceses[i])}>Ödeme Koşulları</span>
-                    <a href={this.state.PriceList.priceses[i].brochureUrl} class="brochure" download>
-                      Broşür İndir
-                    </a>
-                  </Dropdown.Menu>
-                </Dropdown>
+              <td width="180px">
+                
+                {
+                  this.state.PriceList.priceses[i].paymentPlan !== null || this.state.PriceList.priceses[i].contactFormUrl !== null || this.state.PriceList.priceses[i].hardwarePriceUrl !== null ?
+                    <Dropdown>
+                      <Dropdown.Toggle variant="success" id="moreButton">
+                        Dropdown Button
+                      </Dropdown.Toggle>
+      
+                      <Dropdown.Menu>
+                        { this.state.PriceList.priceses[i].paymentPlan !== null ?
+                            <span className='footerBottom2' onClick={()=>this.modalDetailsFullfilled(this.state.PriceList.priceses[i])}>{la.allsite.title[13]}</span>
+                          :
+                            ''
+                        }
+                        { this.state.PriceList.priceses[i].contactFormUrl !== null ?
+                            <a href={this.state.PriceList.priceses[i].contactFormUrl} className='footerBottom22'>{la.allsite.title[14]}</a>
+                          :
+                            ''
+                        }
+                        { this.state.PriceList.priceses[i].hardwarePriceUrl !== null ?
+                            <a href={this.state.PriceList.priceses[i].hardwarePriceUrl} className='footerBottom22'>{la.allsite.title[15]}</a>
+                          :
+                            ''
+                        }
+                        
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  :
+                    ''
+                }
+                {
+                    this.state.PriceList.priceses[i].brochureUrl !== null ?
+                  <a href={this.state.PriceList.priceses[i].brochureUrl} class="brochure" download>
+                    
+                  </a>
+                :
+                  ''
+                }
               </td>
             </tr>
                   
@@ -139,14 +211,8 @@ export default class PriceList extends Component {
 
       }
     } else {
-      NewsSlider.push(
-        <div className="slide">
-          <div>
-            <img src={this.state.GetAnnouncementDetailsPage.imageUrl} alt=""/>
-          </div>
-        </div>
-      )
-    }
+      
+  }
 
 
     return NewsSlider;
@@ -160,10 +226,25 @@ export default class PriceList extends Component {
   }
   
   componentDidMount = async() => {
-    let priceList = await GetPriceListF(localStorage.langid, '1')
+    let value = this.props.match.path.split('/')[2];
+    let Lastvalue = null
+
+    if(value === 'Kamyon' || value === 'Truck'){
+      Lastvalue = '1'
+      this.setState({thisPage: 'Kamyon'})
+      this.setState({thisLink: links.links[1].link})
+        this.setState({thisLinkSpecial: links.links[2].link})
+    } else {
+      Lastvalue = '2'
+      this.setState({thisPage: 'Otobüs'})
+      this.setState({thisLink: links.links[2].link})
+        this.setState({thisLinkSpecial: links.links[3].link})
+    }
+
+    let priceList = await GetPriceListF(localStorage.langid, Lastvalue)
     this.setState({PriceList : priceList})
 
-    if(priceList === null) {
+    if(priceList.priceses.length === 0) {
       return window.location.pathname = '/'
     }
     
@@ -176,7 +257,7 @@ export default class PriceList extends Component {
       $('.AnnouncementDetails').addClass('active-popup')
       $('.popup-details2').removeClass('d-none')
     })
-        
+
     $(document).on('click','.specialPrice', function(){
 
       if(document.getElementsByClassName('specialPrice')[0].innerText === 'Normal Fiyat Listesi'){
@@ -188,13 +269,30 @@ export default class PriceList extends Component {
     })
   }
   componentDidUpdate = async() => {
-    let priceList = await GetPriceListF(localStorage.langid, '1')
+    let value = this.props.match.path.split('/')[2];
+    let Lastvalue = null
+    if(value === 'Kamyon' || value === 'Truck'){
+      Lastvalue = '1'
+    } else {
+      Lastvalue = '2'
+    }
+    let priceList = await GetPriceListF(localStorage.langid, Lastvalue)
+    
+    if(value !== this.state.thisPage) {
 
-    if(this.state.PriceList.footNote.id !== priceList.footNote.id) {
       this.setState({PriceList : priceList})
+      this.setState({thisPage: value})
+      if(value === 'Kamyon' || value === 'Truck'){
+        this.setState({thisLink: links.links[0].link})
+        this.setState({thisLinkSpecial: links.links[1].link})
+      } else {
+        this.setState({thisLink: links.links[2].link})
+        this.setState({thisLinkSpecial: links.links[3].link})
+      }
+      this.TableRepeater()
     }
 
-    if(priceList === null) {
+    if(priceList.priceses.length === 0) {
       return window.location.pathname = '/'
     }
     
@@ -231,22 +329,24 @@ export default class PriceList extends Component {
             </Slider>
 
             <table className="table table-borderless price-content table-responsive">
-                <thead>
-                  <tr>
-                    <th scope="col">Model (TL)</th>
-                    <th scope="col">Model Tipi (TL)</th>
-                    <th scope="col">Vergi (TL)</th>
-                    <th scope="col">ÖTV (TL)</th>
-                    <th scope="col">KDV (TL)</th>
-                    <th scope="col">KDV & ÖTV (TL)</th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {this.TableRepeater()}
-                </tbody>
-              </table>
-            <a href="javascript:void(0)" className='specialPrice' onClick={this.TableRepeater('Special')}>Özel Fiyat Listesi</a>
+              <thead>
+                <tr>
+                  <th scope="col">Model</th>
+                  <th scope="col">{la.allsite.title[0]}</th>
+                  <th scope="col">{la.allsite.title[1]}</th>
+                  <th scope="col">{la.allsite.title[2]}</th>
+                  <th scope="col">{la.allsite.title[3]}</th>
+                  <th scope="col">{la.allsite.title[4]}</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.TableRepeater()}
+              </tbody>
+            </table>
+            <a href={this.state.thisLink}>{la.allsite.title[43]}</a>
+            <a href={this.state.thisLinkSpecial}>{la.allsite.title[43]}</a>
+            <a href="javascript:void(0)" className='specialPrice' onClick={()=>this.TableRepeater('Special')}>{la.allsite.title[44]}</a>
 
           </div>
          : ''

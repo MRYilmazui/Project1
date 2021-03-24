@@ -1,0 +1,196 @@
+    {
+        "tr": 
+        [
+            {"name": "Anasayfa", "link": "/", "value": "/", "sub": null},
+            {"name": "Kurumsal", "link": "/Kurumsal", "value":"corporate", "sub": 
+                [
+                    {"name": "Hakkımızda", "link": "/Kurumsal/Hakkimizda", "value":"aboutus", "sub": [
+                        {"name": "Çevre ve Biz", "link": "/Kurumsal/Hakkimizda/Cevre-ve-Biz", "value":"environmentandus", "sub": null},
+                        {"name": "Kalite Yönetimi", "link": "/Kurumsal/Hakkimizda/Kalite-Yonetimi", "value":"qualitymanagement", "sub": null},
+                        {"name": "Laboratuvar Hizmetleri", "link": "/Kurumsal/Hakkimizda/Laboratuvar-Hizmetleri", "value":"laboratoryservices", "sub": null}
+                    ]},
+                    {"name": "Stratejimiz", "link": "/Kurumsal/Stratejimiz", "value":"strategy", "sub": null},
+                    {"name": "Değerlerimiz", "link": "/Kurumsal/Degerlerimiz", "value":"values", "sub": null},
+                    {"name": "Kurumsal Sosyal Sorumluluk Projelerimiz", "link": "/Kurumsal/Kurumsal-Sosyal-Sorumluluk-Projelerimiz", "value":"socialresponsibility", "sub": null},
+                    {"name": "İletişim ve Lokasyon", "link": "/Kurumsal/Iletisim-ve-Lokasyon", "value":"intracompanycommunication", "sub": null}
+                ]
+            },
+            {"name": "Ürünlerimiz", "link": "/Urunlerimiz", "value":"products", "sub": 
+                [
+                    {"name": "Kamyon", "link": "/Urunlerimiz/Kamyon", "value":"truck", "sub": [
+                        {"name": "Satış", "link": "/Urunlerimiz/Kamyon/Satis", "value":"truck_sales", "sub": [
+                            {"name": "Danışmanlık ve İletişim", "link": "/Urunlerimiz/Kamyon/Satis/Danismanlik-ve-Iletisim", "value":"truck_consultingandcommunication", "sub": null},
+                            {"name": "Truck Store", "link": "/Urunlerimiz/Kamyon/Satis/Truck-Store", "value":"truck_truckstore", "sub": null},
+                            {"name": "Broşürler ve İndirilebilir Öğeler", "link": "/Urunlerimiz/Kamyon/Satis/Brosurler-ve-Indirilebilir-Ogeler", "value":"truck_brochuresanddownloads", "sub": null},
+                            {"name": "Fiyat Listesi", "link": "/FiyatListesi/Kamyon/Satis/Fiyat-Listesi", "value":"truck_pricelist", "sub": null}
+                        ]},
+                        {"name": "Kampanyalar", "link": "/Urunlerimiz/Kamyon/Kampanya", "value":"truck_campaigns", "sub": [
+                            {"name": "Satış Kampanyaları", "link": "/Kampanyalar/Kamyon/Satis-Kampanyalari", "value":"truck_salescampaigns", "sub": null},
+                            {"name": "SSH Kampanyaları", "link": "/Kampanyalar/Kamyon/SSH-Kampanyalari", "value":"truck_sshcampaigns", "sub": null}
+                        ]},
+                        {"name": "Bayiler ve Yetkili Servisler", "link": "/Urunlerimiz/Kamyon/Bayiler-ve-Yetkili-Servisler", "value":"truck_dealersandauthorizedservices", "sub": null},
+                        {"name": "Satış Sonrası Hizmetler", "link": "/Urunlerimiz/Kamyon/Satis-Sonrasi-Hizmetler", "value":"truck_aftersalesservices", "sub": [
+                            {"name": "Hizmetler", "link": "/Urunlerimiz/Kamyon/Satis-Sonrasi-Hizmetler/Hizmetler", "value":"truck_services", "sub": null},
+                            {"name": "Garanti", "link": "/Urunlerimiz/Kamyon/Satis-Sonrasi-Hizmetler/Garanti", "value":"truck_warranty", "sub": null},
+                            {"name": "Sigorta", "link": "/Urunlerimiz/Kamyon/Satis-Sonrasi-Hizmetler/Sigorta", "value":"truck_insurance", "sub": null},
+                            {"name": "Yedek Parça ve Aksesuar", "link": "/Urunlerimiz/Kamyon/Satis-Sonrasi-Hizmetler/Yedek-Parca-ve-Aksesuar", "value":"truck_sparepartsandaccessories", "sub": null},
+                            {"name": "Gönüllü Geri Çağırma Aksiyonları", "link": "/Urunlerimiz/Kamyon/Satis-Sonrasi-Hizmetler/Gonullu-Geri-Cagirma-Aksiyonlari", "value":"truck_voluntaryrecallactions", "sub": null},
+                            {"name": "Servisler için Bilgiler", "link": "/Urunlerimiz/Kamyon/Satis-Sonrasi-Hizmetler/Servisler-icin-Bilgiler", "value":"truck_informationforservices", "sub": null}
+                            
+                        ]}
+                    ]},
+                    {"name": "Otobüs", "link": "/Urunlerimiz/Otobus", "value":"bus", "sub": [
+                        {"name": "Satış", "link": "/Urunlerimiz/Otobus/Satis", "value":"bus_sales", "sub": [
+                            {"name": "Danışmanlık ve İletişim", "link": "/Urunlerimiz/Otobus/Satis/Danismanlik-ve-Iletisim", "value":"bus_consultingandcommunication", "sub": null},
+                            {"name": "Bus Store", "link": "/Urunlerimiz/Otobus/Satis/Bus-Store", "value":"bus_busstore", "sub": null},
+                            {"name": "Broşürler ve İndirilebilir Öğeler", "link": "/Urunlerimiz/Otobus/Satis/Brosurler-ve-Indirilebilir-Ogeler", "value":"bus_brochuresanddownloads", "sub": null},
+                            {"name": "Fiyat Listesi", "link": "/FiyatListesi/Otobus/Satis/Fiyat-Listesi", "value":"bus_pricelist", "sub": null}
+                        ]},
+                        {"name": "Kampanyalar", "link": "/Urunlerimiz/Otobus/Kampanya", "value":"bus_campaigns", "sub": [
+                            {"name": "Satış Kampanyaları", "link": "/Kampanyalar/Otobus/Satis-Kampanyalari", "value":"bus_salescampaigns", "sub": null},
+                            {"name": "SSH Kampanyaları", "link": "/Kampanyalar/Otobus/SSH-Kampanyalari", "value":"bus_sshcampaigns", "sub": null}
+                        ]},
+                        {"name": "Bayiler ve Yetkili Servisler", "link": "/Urunlerimiz/Otobus/Bayiler-ve-Yetkili-Servisler", "value":"bus_dealersandauthorizedservices", "sub": null},
+                        {"name": "Satış Sonrası Hizmetler", "link": "/Urunlerimiz/Otobus/Satis-Sonrasi-Hizmetler", "value":"bus_aftersalesservices", "sub": [
+                            {"name": "Hizmetler", "link": "/Urunlerimiz/Otobus/Satis-Sonrasi-Hizmetler/Hizmetler", "value":"bus_services", "sub": null},
+                            {"name": "Garanti", "link": "/Urunlerimiz/Otobus/Satis-Sonrasi-Hizmetler/Garanti", "value":"bus_warranty", "sub": null},
+                            {"name": "Sigorta", "link": "/Urunlerimiz/Otobus/Satis-Sonrasi-Hizmetler/Sigorta", "value":"bus_insurance", "sub": null},
+                            {"name": "Yedek Parça ve Aksesuar", "link": "/Urunlerimiz/Otobus/Satis-Sonrasi-Hizmetler/Yedek-Parca-ve-Aksesuar", "value":"bus_sparepartsandaccessories", "sub": null},
+                            {"name": "Gönüllü Geri Çağırma Aksiyonları", "link": "/Urunlerimiz/Otobus/Satis-Sonrasi-Hizmetler/Gonullu-Geri-Cagirma-Aksiyonlari", "value":"bus_voluntaryrecallactions", "sub": null},
+                            {"name": "Servisler için Bilgiler", "link": "/Urunlerimiz/Otobus/Satis-Sonrasi-Hizmetler/Servisler-icin-Bilgiler", "value":"bus_informationforservices", "sub": null}
+                            
+                        ]}
+                    ]}
+                ]
+            },
+            {"name": "İnovasyon ve Sürdürülebilirlik", "link": "/Inovasyon-ve-Surdurulebilirlik", "value":"innovationandsustainability", "sub": 
+                [
+                    {"name": "Verimli ve Emisyonsuz", "link": "/Inovasyon-ve-Surdurulebilirlik/Verimli-ve-Emisyonsuz", "value":"efficientandemissionfree", "sub": null},
+                    {"name": "Güvenli ve Otomatik", "link": "/Inovasyon-ve-Surdurulebilirlik/Guvenli-ve-Otomatik", "value":"safeandautomatic", "sub": null},
+                    {"name": "Güvenilir ve Bağlı", "link": "/Inovasyon-ve-Surdurulebilirlik/Guvenilir-ve-Bagli", "value":"reliableandconnected", "sub": null}
+                ]
+            },
+            {"name": "Kariyer", "link": "/Kariyer", "value":"career", "sub": 
+                [
+                    {"name": "Kariyer Fırsatları", "link": "/Kariyer/Kariyer-Firsatlari", "value":"careeropportunities", "sub": null},
+                    {"name": "Sosyal Hayat", "link": "/Kariyer/Sosyal-Hayat", "value":"sociallife", "sub": null},
+                    {"name": "Staj İmkanları", "link": "/Kariyer/Staj-Imkanlari", "value":"internshipopportunities", "sub": null},
+                    {"name": "Şirket İçi İletişim", "link": "/Kariyer/Sirket-Ici-Iletisim", "value":"intracompanycommunication", "sub": null},
+                    {"name": "S.S.S.", "link": "/Kariyer/Sss", "value":"FAQ", "sub": null}
+                ]
+            },
+            {"name": "Haberler", "link": "/Haberler", "value":"news", "sub": null},
+            {
+                "mainurl": {
+                    "title": [
+                        "Haber",
+                        "Detay",
+                        "Kampanyalar",
+                        "KampanyaDetayi",
+                        "Detaylar",
+                        "Harita",
+                        "Arama",
+                        "FiyatListesi",
+                        "Kampanya"
+                    ]
+                }
+            }
+        ],
+        "en": 
+        [
+            {"name": "Home page", "link": "/", "value": "/", "sub": null},
+            {"name": "Corporate", "link": "/Corporate", "value":"", "sub": 
+                [
+                    {"name": "About Us", "link": "/Corporate/About-Us", "value":"aboutus", "sub": [
+                        {"name": "Environment and Us", "link": "/Corporate/About-Us/Environment-and-Us", "value":"environmentandus", "sub": null},
+                        {"name": "Quality Management", "link": "/Corporate/About-Us/Quality-Management", "value":"qualitymanagement", "sub": null},
+                        {"name": "Laboratuvar Hizmetleri", "link": "/Corporate/About-Us/Laboratory-Services", "value":"laboratoryservices", "sub": null}
+                    ]},
+                    {"name": "Our strategy", "link": "/Corporate/Our-strategy", "value":"strategy", "sub": null},
+                    {"name": "Değerlerimiz", "link": "/Corporate/Our-Values", "value":"values", "sub": null},
+                    {"name": "Our Corporate Social Responsibility Projects", "link": "/Corporate/Our-Corporate-Social-Responsibility-Projects", "value":"socialresponsibility", "sub": null},
+                    {"name": "Contact and Location", "link": "/Corporate/Contact-and-Location", "value":"intracompanycommunication", "sub": null}
+                ]
+            },
+            {"name": "Our Products", "link": "/Our-Products", "value":"products", "sub": 
+                [
+                    {"name": "Truck", "link": "/Our-Products/Truck", "value":"truck", "sub": [
+                        {"name": "Sales", "link": "/Our-Products/Truck/Sales", "value":"truck_sales", "sub": [
+                            {"name": "Consulting and Communication", "link": "/Our-Products/Truck/Consulting-and-Communication", "value":"truck_consultingandcommunication", "sub": null},
+                            {"name": "Truck Store", "link": "/Our-Products/Truck/Sales/Truck-Store", "value":"truck_truckstore", "sub": null},
+                            {"name": "Brochures and Downloads", "link": "/Our-Products/Truck/Sales/Brochures-and-Downloads", "value":"truck_brochuresanddownloads", "sub": null},
+                            {"name": "Price List", "link": "/Price-List/Truck/Sales/Price-List", "value":"truck_pricelist", "sub": null}
+                        ]},
+                        {"name": "Campaigns", "link": "/Campaign", "value":"truck_campaigns", "sub": [
+                            {"name": "Sales Campaigns", "link": "/Campaigns/Truck/Sales-Campaigns", "value":"truck_salescampaigns", "sub": null},
+                            {"name": "SSH Campaigns", "link": "/Campaigns/Truck/SSH-Campaigns", "value":"truck_sshcampaigns", "sub": null}
+                        ]},
+                        {"name": "Dealers and Authorized Services", "link": "/Our-Products/Truck/Dealers-and-Authorized-Services", "value":"truck_dealersandauthorizedservices", "sub": null},
+                        {"name": "After Sales Services", "link": "/Our-Products/Truck/After-Sales-Services", "value":"truck_aftersalesservices", "sub": [
+                            {"name": "Services", "link": "/Our-Products/Truck/After-Sales-Services/Services", "value":"truck_services", "sub": null},
+                            {"name": "Warranty", "link": "/Our-Products/Truck/After-Sales-Services/Warranty", "value":"truck_warranty", "sub": null},
+                            {"name": "Insurance", "link": "/Our-Products/Truck/After-Sales-Services/Insurance", "value":"truck_insurance", "sub": null},
+                            {"name": "Spare Parts and Accessories", "link": "/Our-Products/Truck/After-Sales-Services/Spare-Parts-and-Accessories", "value":"truck_sparepartsandaccessories", "sub": null},
+                            {"name": "Voluntary Recall Actions", "link": "/Our-Products/Truck/After-Sales-Services/Voluntary-Recall-Actions", "value":"truck_voluntaryrecallactions", "sub": null},
+                            {"name": "Information for Services", "link": "/Our-Products/Truck/After-Sales-Services/Information-for-Services", "value":"truck_informationforservices", "sub": null}
+                            
+                        ]}
+                    ]},
+                    {"name": "Bus", "link": "/Our-Products/Bus", "value":"", "sub": [
+                        {"name": "Sales", "link": "/Our-Products/Bus/Sales", "value":"bus_sales", "sub": [
+                            {"name": "Consulting and Communication", "link": "/Our-Products/Bus/Consulting-and-Communication", "value":"bus_consultingandcommunication", "sub": null},
+                            {"name": "Bus Store", "link": "/Our-Products/Bus/Sales/Bus-Store", "value":"bus_truckstore", "sub": null},
+                            {"name": "Brochures and Downloads", "link": "/Our-Products/Bus/Sales/Brochures-and-Downloads", "value":"bus_brochuresanddownloads", "sub": null},
+                            {"name": "Price List", "link": "/Price-List/Bus/Sales/Price-List", "value":"bus_pricelist", "sub": null}
+                        ]},
+                        {"name": "Campaigns", "link": "/Campaign", "value":"bus_campaigns", "sub": [
+                            {"name": "Sales Campaigns", "link": "/Campaigns/Bus/Sales-Campaigns", "value":"bus_salescampaigns", "sub": null},
+                            {"name": "SSH Campaigns", "link": "/Campaigns/Bus/SSH-Campaigns", "value":"bus_sshcampaigns", "sub": null}
+                        ]},
+                        {"name": "Dealers and Authorized Services", "link": "/Our-Products/Bus/Dealers-and-Authorized-Services", "value":"bus_dealersandauthorizedservices", "sub": null},
+                        {"name": "After Sales Services", "link": "/Our-Products/Bus/After-Sales-Services", "value":"bus_aftersalesservices", "sub": [
+                            {"name": "Services", "link": "/Our-Products/Bus/After-Sales-Services/Services", "value":"bus_services", "sub": null},
+                            {"name": "Warranty", "link": "/Our-Products/Bus/After-Sales-Services/Warranty", "value":"bus_warranty", "sub": null},
+                            {"name": "Insurance", "link": "/Our-Products/Bus/After-Sales-Services/Insurance", "value":"bus_insurance", "sub": null},
+                            {"name": "Spare Parts and Accessories", "link": "/Our-Products/Bus/After-Sales-Services/Spare-Parts-and-Accessories", "value":"bus_sparepartsandaccessories", "sub": null},
+                            {"name": "Voluntary Recall Actions", "link": "/Our-Products/Bus/After-Sales-Services/Voluntary-Recall-Actions", "value":"bus_voluntaryrecallactions", "sub": null},
+                            {"name": "Information for Services", "link": "/Our-Products/Bus/After-Sales-Services/Information-for-Services", "value":"bus_informationforservices", "sub": null}
+                        ]}
+                    ]}
+                ]
+            },
+            {"name": "Innovation and Sustainability", "link": "/Innovation-and-Sustainability", "value":"innovationandsustainability", "sub": 
+                [
+                    {"name": "Efficient and Emission Free", "link": "/Innovation-and-Sustainability/Efficient-and-Emission-Free", "value":"efficientandemissionfree", "sub": null},
+                    {"name": "Safe and Automatic", "link": "/Innovation-and-Sustainability/Safe-and-Automatic", "value":"safeandautomatic", "sub": null},
+                    {"name": "Reliable and Connected", "link": "/Innovation-and-Sustainability/Reliable-and-Connected", "value":"reliableandconnected", "sub": null}
+                ]
+            },
+            {"name": "Career", "link": "/Career", "value":"career", "sub": 
+                [
+                    {"name": "Career Opportunities", "link": "/Career/Career-Opportunities", "value":"careeropportunities", "sub": null},
+                    {"name": "Social Life", "link": "/Career/Social-Life", "value":"sociallife", "sub": null},
+                    {"name": "Internship Opportunities", "link": "/Career/Internship-Opportunities", "value":"internshipopportunities", "sub": null},
+                    {"name": "Internal Communication", "link": "/Career/Internal-Communication", "value":"intracompanycommunication", "sub": null},
+                    {"name": "FAQ", "link": "/Kariyer/FAQ", "value":"FAQ", "sub": null}
+                ]
+            },
+            {"name": "News", "link": "/News", "value":"news", "sub": null},
+            {
+                "mainurl": {
+                    "title": [
+                        "News",
+                        "Detail",
+                        "Campaigns",
+                        "CampaignsDetail",
+                        "Details",
+                        "Map",
+                        "Search",
+                        "PriceList",
+                        "Campaign"
+
+                    ]
+                }
+            }
+        ]
+    }

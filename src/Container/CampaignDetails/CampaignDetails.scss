@@ -104,3 +104,43 @@
         margin-bottom: 50px;
     }
 }
+
+.dealers {
+    display: inline-block;
+    width: 100%;
+
+    .Dealer {
+
+        .DealerInner {
+            margin-bottom: 20px;
+            background: #efefef;
+            min-height: 170px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .imgLogo {
+            background-image: url(../../Assets/img/MercedesLogo.png);
+            background-repeat: no-repeat;
+            background-size: 70%;
+            width: 60px;
+            height: 200px;
+            float: left;
+        }
+        .name {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .address {
+            font-weight: 300;
+        }
+        .phone {
+            font-weight: 300;
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .dealers .Dealer .name {
+        font-size: 12px !important;
+    }  
+}

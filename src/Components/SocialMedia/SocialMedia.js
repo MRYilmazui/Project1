@@ -15,7 +15,9 @@ import {
   TwitterIcon,
   WhatsappIcon
 } from "react-share";
+import ae from '../../language.json';
 
+const la = ae[localStorage.lang];
 export default class SocialMedia extends Component {
   constructor(props) {
     super(props)
@@ -109,7 +111,7 @@ export default class SocialMedia extends Component {
           ''
         }
 
-        <h5>Social Media</h5>
+        <h5>{la.allsite.title[37]}</h5>
 
         {this.props.Follow ? (
           <div className="social-media">

@@ -33,6 +33,10 @@ export const GetSearchResult = '/api/UI/GetSearchResult';
 
 export const GetRecall = '/api/UI/GetRecall';
 
+export const GetSubNavigationPages = '/api/UI/GetSubNavigationPages';
+
+export const GetSiteScript = '/api/UI/GetSiteScript';
+
 export const Headers = {
     'Content-Ocp-Apim-Subscription-Key': SKey,
     'Ocp-Apim-Trace': OCP,

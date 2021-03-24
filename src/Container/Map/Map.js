@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Link, NavLink } from "react-router-dom";
 
 import { compose, withProps } from "recompose";
-import { GoogleMap, LoadScript, useLoadScript, InfoWindow, Marker } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, useLoadScript, InfoWindow, Marker, MarkerClusterer } from '@react-google-maps/api';
 import { formatRelative } from 'date-fns'
 
 import mapIco from '../../Assets/img/mercedes-map-logo.png'
@@ -29,7 +29,9 @@ import usePlacesAutocomplete, {
 } from "use-places-autocomplete"
 
 import './Map.scss'
+import ae from '../../language.json';
 
+const la = ae[localStorage.lang];
 const opt = {
   styles: mapStyles,
   defaultClickableIcons: false,
@@ -61,7 +63,6 @@ export default function MapDetailsInner() {
   });
 
   const success = position => {
-    debugger;
     const currentPosition = {
       lat: position.coords.latitude,
       lng: position.coords.longitude
@@ -71,7 +72,6 @@ export default function MapDetailsInner() {
 
   React.useEffect(() => {
     changeDisplayFalse()
-    debugger;
     navigator.geolocation.getCurrentPosition(success);
 
     jQuery(document).on('click', '.menuNavButton', function(){
@@ -81,6 +81,7 @@ export default function MapDetailsInner() {
       jQuery('.col-lg-3.result-details').toggleClass('active-filters')
       changeDisplayTrue()
     })
+
   },[])
   
   const {isLoaded, loadError} = useLoadScript({
@@ -107,7 +108,7 @@ export default function MapDetailsInner() {
 
       for (let i = 0; i < list.length; i++) {
         markerList.push(
-          [parseInt(list[i].latitude), parseInt(list[i].longitude)]
+          [parseFloat(list[i].latitude), parseFloat(list[i].longitude)]
         )
       }
 
@@ -126,29 +127,33 @@ export default function MapDetailsInner() {
   function infowindow(params) {
     const markerList =  []
 
-    markerList.push(
-      <InfoWindow
-        position={{lat: selected[0], lng: selected[1]}}
-        onCloseClick = {() => {
-          setSelected(null)
-        }}
-      >
-        <div>
-          <div className="topside">
-            <div className="mercedes-logo"></div>
-            <h4>{dealerDetails[indexDetails].name}</h4>
-          </div>
-          <div className="info">
-            <b>Adres</b> <p> {dealerDetails[indexDetails].name}</p>
-            <b>E-Posta</b> <a href={"mailto:"+dealerDetails[indexDetails].email}>{dealerDetails[indexDetails].email}</a>
-            <b>Telefon</b> <a href={"tel:"+dealerDetails[indexDetails].phone}>{dealerDetails[indexDetails].phone}</a>
-            <b>Faks</b> <a href={"fax:"+dealerDetails[indexDetails].fax}>{dealerDetails[indexDetails].fax}</a>
+    debugger;
 
-            <a href="javascript:void(0)" className="details-map" onClick={(e) => updateDetails(dealerDetails[indexDetails].id)}>Detaylar</a>
+    if(dealerDetails.length !== 0){
+      markerList.push(
+        <InfoWindow
+          position={{lat: selected[0], lng: selected[1]}}
+          onCloseClick = {() => {
+            setSelected(null)
+          }}
+        >
+          <div>
+            <div className="topside">
+              <div className="mercedes-logo"></div>
+              <h4>{dealerDetails[indexDetails].name}</h4>
+            </div>
+            <div className="info">
+              <b>{la.allsite.title[47]}</b> <p> {dealerDetails[indexDetails].name}</p>
+              <b>{la.allsite.title[48]}</b> <a href={"mailto:"+dealerDetails[indexDetails].email}>{dealerDetails[indexDetails].email}</a>
+              <b>{la.allsite.title[49]}</b> <a href={"tel:"+dealerDetails[indexDetails].phone}>{dealerDetails[indexDetails].phone}</a>
+              <b>{la.allsite.title[50]}</b> <a href={"fax:"+dealerDetails[indexDetails].fax}>{dealerDetails[indexDetails].fax}</a>
+  
+              <a href="javascript:void(0)" id={dealerDetails[indexDetails].id} className="details-map" onClick={(e) => updateDetails(dealerDetails[indexDetails].id)}>Detaylar</a>
+            </div>
           </div>
-        </div>
-      </InfoWindow>
-    )
+        </InfoWindow>
+      )
+    }
 
     return markerList
   }
@@ -159,15 +164,15 @@ export default function MapDetailsInner() {
     setactivate(true)
   }
 
-  if(loadError) return "Error"
-  if(!isLoaded) return "Loading Error"
+  if(loadError) return ""
+  if(!isLoaded) return ""
 
   return (
     <div className="MapLocation ">
       <div className="col-lg-3 float-left pl-0 pr-0 result-details ">
-      <Helmet>
-        <title>{'Harita'}</title>
-      </Helmet>
+        <Helmet>
+          <title>{'Harita'}</title>
+        </Helmet>
         
         { 
           activate === true ?
@@ -192,12 +197,12 @@ export default function MapDetailsInner() {
           markers !== null
           ?
           <GoogleMap 
-        mapContainerStyle={mapContainerStyle} 
-        zoom={10} 
-        center={currentPosition}
-        options={opt}
-        onLoad={onMapLoad}
-        >
+            mapContainerStyle={mapContainerStyle} 
+            zoom={10} 
+            center={currentPosition}
+            options={opt}
+            onLoad={onMapLoad}
+          >
 
           {
             markers.map((marker, index) => (
@@ -263,7 +268,7 @@ function SearchComplete({panTo}) {
           
           panTo({lat, lng})
         } catch {
-          console.log('error')
+          console.log('')
         }
 
         console.log(address)

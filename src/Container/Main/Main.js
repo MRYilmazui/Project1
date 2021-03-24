@@ -13,7 +13,9 @@ import jQuery from 'jquery'
 
 /* Styles */
 import './Main.scss';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap';
+
 
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -67,7 +69,7 @@ export default class Main extends React.Component {
   
           var topOfWindow = jQuery(window).scrollTop();
           if (topOfWindow + windowHeight - 200 > thisPos ) {
-            jQuery(this).addClass("animate__fadeIn");
+            jQuery(this).addClass("animate__fadeInRight");
           }
       });
     }
@@ -117,21 +119,11 @@ export default class Main extends React.Component {
               <Route path={"/"+lang[6].mainurl.title[6]+"&=:searchText"} component={Search} />
               <Route path={lang[2].sub[0].sub[0].sub[3].link} component={PriceList} />
               <Route path={lang[2].sub[1].sub[0].sub[3].link} component={PriceList} />
-              <Route path={'/Sasi'} component={GetRecall} />
+              <Route path={'/Gonullu-Geri-Cagirma-Aksiyonlari'} component={GetRecall} />
             </Switch>
           : ''
         }
-        { 
-          localStorage.cookie !== 'false'
-          ? 
-          <div className="accept-cookie">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt optio non labore dolorem iste consequatur eveniet, fuga nostrum nam eum pariatur. Officia consequatur debitis velit voluptates voluptate, veniam cum ducimus?
-            </p>
-            <button id="closeCookie">Close</button>
-          </div>
-          : ''
-        }
+
       </div>
     );
   }

@@ -6,6 +6,7 @@ import getLanguage from '../getLanguage/getLanguage'
 
 import './Menu.scss';
 import language from '../../newLanguage.json';
+import jQuery from 'jquery'
 
 const lang = language[localStorage.lang];
 
@@ -16,14 +17,30 @@ export default class Menu extends Component {
     this.state = {
       displayMenu: '',
       Categories: null,
-      Loader: false
+      Loader: false,
+      menuBuildVar: null
     }
   }
 
   componentDidMount = async() => {
+    let a = this.menuBuildFunction();
 
+    this.setState({menuBuildVar: a})
+
+
+
+    jQuery('.dropdown-item-list a').on('click', function(){
+      jQuery('.dropdown-item-list').removeClass('active-submenu')
+      jQuery(this).closest('.dropdown-item-list').addClass('active-submenu')
+    })
+    jQuery('.dropdownActivate').on('click', function(){
+      jQuery(this).find('+div').toggleClass('active-mobilemenu')
+      jQuery(this).toggleClass('active-dropdown-i')
+    })
   }
   triggerNavigation() {
+    jQuery('html').toggleClass('menuActive')
+    
     if(this.state.displayMenu == '' ){
       this.setState({displayMenu: ' d-block'})
     } else {
@@ -65,8 +82,9 @@ export default class Menu extends Component {
       if(param[i].sub !== null) {
 
         subMenu.push(
-          <div>
+          <div className="submenudetails">
             <NavLink activeClassName="active" to={param[i].link}>{param[i].name}</NavLink>
+            <button className="dropdownActivate"></button>
 
             <div className="dropdown-list">
               {this.menuSubSubSubBuild(param[i].sub)}
@@ -107,8 +125,9 @@ export default class Menu extends Component {
       if(param[i].sub !== null) {
 
         subMenu.push(
-          <div>
+          <div className="submenudetails">
             <NavLink activeClassName="active" exact key={i}  to={param[i].link}>{param[i].name}</NavLink>
+            <button className="dropdownActivate"></button>
 
             <div className="dropdown-list">
               {this.menuSubSubBuild(param[i].sub)}
@@ -127,7 +146,7 @@ export default class Menu extends Component {
     return subMenu;
   }
 
-  menuBuildFunction (e) {
+  menuBuildFunction = (e) => {
     const menuConst = [];
 
     for (let i = 0; i < lang.length-1; i++) {
@@ -141,6 +160,7 @@ export default class Menu extends Component {
           menuConst.push(
             <div className="dropdown-item-list">
               <NavLink activeClassName="active" key={i}  to={lang[i].link}>{lang[i].name}</NavLink>
+              <button className="dropdownActivate"></button>
     
               <div className="dropdown-list">
                 {this.menuSubBuild(lang[i].sub)}
@@ -161,14 +181,13 @@ export default class Menu extends Component {
   }
 
   render() {
-
     return (
       <div className="Menu">
         <button className="menuNavButton" onClick={()=>this.triggerNavigation()}></button>
         <nav className={this.state.displayMenu}>
 
           {
-            this.menuBuildFunction()
+            this.state.menuBuildVar
           }
 
         </nav>

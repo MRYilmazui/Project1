@@ -41,7 +41,7 @@
 .mainmap {
     @extend .aboutus;
     background-image: url(../../Assets/img/map-location.png);
-    background-position: right;
+    background-position: center;
     opacity: 0;
 
     h3 {
@@ -78,7 +78,7 @@
     .slick-list {
     }
     .SliderComp .slick-list .slick-slide div > div div.desc {
-        margin-top: -90px;
+        margin-top: -75px;
         top: -15px;
     }
     .SliderComp .slick-list .slick-slide div > div div.desc div.title {
@@ -134,7 +134,6 @@
     }
     .MainCategories .category {
         overflow: hidden;
-        height: 340px;
         position: relative;
     }
     .MainCategories .category img {
@@ -147,6 +146,9 @@
     .aboutus, .mainposts, .mainmap, .announcementslider {
         padding-left: 30px;
         padding-right: 30px;
+    }
+    .MainPosts span.post-title i {
+        font-size: 42px;
     }
 }
 

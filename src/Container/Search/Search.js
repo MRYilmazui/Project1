@@ -124,6 +124,10 @@ export default class AnnouncementDetails extends Component {
       )
     }
 
+    if(NewsSlider.length === 0) {
+      NewsSlider.push(<div className="emptySearch">Sonuç Bulunamadı</div>)
+    }
+
     return NewsSlider;
   }
   componentDidMount = async() => {

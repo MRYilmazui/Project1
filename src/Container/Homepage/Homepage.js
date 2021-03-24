@@ -30,7 +30,6 @@ export default class Homepage extends Component {
 
   componentDidMount = async() => {
     if(window.location.href.split('previewId=')[1] !== undefined){
-      debugger;
       let GetMainPage = await GetMainPagePreviews(localStorage.langid, window.location.href.split('previewId=')[1])
       this.setState({GetMainPage : GetMainPage})
     } else {
@@ -54,7 +53,6 @@ export default class Homepage extends Component {
   }
 
   render() {
-    
     return (
       <div className="Homepage">
         {this.state.GetMainPage !== null

@@ -75,4 +75,44 @@
         width: 80% !important;
         left: 27% !important;
     }
+
+    .Menu {
+
+        nav {
+            overflow: auto;
+        }
+    }
+
+    .dropdown-item-list.active-submenu {
+
+        .dropdown-list {
+            border-radius: 5px 0px 0px 0px !important;
+
+            .dropdown-list {
+
+                .dropdown-list {
+                    background: rgb(175, 175, 175) !important;
+                }
+            }
+        }
+    }
+
+    .submenudetails {
+        position: relative;
+
+        &>a {
+            padding-right: 30px !important;
+        }
+
+        .dropdownActivate {
+            top: 12px !important;
+        }
+    }
+
+    .active-dropdown-i {
+        transform: rotate(-180deg);
+        -webkit-transform: rotate(-180deg);
+        top: 4px !important;
+        background: #1a96e8 !important;
+    }
 }

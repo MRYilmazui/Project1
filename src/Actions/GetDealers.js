@@ -1,7 +1,8 @@
 import axios from 'axios';
 import {API, GetDealerList, Headers} from '../Services/config';
+import qs from 'qs';
 
-export async function getDealers (language, cityId, postalCode, dealerId, cancel) {
+export async function getDealers (language, cityId, postalCode, dealerId, cartype, cartype2, dealerType, dealerType2, dealerType3) {
   let a = await axios.get(`${API}${GetDealerList}`,
   {
     headers : {
@@ -13,8 +14,13 @@ export async function getDealers (language, cityId, postalCode, dealerId, cancel
       'languageId': language,
       'cityId': cityId,
       'postalCode': postalCode,
-      'dealerId': dealerId
-    }
+      'dealerId': dealerId,
+      'productGroup': [cartype, cartype2],
+      'serviceType': [dealerType, dealerType2, dealerType3]
+    },
+    paramsSerializer: (params) => {
+      return qs.stringify(params, { arrayFormat: 'repeat' })
+    },
   }
   ).then(response => {
     return response.data;
